@@ -9,35 +9,52 @@
 import UIKit
 import Cartography
 
-class LandingPageViewController: UIViewController {
 
+protocol LandingPageViewControllerDelegate: NSObjectProtocol {
+    func weGotToTheLandingPage(text: String)
+}
+
+class LandingPageViewController: UIViewController {
     let textLabel = UILabel()
+    var textToSet: String?
+    var closure: ((String) -> ())?
+    
+    weak var delegate: LandingPageViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textLabel.text = "LANDING PAGE"
-
-        addConstraints()
+        self.setupViews()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func setupViews() {
+        self.view.backgroundColor = UIColor.white
+        if let text = textToSet {
+            textLabel.text = text
+        }
+        textLabel.textColor = UIColor.black
+        self.view.addSubview(textLabel)
+        addConstraints()
+        messageDelegate()
+        
+        if let c = closure {
+            c("Hello from the closure");
+        }
+        
     }
     
     private func addConstraints() {
-        constrain(textLabel) { textLabel in
-            guard let superview = textLabel.superview else {
-                return
-            }
-            
-        textLabel.width == 150
-        textLabel.height == 50
-        textLabel.centerX == superview.centerX
-        textLabel.centerY == superview.centerY
+        constrain(self.view, textLabel) {
+            superView, textLabel in
+            textLabel.width == 150
+            textLabel.height == 50
+            textLabel.centerX == superView.centerX
+            textLabel.centerY == superView.centerY
         }
     }
     
-    
+    private func messageDelegate() {
+        if let d = self.delegate {
+            d.weGotToTheLandingPage(text: "Hello there!")
+        }
+    }
 }

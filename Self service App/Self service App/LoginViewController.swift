@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Cartography
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LandingPageViewControllerDelegate {
     
     let usernameTextField = UITextView()
     let passwordTextField = UITextView()
@@ -59,12 +59,20 @@ class LoginViewController: UIViewController {
     }
     
     func loginButtonPressed(_ sender: AnyObject?) {
-//        guard let vc = UIStoryboard(name:"LandingPageStoryboard", bundle:nil).instantiateInitialViewController() as? LandingPageViewController else {
-//            return
-//        }
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let landingPageViewController = LandingPageViewController();
+        landingPageViewController.delegate = self
+        
+        landingPageViewController.textToSet = "dledkfe"
+        landingPageViewController.closure = {
+            (text) in
+            print(text)
+        }
+        self.present(landingPageViewController, animated: true, completion: nil)
         print("login button pressed!")
+    }
+    
+    func weGotToTheLandingPage(text: String) {
+        usernameTextField.text = text
     }
 }
 
