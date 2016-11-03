@@ -12,6 +12,7 @@
 		4A93015F1DCA3F2600BD1C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A93015D1DCA3F2600BD1C5B /* Main.storyboard */; };
 		4A9301611DCA3F2600BD1C5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9301601DCA3F2600BD1C5B /* Assets.xcassets */; };
 		4A9301641DCA3F2600BD1C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */; };
+		4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */; };
 		B418AAABFAD26289C7FD1F09 /* Pods_Self_service_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		4A9301601DCA3F2600BD1C5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A9301631DCA3F2600BD1C5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A9301651DCA3F2600BD1C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 			children = (
 				4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */,
 				4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */,
+				4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */,
 				4A93015D1DCA3F2600BD1C5B /* Main.storyboard */,
 				4A9301601DCA3F2600BD1C5B /* Assets.xcassets */,
 				4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,
+				4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */,
 				4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +261,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -306,6 +311,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -334,6 +340,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21B0E608867CEAFA2F96EF1F /* Pods-Self service App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NSR8S4AA7Q;
 				INFOPLIST_FILE = "Self service App/Info.plist";
@@ -348,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NSR8S4AA7Q;
 				INFOPLIST_FILE = "Self service App/Info.plist";
