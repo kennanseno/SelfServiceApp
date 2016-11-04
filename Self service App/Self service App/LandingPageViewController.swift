@@ -15,29 +15,24 @@ class LandingPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         
-        textLabel.text = "LANDING PAGE"
-
+        setViews()
         addConstraints()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setViews() {
+        textLabel.text = "LANDING PAGE"
+        textLabel.textColor = UIColor.black
+        self.view.addSubview(textLabel)
     }
     
     private func addConstraints() {
-        constrain(textLabel) { textLabel in
-            guard let superview = textLabel.superview else {
-                return
-            }
-            
-        textLabel.width == 150
-        textLabel.height == 50
-        textLabel.centerX == superview.centerX
-        textLabel.centerY == superview.centerY
+        constrain(self.view, textLabel) { superView, textLabel in
+            textLabel.width == 150
+            textLabel.height == 50
+            textLabel.centerX == superView.centerX
+            textLabel.centerY == superView.centerY
         }
     }
-    
-    
 }

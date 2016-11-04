@@ -19,15 +19,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SkyFloatingLabelTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4B4980D8C10E1E3E3B1F159167723A70</key>
+		<key>204E1DE8E17D76EBCD8F2FB915A7942C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>544212980401A6DA7806F65EAD8C6637</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>815A5C079BC0499FA97C30D1C0A48E90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
