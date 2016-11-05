@@ -10,10 +10,11 @@ import UIKit
 import Alamofire
 import Cartography
 import SkyFloatingLabelTextField
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
-    let url = "http://Kennans-MacBook-Pro.local:3000/fyp/test/find";
+    let url = "http://kennanseno.com:3000/fyp/test/find"
     let usernameTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
     let passwordTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
     let loginButton = UIButton()
@@ -98,19 +99,19 @@ class LoginViewController: UIViewController {
             "password" : passwordTextField.text!
         ]
         
-//        Alamofire.request(url, parameters: params).responseJSON { response in
-//            print(response.request)  // original URL request
-//            print(response.response) // HTTP URL response
-//            print(response.data)     // server data
-//            print(response.result)   // result of response serialization
-//            
-//            if let JSON = response.result.value {
-//                print("JSON: \(JSON)")
-//            }
-//        }
-    
-        let landingPageViewController = LandingPageViewController();
-        self.present(landingPageViewController, animated: true, completion: nil)
+        Alamofire.request("http://kennanseno.com:3000/fyp/findUser", parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let result = JSON(value)
+                if(result.count == 1) {
+                    let landingPageViewController = LandingPageViewController();
+                    self.present(landingPageViewController, animated: true, completion: nil)
+                }
+            case .failure(let error):
+                print(error)
+            
+            }
+        }
     }
     
     func registerButtonPressed(_ sender: AnyObject?) {

@@ -9,4 +9,5 @@ target 'Self service App' do
   pod 'Cartography'
   pod 'Alamofire', '~> 4.0'
   pod 'SkyFloatingLabelTextField', git: "https://github.com/MLSDev/SkyFloatingLabelTextField.git", branch: "swift3"
+  pod 'SwiftyJSON'
 end
