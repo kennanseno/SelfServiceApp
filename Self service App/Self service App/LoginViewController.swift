@@ -15,10 +15,15 @@ import SwiftyJSON
 class LoginViewController: UIViewController {
     
     let url = "http://kennanseno.com:3000/fyp/test/find"
-    let usernameTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
-    let passwordTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
-    let loginButton = UIButton()
-    let registerButton = UIButton()
+//    let usernameTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
+//    let passwordTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
+    
+    @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
+    
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +37,7 @@ class LoginViewController: UIViewController {
         let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
         let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
         let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
-
+        
         usernameTextField.title = "Username"
         usernameTextField.placeholder = "Username"
         usernameTextField.tintColor = overcastBlueColor // the color of the blinking cursor
@@ -61,22 +66,24 @@ class LoginViewController: UIViewController {
         loginButton.titleLabel?.textAlignment = NSTextAlignment.right
         loginButton.setTitleColor(lightGreyColor, for: .normal)
         loginButton.setTitleColor(overcastBlueColor, for: .highlighted)
-        loginButton.addTarget(self, action: "loginButtonPressed:", for: .touchUpInside)
         self.view.addSubview(loginButton)
         
         registerButton.setTitle("Register", for: .normal)
         registerButton.titleLabel?.textAlignment = NSTextAlignment.left
         registerButton.setTitleColor(lightGreyColor, for: .normal)
         registerButton.setTitleColor(overcastBlueColor, for: .highlighted)
-        registerButton.addTarget(self, action: "registerButtonPressed:", for: .touchUpInside)
         self.view.addSubview(registerButton)
     }
     
     private func addConstraints() {
         constrain(self.view, usernameTextField, passwordTextField, loginButton, registerButton) { superView, usernameTextField, passwordTextField, loginButton, registerButton in
 
+            usernameTextField.width == 275
+            usernameTextField.height == 45
             usernameTextField.centerX == superView.centerX
             usernameTextField.centerY == superView.centerY - 100
+            passwordTextField.width == 275
+            passwordTextField.height == 45
             passwordTextField.centerX == superView.centerX
             passwordTextField.top == usernameTextField.bottom + 25
         
@@ -85,6 +92,7 @@ class LoginViewController: UIViewController {
             loginButton.trailing == passwordTextField.trailing
             loginButton.top == passwordTextField.bottom + 25
             
+            
             registerButton.width == 70
             registerButton.height == 50
             registerButton.leading == passwordTextField.leading
@@ -92,8 +100,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
-    func loginButtonPressed(_ sender: AnyObject?) {
+    @IBAction func loginButtonPressed(_ sender: Any) {
         var params = [
             "username" : usernameTextField.text!,
             "password" : passwordTextField.text!
@@ -104,19 +111,13 @@ class LoginViewController: UIViewController {
             case .success(let value):
                 let result = JSON(value)
                 if(result.count == 1) {
-                    let landingPageViewController = LandingPageViewController();
-                    self.present(landingPageViewController, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "landingPageVC", sender: nil)
                 }
             case .failure(let error):
                 print(error)
-            
+                
             }
         }
-    }
-    
-    func registerButtonPressed(_ sender: AnyObject?) {
-        let registerUserViewController = RegisterUserViewController();
-        self.present(registerUserViewController, animated: true, completion: nil)
     }
 }
 

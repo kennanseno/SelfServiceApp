@@ -11,19 +11,19 @@ import Cartography
 
 class LandingPageViewController: UIViewController {
 
-    let textLabel = UILabel()
+    
+    @IBOutlet weak var textLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.blue
         
         setViews()
         addConstraints()
     }
     
     private func setViews() {
-        textLabel.text = "LANDING PAGE"
-        textLabel.textColor = UIColor.black
+        textLabel.textColor = UIColor.yellow
         self.view.addSubview(textLabel)
     }
     
