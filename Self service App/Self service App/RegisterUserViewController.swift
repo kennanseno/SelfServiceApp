@@ -9,6 +9,8 @@
 import UIKit
 import Cartography
 import SkyFloatingLabelTextField
+import Alamofire
+import SwiftyJSON
 
 
 class RegisterUserViewController: UIViewController {
@@ -34,7 +36,22 @@ class RegisterUserViewController: UIViewController {
     }
 
     @IBAction func registeredButtonPressed(_ sender: Any) {
+        let params = [
+            "username" : usernameTextField.text!,
+            "email": emailTextField.text!,
+            "password" : passwordTextField.text!
+        ]
         
+        Alamofire.request("http://kennanseno.com:3000/fyp/registerUser", parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let _):
+                print("User registered!")
+                //DISMISS REGISTERVIEW CONTROLLER HERE
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
     }
     
     @IBAction func cancelRegButtonPressed(_ sender: Any) {

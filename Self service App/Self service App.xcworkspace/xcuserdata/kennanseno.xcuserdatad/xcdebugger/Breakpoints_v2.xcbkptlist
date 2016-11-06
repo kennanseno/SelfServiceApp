@@ -306,12 +306,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Self service App/RegisterUserViewController.swift"
-            timestampString = "500094247.209486"
+            timestampString = "500157302.812015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "addConstraints()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Self service App/RegisterUserViewController.swift"
+            timestampString = "500157248.295243"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "registeredButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

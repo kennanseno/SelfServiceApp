@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
 
         self.setViews()
         self.addConstraints()
-        self.dismissKeyboard()
+        dismissKeyboard()
     }
 
     private func setViews() {
