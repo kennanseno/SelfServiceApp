@@ -11,17 +11,21 @@ import Alamofire
 import Cartography
 import SkyFloatingLabelTextField
 import SwiftyJSON
+import BubbleTransition
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     let url = "http://kennanseno.com:3000/fyp/test/find"
-//    let usernameTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
-//    let passwordTextField = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 275, height: 45))
+    let transition = BubbleTransition()
+    let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+    let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
+    let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+    
+    let colour1 = UIColor(red: 188/255, green: 244/255, blue: 245/255, alpha: 1.0)
+    let colour2 = UIColor(red: 180/255, green: 235/255, blue: 202/255, alpha: 1.0)
     
     @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
-    
-    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
@@ -31,13 +35,10 @@ class LoginViewController: UIViewController {
 
         self.setViews()
         self.addConstraints()
+        self.dismissKeyboard()
     }
 
     private func setViews() {
-        let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
-        let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-        let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
-        
         usernameTextField.title = "Username"
         usernameTextField.placeholder = "Username"
         usernameTextField.tintColor = overcastBlueColor // the color of the blinking cursor
@@ -92,7 +93,6 @@ class LoginViewController: UIViewController {
             loginButton.trailing == passwordTextField.trailing
             loginButton.top == passwordTextField.bottom + 25
             
-            
             registerButton.width == 70
             registerButton.height == 50
             registerButton.leading == passwordTextField.leading
@@ -100,8 +100,12 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func registerButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "registerUserVC", sender: nil)
+    }
+
     @IBAction func loginButtonPressed(_ sender: Any) {
-        var params = [
+        let params = [
             "username" : usernameTextField.text!,
             "password" : passwordTextField.text!
         ]
@@ -118,6 +122,32 @@ class LoginViewController: UIViewController {
                 
             }
         }
+    }
+    
+    private func dismissKeyboard() {
+        let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination
+        controller.transitioningDelegate = self
+        controller.modalPresentationStyle = .custom
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = self.view.center
+        transition.bubbleColor = colour2
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = self.view.center
+        transition.bubbleColor = colour2
+        return transition
     }
 }
 

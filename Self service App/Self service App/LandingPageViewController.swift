@@ -13,17 +13,18 @@ class LandingPageViewController: UIViewController {
 
     
     @IBOutlet weak var textLabel: UILabel!
+    let backgroundColour = UIColor(red: 180/255, green: 235/255, blue: 202/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blue
+        self.view.backgroundColor = backgroundColour
         
-        setViews()
-        addConstraints()
+        self.setViews()
+        self.addConstraints()
     }
     
     private func setViews() {
-        textLabel.textColor = UIColor.yellow
+        textLabel.textColor = UIColor.blue
         self.view.addSubview(textLabel)
     }
     
