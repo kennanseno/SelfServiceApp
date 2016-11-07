@@ -24,6 +24,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     let colour1 = UIColor(red: 188/255, green: 244/255, blue: 245/255, alpha: 1.0)
     let colour2 = UIColor(red: 180/255, green: 235/255, blue: 202/255, alpha: 1.0)
     
+    @IBOutlet weak var loginNoticeLabel: UILabel!
     @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -74,6 +75,13 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         registerButton.setTitleColor(lightGreyColor, for: .normal)
         registerButton.setTitleColor(overcastBlueColor, for: .highlighted)
         self.view.addSubview(registerButton)
+        
+        loginNoticeLabel.text = "Wrong username/password. Try again!"
+        loginNoticeLabel.textColor = UIColor.red
+        loginNoticeLabel.isHidden = true
+        loginNoticeLabel.textAlignment = .center
+        
+        self.view.addSubview(loginNoticeLabel)
     }
     
     private func addConstraints() {
@@ -98,6 +106,14 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             registerButton.leading == passwordTextField.leading
             registerButton.top == passwordTextField.bottom + 25
         }
+        
+        constrain(self.view, registerButton, loginNoticeLabel) { superView, registerButton, loginNoticeLabel in
+            loginNoticeLabel.leading == superView.leading
+            loginNoticeLabel.trailing == superView.trailing
+            loginNoticeLabel.height == 50
+            loginNoticeLabel.centerX == superView.centerX
+            loginNoticeLabel.top == registerButton.bottom + 100
+        }
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {
@@ -116,9 +132,21 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                 let result = JSON(value)
                 if(result.count == 1) {
                     self.performSegue(withIdentifier: "landingPageVC", sender: nil)
+                } else if(result.count == 0) {
+                    UIView.animate(withDuration: 3.0, animations: {
+                        self.loginNoticeLabel.text = "No user found!"
+                        self.loginNoticeLabel.isHidden = false
+                    })
                 }
             case .failure(let error):
                 print(error)
+                UIView.animate(withDuration: 3.0, animations: {
+                    self.loginNoticeLabel.isHidden = false
+                }, completion:{ finished in
+                    if (finished) {
+                        self.loginNoticeLabel.isHidden = true
+                    }
+                })
                 
             }
         }
@@ -144,7 +172,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .present
+        transition.transitionMode = .dismiss
         transition.startingPoint = self.view.center
         transition.bubbleColor = colour2
         return transition

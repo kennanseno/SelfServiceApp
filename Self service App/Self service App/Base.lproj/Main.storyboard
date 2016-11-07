@@ -51,11 +51,19 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hcq-EG-mNX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-5d-sr3">
+                                <rect key="frame" x="154" y="457" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="wcw-sA-nAl" id="m3w-Dq-Aft"/>
+                        <outlet property="loginNoticeLabel" destination="hv5-5d-sr3" id="6HE-xQ-p7G"/>
                         <outlet property="passwordTextField" destination="qpt-7z-kwF" id="zQF-KC-XCh"/>
                         <outlet property="registerButton" destination="Uta-nH-LAQ" id="uvD-Rw-URE"/>
                         <outlet property="usernameTextField" destination="QCw-bq-WuG" id="SnW-3w-mEi"/>
