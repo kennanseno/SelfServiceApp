@@ -46,6 +46,7 @@ class RegisterUserViewController: UIViewController {
             switch response.result {
             case .success(let _):
                 print("User registered!")
+                
                 //DISMISS REGISTERVIEW CONTROLLER HERE
             case .failure(let error):
                 print(error)
@@ -55,8 +56,7 @@ class RegisterUserViewController: UIViewController {
     }
     
     @IBAction func cancelRegButtonPressed(_ sender: Any) {
-        //NOT sure how to work around this to dismiss viewcontroller
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     private func dismissKeyboard() {
