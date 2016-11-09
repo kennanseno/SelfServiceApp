@@ -11,4 +11,5 @@ target 'Self service App' do
   pod 'SkyFloatingLabelTextField', git: "https://github.com/MLSDev/SkyFloatingLabelTextField.git", branch: "swift3"
   pod 'SwiftyJSON'
   pod 'BubbleTransition', '~> 2.0.0'
+  pod 'RSBarcodes_Swift', '~> 3.0.1'
 end

@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RSBarcodes_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SkyFloatingLabelTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>35A0E5FFAE7F2C57A7C778B0C3C003AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>38830187D9E171E7B43047ED06A08ADC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E27777DAD9D1B955498E13945C3BC33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>648BDA344597CFB5F485A5DC7DD3593B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3E5E61556B9F213DCD3A3E0BE10CE5D</key>
+		<key>8FF33E7C586C31C317A77D9ED1C1AEE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDC0014854A19E4219ACE64E5256F42E</key>
+		<key>9DD5A9A3FB683DCFE6EFC20EAE53217A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

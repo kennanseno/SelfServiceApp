@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.0.1)
   - BubbleTransition (2.0.0)
   - Cartography (1.0.1)
+  - RSBarcodes_Swift (3.0.1)
   - SkyFloatingLabelTextField (1.2.1)
   - SwiftyJSON (3.1.1)
 
@@ -9,6 +10,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - BubbleTransition (~> 2.0.0)
   - Cartography
+  - RSBarcodes_Swift (~> 3.0.1)
   - SkyFloatingLabelTextField (from `https://github.com/MLSDev/SkyFloatingLabelTextField.git`, branch `swift3`)
   - SwiftyJSON
 
@@ -26,9 +28,10 @@ SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   BubbleTransition: bdb9d71993b8d3513008e2dda6bada1ddad25d4f
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
+  RSBarcodes_Swift: c773a985f0ff3e2592d5458dd7494a71825aa733
   SkyFloatingLabelTextField: 3f6610aded18e778df5cfab3b9e12a11b3e014e9
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 434993c8ff253f48390a9f967fbb848257aa1485
+PODFILE CHECKSUM: 2bceace1d7e5f9095472ca0a8da897160033e6ea
 
 COCOAPODS: 1.1.1

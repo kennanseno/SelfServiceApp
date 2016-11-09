@@ -8,32 +8,28 @@
 
 import UIKit
 import Cartography
+import RSBarcodes_Swift
 
-class LandingPageViewController: UIViewController {
+class LandingPageViewController: RSCodeReaderViewController {
 
-    
-    @IBOutlet weak var textLabel: UILabel!
-    let backgroundColour = UIColor(red: 180/255, green: 235/255, blue: 202/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = backgroundColour
         
-        self.setViews()
-        self.addConstraints()
-    }
-    
-    private func setViews() {
-        textLabel.textColor = UIColor.blue
-        self.view.addSubview(textLabel)
-    }
-    
-    private func addConstraints() {
-        constrain(self.view, textLabel) { superView, textLabel in
-            textLabel.width == 150
-            textLabel.height == 50
-            textLabel.centerX == superView.centerX
-            textLabel.centerY == superView.centerY
+        self.focusMarkLayer.strokeColor = UIColor.red.cgColor
+        
+        self.cornersLayer.strokeColor = UIColor.yellow.cgColor
+        
+        self.tapHandler = { point in
+            print(point)
         }
+        
+        self.barcodesHandler = { barcodes in
+            for barcode in barcodes {
+                print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
+            }
+        }
+
     }
-}
+    
+    }
