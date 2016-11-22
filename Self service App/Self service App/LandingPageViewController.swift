@@ -12,6 +12,7 @@ import RSBarcodes_Swift
 
 class LandingPageViewController: RSCodeReaderViewController {
 
+    var dispatched: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,30 @@ class LandingPageViewController: RSCodeReaderViewController {
         }
         
         self.barcodesHandler = { barcodes in
-            for barcode in barcodes {
-                print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
+            if !self.dispatched { // triggers for only once
+                self.dispatched = true
+                for barcode in barcodes {
+                    print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
+                    
+                    let alertController = UIAlertController(title: "Add Product?", message: "Barcode: " + barcode.stringValue, preferredStyle: UIAlertControllerStyle.alert)
+                    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+                        print("Cancel")
+                        self.dispatched = false
+                    }
+                    let okAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                        print("Add")
+                        self.dispatched = false
+                    }
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+               
+                    break
+                }
             }
         }
 
     }
     
-    }
+}
