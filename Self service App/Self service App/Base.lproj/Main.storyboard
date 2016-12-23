@@ -185,11 +185,51 @@
                     <connections>
                         <outlet property="profileImage" destination="cWd-vC-nE8" id="IKs-mp-3Yg"/>
                         <outlet property="profileTable" destination="zeg-0f-idn" id="eCn-2x-X8N"/>
+                        <segue destination="KY0-hn-l7A" kind="show" identifier="manageStoreVC" id="58K-6o-HpS"/>
+                        <segue destination="r21-jB-mOM" kind="show" identifier="createStoreVC" id="Zxm-rr-LJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yp6-yx-eHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2112.8000000000002" y="849.62518740629696"/>
+        </scene>
+        <!--Manage Store-->
+        <scene sceneID="aOa-aO-2qq">
+            <objects>
+                <viewController id="KY0-hn-l7A" customClass="ManageStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XzU-F1-V5C"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q0b-5E-ipm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gs3-jX-QQs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Manage Store" id="sty-de-fwg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3278" y="510"/>
+        </scene>
+        <!--Create Store-->
+        <scene sceneID="dp8-Hv-iFr">
+            <objects>
+                <viewController id="r21-jB-mOM" customClass="CreateStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mtw-wU-0oH"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Mu-Zv-gF6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bhg-aq-51O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Store" id="qqQ-rI-fty"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-ud-bxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3250" y="1280"/>
         </scene>
         <!--Register User View Controller-->
         <scene sceneID="QtF-eT-k5B">

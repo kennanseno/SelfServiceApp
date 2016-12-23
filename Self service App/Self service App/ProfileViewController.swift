@@ -60,6 +60,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            //TODO: move to edit user details
+        } else if indexPath.section == 1 {
+            if stores[indexPath.row] != stores[stores.count - 1] {
+                //TODO request store details of selected store on server
+                print("manageSToreVC")
+                self.performSegue(withIdentifier: "manageStoreVC", sender: nil)
+            } else{
+                print("createStoreVC")
+                self.performSegue(withIdentifier: "createStoreVC", sender: nil)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return user.count
