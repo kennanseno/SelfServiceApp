@@ -13,6 +13,7 @@
 		4A9301611DCA3F2600BD1C5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9301601DCA3F2600BD1C5B /* Assets.xcassets */; };
 		4A9301641DCA3F2600BD1C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */; };
 		4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FCDED1E0D761700B67E10 /* ProfileViewController.swift */; };
+		4A9FCDF21E0D9CB000B67E10 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FCDF11E0D9CB000B67E10 /* UserCell.swift */; };
 		4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */; };
 		4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */; };
 		B418AAABFAD26289C7FD1F09 /* Pods_Self_service_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */; };
@@ -29,6 +30,7 @@
 		4A9301631DCA3F2600BD1C5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A9301651DCA3F2600BD1C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9FCDED1E0D761700B67E10 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4A9FCDF11E0D9CB000B67E10 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		4A9301581DCA3F2600BD1C5B /* Self service App */ = {
 			isa = PBXGroup;
 			children = (
+				4A9FCDF01E0D9C5600B67E10 /* View */,
+				4A9FCDEF1E0D92FB00B67E10 /* Model */,
 				4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */,
 				4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */,
 				4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */,
@@ -78,6 +82,21 @@
 				4A9301651DCA3F2600BD1C5B /* Info.plist */,
 			);
 			path = "Self service App";
+			sourceTree = "<group>";
+		};
+		4A9FCDEF1E0D92FB00B67E10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4A9FCDF01E0D9C5600B67E10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A9FCDF11E0D9CB000B67E10 /* UserCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		D93851C3B05F85BFE7D6F802 /* Frameworks */ = {
@@ -223,6 +242,7 @@
 			files = (
 				4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */,
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,
+				4A9FCDF21E0D9CB000B67E10 /* UserCell.swift in Sources */,
 				4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */,
 				4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */,
 				4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */,
