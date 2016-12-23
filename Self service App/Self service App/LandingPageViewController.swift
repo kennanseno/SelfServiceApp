@@ -8,32 +8,53 @@
 
 import UIKit
 import Cartography
+import SkyFloatingLabelTextField
 
 class LandingPageViewController: UIViewController {
-
     
-    @IBOutlet weak var textLabel: UILabel!
+    
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var searchField: SkyFloatingLabelTextField!
+    @IBOutlet weak var searchButton: UIButton!
     let backgroundColour = UIColor(red: 180/255, green: 235/255, blue: 202/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = backgroundColour
         
+        self.view.backgroundColor = backgroundColour
         self.setViews()
         self.addConstraints()
+        dismissKeyboard()
     }
     
     private func setViews() {
-        textLabel.textColor = UIColor.blue
-        self.view.addSubview(textLabel)
+        self.view.addSubview(profileButton)
+        self.view.addSubview(searchField)
+        self.view.addSubview(searchButton)
     }
     
     private func addConstraints() {
-        constrain(self.view, textLabel) { superView, textLabel in
-            textLabel.width == 150
-            textLabel.height == 50
-            textLabel.centerX == superView.centerX
-            textLabel.centerY == superView.centerY
+        constrain(self.view, searchField, searchButton, profileButton) { superView, searchField, searchButton, profileButton  in
+            
+            profileButton.left == superView.left + 30
+            profileButton.top == superView.top + 30
+            
+            searchField.width == 200
+            searchField.height == 45
+            searchField.centerX == superView.centerX
+            searchField.centerY == superView.centerY
+            
+            searchButton.width == 70
+            searchButton.height == 50
+            searchButton.leading == searchField.trailing + 20
+            searchButton.centerY == superView.centerY
+            
         }
+    }
+    
+    private func dismissKeyboard() {
+        let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
 }

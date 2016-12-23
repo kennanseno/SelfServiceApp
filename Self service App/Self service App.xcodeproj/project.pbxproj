@@ -12,6 +12,7 @@
 		4A93015F1DCA3F2600BD1C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A93015D1DCA3F2600BD1C5B /* Main.storyboard */; };
 		4A9301611DCA3F2600BD1C5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9301601DCA3F2600BD1C5B /* Assets.xcassets */; };
 		4A9301641DCA3F2600BD1C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */; };
+		4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FCDED1E0D761700B67E10 /* ProfileViewController.swift */; };
 		4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */; };
 		4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */; };
 		B418AAABFAD26289C7FD1F09 /* Pods_Self_service_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */; };
@@ -27,6 +28,7 @@
 		4A9301601DCA3F2600BD1C5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A9301631DCA3F2600BD1C5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A9301651DCA3F2600BD1C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A9FCDED1E0D761700B67E10 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */,
 				4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */,
 				4A93015D1DCA3F2600BD1C5B /* Main.storyboard */,
+				4A9FCDED1E0D761700B67E10 /* ProfileViewController.swift */,
 				4A9301601DCA3F2600BD1C5B /* Assets.xcassets */,
 				4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */,
 				4A9301651DCA3F2600BD1C5B /* Info.plist */,
@@ -220,6 +223,7 @@
 			files = (
 				4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */,
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,
+				4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */,
 				4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */,
 				4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */,
 			);
