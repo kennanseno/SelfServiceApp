@@ -46,11 +46,10 @@ class RegisterUserViewController: UIViewController {
             switch response.result {
             case .success(let _):
                 print("User registered!")
-                
-                //DISMISS REGISTERVIEW CONTROLLER HERE
+                self.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                
+                //TODO: Error handler
             }
         }
     }

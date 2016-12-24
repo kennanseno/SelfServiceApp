@@ -19,7 +19,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var user = ["Username": "kseno", "Name": "Kennan Seno", "Address": "25 Millstead, Blanchardstown"] //TODO: Not use dict as it needs to be ordered
     var stores = ["Penneys", "Create new store..."] // add store names here NOTE: change so that create new store is always at the end to create new stores
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViews()
@@ -65,7 +64,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             //TODO: move to edit user details
         } else if indexPath.section == 1 {
             if stores[indexPath.row] != stores[stores.count - 1] {
-                //TODO request store details of selected store on server
+                //TODO request store details(i.e desc,products,etc.) of selected store on server
                 print("manageSToreVC")
                 self.performSegue(withIdentifier: "manageStoreVC", sender: nil)
             } else{
