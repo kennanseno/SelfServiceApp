@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Hardcode data for now
     var sectionNames = ["Basic Information", "Store", " "]
     var user = ["Username": "kseno", "Name": "Kennan Seno", "Address": "25 Millstead, Blanchardstown"] //TODO: Not use dict as it needs to be ordered
-    var stores = ["Penneys", "Create new store..."] // add store names here NOTE: change so that create new store is always at the end to create new stores
+    var stores = ["Penneys", "LALALA", "Create new store..."] // add store names here NOTE: change so that create new store is always at the end to create new stores
     
     override func viewDidLoad() {
         super.viewDidLoad()

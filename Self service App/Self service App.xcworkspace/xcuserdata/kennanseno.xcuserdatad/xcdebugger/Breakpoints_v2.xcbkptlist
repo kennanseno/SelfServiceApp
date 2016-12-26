@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Self service App/LoginViewController.swift"
-            timestampString = "500226400.987082"
+            timestampString = "504478833.784013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "addConstraints()"
             landmarkType = "7">
          </BreakpointContent>
@@ -329,54 +329,6 @@
             endingLineNumber = "47"
             landmarkName = "registeredButtonPressed(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Self service App/LoginViewController.swift"
-            timestampString = "500233254.440345"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "loginButtonPressed(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Self_service_App.LoginViewController.loginButtonPressed (Any) -&gt; ()"
-                  moduleName = "Self service App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/LoginViewController.swift"
-                  timestampString = "500231586.741727"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "1436">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Self_service_App.LoginViewController.(loginButtonPressed (Any) -&gt; ()).(closure #1)"
-                  moduleName = "Self service App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/LoginViewController.swift"
-                  timestampString = "500231586.748734"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "1892">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
