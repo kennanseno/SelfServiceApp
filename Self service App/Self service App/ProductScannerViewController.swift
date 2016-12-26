@@ -12,11 +12,13 @@ import RSBarcodes_Swift
 
 class ProductScannerViewController: RSCodeReaderViewController {
 
-    
+    @IBOutlet weak var scanInstruction: UILabel!
     var dispatched: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setViews()
+        self.addConstraints()
         
         self.focusMarkLayer.strokeColor = UIColor.red.cgColor
         
@@ -53,6 +55,19 @@ class ProductScannerViewController: RSCodeReaderViewController {
         }
         
         
+    }
+    
+    private func setViews() {
+        scanInstruction.textColor = UIColor.yellow
+        self.view.addSubview(scanInstruction)
+    }
+    
+    private func addConstraints() {
+        constrain(self.view, scanInstruction) { superView, scanInstruction in
+            
+            scanInstruction.centerX == superView.centerX
+            scanInstruction.centerY == superView.centerY - 175
+        }
     }
     
 
