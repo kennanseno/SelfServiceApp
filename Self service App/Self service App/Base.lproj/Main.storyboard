@@ -248,6 +248,7 @@
                         <barButtonItem key="rightBarButtonItem" image="add" id="cmP-m5-ixx">
                             <connections>
                                 <action selector="addProducts:" destination="KY0-hn-l7A" id="Nvz-3S-PW7"/>
+                                <segue destination="8sB-N6-XGq" kind="show" id="KyC-7M-eyp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -258,6 +259,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3277.5999999999999" y="509.59520239880067"/>
+        </scene>
+        <!--Add Product-->
+        <scene sceneID="gpI-Dl-AYW">
+            <objects>
+                <viewController id="8sB-N6-XGq" customClass="ProductScannerViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zBF-MX-CLb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vm6-He-eKi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hvm-RG-ez9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Product" id="zNo-rp-g0x"/>
+                    <connections>
+                        <segue destination="bGZ-xe-aq9" kind="show" identifier="productCreateVC" id="3Nb-BX-Wna"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PiZ-zR-HSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4108" y="510"/>
+        </scene>
+        <!--Product Create View Controller-->
+        <scene sceneID="L9p-Sx-JtG">
+            <objects>
+                <viewController id="bGZ-xe-aq9" customClass="ProductCreateViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k9l-7o-pyW"/>
+                        <viewControllerLayoutGuide type="bottom" id="zt1-p5-ilm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rfl-6r-UMB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6S-YU-Jae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4910" y="510"/>
         </scene>
         <!--Create Store-->
         <scene sceneID="dp8-Hv-iFr">
