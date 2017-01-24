@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (4.2.0)
+  - Alamofire (4.3.0)
   - BubbleTransition (2.0.1)
   - Cartography (1.0.1)
   - RSBarcodes_Swift (3.0.3)
-  - SkyFloatingLabelTextField (2.0.0)
-  - SwiftyJSON (3.1.3)
+  - SkyFloatingLabelTextField (2.0.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -15,12 +15,12 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   BubbleTransition: bb24ed389ab672eecf3c87170d0a73f959a8e696
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
   RSBarcodes_Swift: 3b4a9c2e81fe9f435a26f18a1b8b826665e7cf89
-  SkyFloatingLabelTextField: a81a0eaed2785d1599f11484c6ebc1c4eb5d1228
-  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: 9267b86ec9cedc74178a4f2ed0fcf4f6922964d1
 
