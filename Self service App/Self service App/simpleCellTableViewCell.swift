@@ -1,22 +1,21 @@
 //
-//  UserCell.swift
+//  simpleCellTableViewCell.swift
 //  Self service App
 //
-//  Created by Kennan Lyle Seno on 23/12/2016.
-//  Copyright © 2016 kennanseno. All rights reserved.
+//  Created by Kennan Lyle Seno on 24/01/2017.
+//  Copyright © 2017 kennanseno. All rights reserved.
 //
 
 import UIKit
 import Cartography
 
-class UserCell: UITableViewCell {
-
-    // TODO: Learn how to use cartography in here
+class simpleCellTableViewCell: UITableViewCell {
+    
+    let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
     
     @IBOutlet weak var fieldName: UILabel!
     @IBOutlet weak var fieldValue: UILabel!
-    let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
-    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,9 +24,10 @@ class UserCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
+        // Configure the view for the selected state
     }
-    
+
     func updateUI(_fieldName: String, _fieldValue: String) {
         fieldName.text = _fieldName
         fieldValue.text = _fieldValue

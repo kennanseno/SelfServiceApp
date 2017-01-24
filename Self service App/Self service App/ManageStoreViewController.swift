@@ -44,12 +44,12 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         if indexPath.section == 0 {
             let fieldName = [String](store.keys)
             let fieldValue = [String](store.values)
+            let simpleCell = Bundle.main.loadNibNamed("simpleCellTableViewCell", owner: self, options: nil)?.first as! simpleCellTableViewCell
+            simpleCell.fieldName.text = fieldName[indexPath.row]
+            simpleCell.fieldValue.text = fieldValue[indexPath.row]
             
-            if let userCell = manageStoreTable.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserCell{
-                userCell.updateUI(_fieldName: fieldName[indexPath.row], _fieldValue: fieldValue[indexPath.row])
-                
-                cell = userCell
-            }
+            cell = simpleCell
+            
         }else if indexPath.section == 1 {
             cell.textLabel?.text = products[indexPath.row]
         }

@@ -45,11 +45,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let fieldName = [String](user.keys)
             let fieldValue = [String](user.values)
             
-            if let userCell = profileTable.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserCell{
-                userCell.updateUI(_fieldName: fieldName[indexPath.row], _fieldValue: fieldValue[indexPath.row])
-                
-                cell = userCell
-            }
+            let simpleCell = Bundle.main.loadNibNamed("simpleCellTableViewCell", owner: self, options: nil)?.first as! simpleCellTableViewCell
+            simpleCell.fieldName.text = fieldName[indexPath.row]
+            simpleCell.fieldValue.text = fieldValue[indexPath.row]
+            
+            cell = simpleCell
         }else if indexPath.section == 1 {
             cell.textLabel?.text = stores[indexPath.row]
         } else {
