@@ -12,6 +12,7 @@ import Cartography
 import SkyFloatingLabelTextField
 import SwiftyJSON
 import BubbleTransition
+import CoreData
 
 class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
@@ -39,6 +40,29 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         dismissKeyboard()
     }
     
+    /**
+        Function to add username to Core Data when logged in successfully
+     */
+    private func saveUsername(username: String) {
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: managedContext)
+        let item = NSManagedObject(entity: entity!, insertInto: managedContext)
+        item.setValue(username, forKey: "username")
+        
+        do {
+            try managedContext.save()
+            
+            print("username: \(item)")
+        }
+        catch {
+            print("Error")
+        }
+        
+    }
+    
     @IBAction func registerButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "registerUserVC", sender: nil)
     }
@@ -54,6 +78,10 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             case .success(let value):
                 let result = JSON(value)
                 if(result.count == 1) {
+                    //store username to core data
+                    if let username = result[0]["username"].string {
+                        self.saveUsername(username: username)
+                    }
                     self.performSegue(withIdentifier: "landingPageVC", sender: nil)
                 } else if(result.count == 0) {
                     UIView.animate(withDuration: 3.0, animations: {
