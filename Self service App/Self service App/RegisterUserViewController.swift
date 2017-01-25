@@ -15,6 +15,7 @@ import SwiftyJSON
 
 class RegisterUserViewController: UIViewController {
     
+    @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var addressTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
@@ -38,9 +39,11 @@ class RegisterUserViewController: UIViewController {
 
     @IBAction func registeredButtonPressed(_ sender: Any) {
         let params = [
-            "username" : usernameTextField.text!,
+            "username": usernameTextField.text!,
             "email": emailTextField.text!,
-            "password" : passwordTextField.text!
+            "password": passwordTextField.text!,
+            "name": nameTextField.text!,
+            "address": addressTextField.text!
         ]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/registerUser", parameters: params).responseJSON { response in
@@ -102,6 +105,18 @@ class RegisterUserViewController: UIViewController {
         passwordTextField.selectedLineHeight = 2.0
         self.view.addSubview(passwordTextField)
         
+        nameTextField.title = "Full Name"
+        nameTextField.placeholder = "Full Name"
+        nameTextField.tintColor = overcastBlueColor // the color of the blinking cursor
+        nameTextField.textColor = darkGreyColor
+        nameTextField.lineColor = lightGreyColor
+        nameTextField.selectedTitleColor = overcastBlueColor
+        nameTextField.selectedLineColor = overcastBlueColor
+        
+        nameTextField.lineHeight = 1.0 // bottom line height in points
+        nameTextField.selectedLineHeight = 2.0
+        self.view.addSubview(nameTextField)
+        
         addressTextField.title = "Address"
         addressTextField.placeholder = "Address"
         addressTextField.tintColor = overcastBlueColor // the color of the blinking cursor
@@ -129,7 +144,7 @@ class RegisterUserViewController: UIViewController {
     }
     
     private func addConstraints() {
-        constrain(self.view, usernameTextField, passwordTextField, emailTextField) { superView, usernameTextField, passwordTextField, emailTextField in
+        constrain(self.view, usernameTextField, passwordTextField, emailTextField, nameTextField) { superView, usernameTextField, passwordTextField, emailTextField, nameTextField in
             
             usernameTextField.width == 275
             usernameTextField.height == 45
@@ -145,14 +160,19 @@ class RegisterUserViewController: UIViewController {
             passwordTextField.height == 45
             passwordTextField.centerX == superView.centerX
             passwordTextField.top == emailTextField.bottom + 25
+            
+            nameTextField.width == 275
+            nameTextField.height == 45
+            nameTextField.centerX == superView.centerX
+            nameTextField.top == passwordTextField.bottom + 25
         }
         
-        constrain(self.view, registeredButton, cancelRegButton, passwordTextField, addressTextField) { superView, registeredButton, cancelRegButton, passwordTextField, addressTextField in
+        constrain(self.view, registeredButton, cancelRegButton, addressTextField, nameTextField) { superView, registeredButton, cancelRegButton, addressTextField, nameTextField in
             
             addressTextField.width == 275
             addressTextField.height == 45
             addressTextField.centerX == superView.centerX
-            addressTextField.top == passwordTextField.bottom + 25
+            addressTextField.top == nameTextField.bottom + 25
             
             registeredButton.width == 70
             registeredButton.height == 50

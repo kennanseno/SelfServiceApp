@@ -43,14 +43,17 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     /**
         Function to add username to Core Data when logged in successfully
      */
-    private func saveUsername(username: String) {
+    private func saveUserDetails(user: User) {
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: managedContext)
         let item = NSManagedObject(entity: entity!, insertInto: managedContext)
-        item.setValue(username, forKey: "username")
+        item.setValue(user.getUsername(), forKey: "username")
+        item.setValue(user.getName(), forKey: "name")
+        item.setValue(user.getAddress(), forKey: "address")
+        item.setValue(user.getEmail(), forKey: "email")
         
         do {
             try managedContext.save()
@@ -78,11 +81,16 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             case .success(let value):
                 let result = JSON(value)
                 if(result.count == 1) {
-                    //store username to core data
-                    if let username = result[0]["username"].string {
-                        self.saveUsername(username: username)
-                    }
+                    let user = User(
+                        username: result[0]["username"].string!,
+                        name: result[0]["name"].string!,
+                        email: result[0]["email"].string!,
+                        address: result[0]["address"].string!
+                    )
+                    
+                    self.saveUserDetails(user: user)
                     self.performSegue(withIdentifier: "landingPageVC", sender: nil)
+                    
                 } else if(result.count == 0) {
                     UIView.animate(withDuration: 3.0, animations: {
                         self.loginNoticeLabel.text = "No user found!"
