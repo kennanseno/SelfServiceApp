@@ -15,6 +15,7 @@ import SwiftyJSON
 
 class RegisterUserViewController: UIViewController {
     
+    @IBOutlet weak var addressTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
@@ -101,6 +102,18 @@ class RegisterUserViewController: UIViewController {
         passwordTextField.selectedLineHeight = 2.0
         self.view.addSubview(passwordTextField)
         
+        addressTextField.title = "Address"
+        addressTextField.placeholder = "Address"
+        addressTextField.tintColor = overcastBlueColor // the color of the blinking cursor
+        addressTextField.textColor = darkGreyColor
+        addressTextField.lineColor = lightGreyColor
+        addressTextField.selectedTitleColor = overcastBlueColor
+        addressTextField.selectedLineColor = overcastBlueColor
+        
+        addressTextField.lineHeight = 1.0 // bottom line height in points
+        addressTextField.selectedLineHeight = 2.0
+        self.view.addSubview(addressTextField)
+        
         registeredButton.setTitle("Register", for: .normal)
         registeredButton.titleLabel?.textAlignment = NSTextAlignment.right
         registeredButton.setTitleColor(lightGreyColor, for: .normal)
@@ -134,18 +147,23 @@ class RegisterUserViewController: UIViewController {
             passwordTextField.top == emailTextField.bottom + 25
         }
         
-        constrain(self.view, registeredButton, cancelRegButton, passwordTextField) { superView, registeredButton, cancelRegButton, passwordTextField in
+        constrain(self.view, registeredButton, cancelRegButton, passwordTextField, addressTextField) { superView, registeredButton, cancelRegButton, passwordTextField, addressTextField in
+            
+            addressTextField.width == 275
+            addressTextField.height == 45
+            addressTextField.centerX == superView.centerX
+            addressTextField.top == passwordTextField.bottom + 25
             
             registeredButton.width == 70
             registeredButton.height == 50
-            registeredButton.trailing == passwordTextField.trailing
-            registeredButton.top == passwordTextField.bottom + 25
+            registeredButton.trailing == addressTextField.trailing
+            registeredButton.top == addressTextField.bottom + 25
             
             
             cancelRegButton.width == 50
             cancelRegButton.height == 50
-            cancelRegButton.leading == passwordTextField.leading
-            cancelRegButton.top == passwordTextField.bottom + 25
+            cancelRegButton.leading == addressTextField.leading
+            cancelRegButton.top == addressTextField.bottom + 25
         }
     }
 }
