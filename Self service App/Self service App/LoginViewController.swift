@@ -57,11 +57,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
         
         do {
             try managedContext.save()
-            
-            print("username: \(item)")
         }
         catch {
-            print("Error")
+            print("Error saving user details into core data!")
         }
         
     }
@@ -73,8 +71,9 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func loginButtonPressed(_ sender: Any) {
         let params = [
             "username" : usernameTextField.text!,
-            "password" : passwordTextField.text!
-        ]
+            "password" : passwordTextField.text!,
+            "queryParams": ["username", "email", "name", "address"]
+        ] as [String : Any]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/findUser", parameters: params).responseJSON { response in
             switch response.result {
@@ -88,6 +87,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                         address: result[0]["address"].string!
                     )
                     
+                    print(result)
                     self.saveUserDetails(user: user)
                     self.performSegue(withIdentifier: "landingPageVC", sender: nil)
                     
