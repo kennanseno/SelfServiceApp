@@ -22,6 +22,7 @@
 		4A9FCDFC1E0DDEFE00B67E10 /* CreateStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FCDFB1E0DDEFE00B67E10 /* CreateStoreViewController.swift */; };
 		4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */; };
 		4AE61C971E3903550074C96B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C961E3903550074C96B /* User.swift */; };
+		4AE61C991E3A1D8B0074C96B /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */; };
 		4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */; };
 		B418AAABFAD26289C7FD1F09 /* Pods_Self_service_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		4A9FCDFB1E0DDEFE00B67E10 /* CreateStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoreViewController.swift; sourceTree = "<group>"; };
 		4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		4AE61C961E3903550074C96B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4AE61C961E3903550074C96B /* User.swift */,
+				4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */,
 				4A9FCDFC1E0DDEFE00B67E10 /* CreateStoreViewController.swift in Sources */,
 				4A467CE61E0EC5E5000B3524 /* ProductScannerViewController.swift in Sources */,
+				4AE61C991E3A1D8B0074C96B /* ProfileInfo.swift in Sources */,
 				4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */,
 				4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */,
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,

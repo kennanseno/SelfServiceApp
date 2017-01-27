@@ -8,6 +8,7 @@
 
 import UIKit
 import Cartography
+import CoreData
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -16,8 +17,43 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Hardcode data for now
     var sectionNames = ["Basic Information", "Store", " "]
-    var user = ["Username": "kseno", "Name": "Kennan Seno", "Address": "25 Millstead, Blanchardstown"] //TODO: Not use dict as it needs to be ordered
-    var stores = ["Penneys", "LALALA", "Create new store..."] // add store names here NOTE: change so that create new store is always at the end to create new stores
+    var user = [String: String]() //TODO: Not use dict as it needs to be ordered
+    var stores = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject]{
+                    if let username = result.value(forKey: "username") as? String {
+                        user["Username"] = username
+                    }
+                    if let name = result.value(forKey: "name") as? String {
+                        user["Name"] = name
+                    }
+                    if let address = result.value(forKey: "address") as? String {
+                        user["Address"] = address
+                    }
+                    if let email = result.value(forKey: "email") as? String {
+                        user["Email"] = email
+                    }
+                }
+            }
+        }
+        catch {
+            print("Error")
+        }
+
+        
+        stores = ["Penneys", "LALALA", "Create new store..."]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
