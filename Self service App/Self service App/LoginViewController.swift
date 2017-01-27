@@ -86,8 +86,7 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
                         email: result[0]["email"].string!,
                         address: result[0]["address"].string!
                     )
-                    
-                    print(result)
+
                     self.saveUserDetails(user: user)
                     self.performSegue(withIdentifier: "landingPageVC", sender: nil)
                     

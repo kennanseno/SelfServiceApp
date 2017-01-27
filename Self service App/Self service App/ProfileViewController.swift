@@ -9,6 +9,8 @@
 import UIKit
 import Cartography
 import CoreData
+import Alamofire
+import SwiftyJSON
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,9 +23,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var stores = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
     
     override func viewWillAppear(_ animated: Bool) {
+        var userName = "" // initialise here to it will be used to query store names
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
         request.returnsObjectsAsFaults = false
         
@@ -34,6 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 for result in results as! [NSManagedObject]{
                     if let username = result.value(forKey: "username") as? String {
                         user["Username"] = username
+                        userName = username
                     }
                     if let name = result.value(forKey: "name") as? String {
                         user["Name"] = name
@@ -50,9 +53,24 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         catch {
             print("Error")
         }
-
         
-        stores = ["Penneys", "LALALA", "Create new store..."]
+        self.stores = [String]()
+        // get store nname
+        let params = [
+            "username" : userName,
+            "queryParams": "stores"
+            ] as [String : Any]
+        
+        Alamofire.request("http://kennanseno.com:3000/fyp/findUser", parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let result = JSON(value)
+                let storeList = result[0]["stores"].arrayValue.map({$0.stringValue})
+                self.stores += storeList
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -63,6 +81,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         profileTable.delegate = self
         profileTable.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.stores.append("Create new store...")
+        self.profileTable.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
