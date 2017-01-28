@@ -20,7 +20,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Hardcode data for now
     var sectionNames = ["Basic Information", "Store", " "]
     var user = [String: String]() //TODO: Not use dict as it needs to be ordered
-    var stores = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
+    var storeName = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
+    var stores = [Store]()
     
     override func viewWillAppear(_ animated: Bool) {
         var userName = "" // initialise here to it will be used to query store names
@@ -54,7 +55,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("Error")
         }
         
-        self.stores = [String]()
+        self.storeName = [String]() //refresh values
         // get store nname
         let params = [
             "username" : userName,
@@ -65,8 +66,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch response.result {
             case .success(let value):
                 let result = JSON(value)
-                let storeList = result[0]["stores"].arrayValue.map({$0.stringValue})
-                self.stores += storeList
+                self.stores = result[0]["stores"]
+                    .arrayValue
+                    .map({
+                        Store(name: $0["name"].stringValue, description: $0["description"].stringValue, address: $0["address"].stringValue)
+                    })
+
+                self.storeName += self.stores.map({$0.getName()})
             case .failure(let error):
                 print(error)
             }
@@ -84,7 +90,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.stores.append("Create new store...")
+        self.storeName.append("Create new store...")
         self.profileTable.reloadData()
     }
     
@@ -110,7 +116,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             cell = simpleCell
         }else if indexPath.section == 1 {
-            cell.textLabel?.text = stores[indexPath.row]
+            cell.textLabel?.text = storeName[indexPath.row]
         } else {
             cell.textLabel?.text = "View Transaction History"
         }
@@ -122,12 +128,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.section == 0 {
             //TODO: move to edit user details
         } else if indexPath.section == 1 {
-            if stores[indexPath.row] != stores[stores.count - 1] {
-                //TODO request store details(i.e desc,products,etc.) of selected store on server
-                print("manageSToreVC")
-                self.performSegue(withIdentifier: "manageStoreVC", sender: nil)
+            if storeName[indexPath.row] != storeName[storeName.count - 1] {
+                let manageStoreVC = storyboard?.instantiateViewController(withIdentifier: "manageStoreVC") as! ManageStoreViewController
+                manageStoreVC.store = stores[indexPath.row]
+                self.navigationController?.pushViewController(manageStoreVC, animated: true)
             } else{
-                print("createStoreVC")
                 self.performSegue(withIdentifier: "createStoreVC", sender: nil)
             }
         }
@@ -137,9 +142,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if section == 0 {
             return user.count
         } else if section == 1 {
-            return stores.count
+            return storeName.count
         } else {
             return 1
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "manageStoreVC" {
+            if let destination = segue.destination as? ManageStoreViewController {
+                destination.store = sender as! Store
+                print("sender value: \(sender)")
+            }
         }
     }
     

@@ -165,7 +165,7 @@
         <!--Manage Store-->
         <scene sceneID="aOa-aO-2qq">
             <objects>
-                <viewController id="KY0-hn-l7A" customClass="ManageStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="manageStoreVC" id="KY0-hn-l7A" customClass="ManageStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XzU-F1-V5C"/>
                         <viewControllerLayoutGuide type="bottom" id="Q0b-5E-ipm"/>

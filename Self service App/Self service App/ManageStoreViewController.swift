@@ -14,13 +14,14 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var manageStoreTable: UITableView!
     
     //Hardcode data for now
+    var store = Store()
     var sectionNames = ["Store", "Products"]
-    var store = ["Name": "Penneys", "Description": "Awesome Clothing Store!!", "Address": "25 Millstead, Blanchardstown"] //TODO: Not use dict as it needs to be ordered
+    var storeFieldLabel = ["Name", "Description", "Address"] //TODO: Not use dict as it needs to be ordered
     var products = ["Product 1"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setViews()
         addConstraints()
         dismissKeyboard()
@@ -42,11 +43,18 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         var cell = UITableViewCell()
         
         if indexPath.section == 0 {
-            let fieldName = [String](store.keys)
-            let fieldValue = [String](store.values)
             let simpleCell = Bundle.main.loadNibNamed("simpleCellTableViewCell", owner: self, options: nil)?.first as! simpleCellTableViewCell
-            simpleCell.fieldName.text = fieldName[indexPath.row]
-            simpleCell.fieldValue.text = fieldValue[indexPath.row]
+            simpleCell.fieldName.text = storeFieldLabel[indexPath.row]
+            switch indexPath.row {
+            case 0:
+                simpleCell.fieldValue.text = store.getName()
+            case 1:
+                simpleCell.fieldValue.text = store.getDescription()
+            case 2:
+                simpleCell.fieldValue.text = store.getAddress()
+            default:
+                break;
+            }
             
             cell = simpleCell
             
@@ -59,12 +67,12 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return store.count
+            return storeFieldLabel.count
         } else {
             return products.count
         }
     }
-
+    
     @IBAction func addProducts(_ sender: Any) {
         //TODO: move to qr scanner page to scan products
     }
@@ -75,7 +83,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
     
     private func addConstraints() {
         constrain(self.view, manageStoreTable) { superView, manageStoreTable  in
-
+            
             manageStoreTable.left == superView.left
             manageStoreTable.right == superView.right
             manageStoreTable.top == superView.top
