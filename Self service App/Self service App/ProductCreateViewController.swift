@@ -9,12 +9,18 @@
 import UIKit
 import Cartography
 import SkyFloatingLabelTextField
+import CoreData
+import Alamofire
+import SwiftyJSON
 
 class ProductCreateViewController: UIViewController {
 
     let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
     let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
     let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+    var storeName = ""
+    var productCode = ""
+    
     
     @IBOutlet weak var addProductButton: UIBarButtonItem!
     @IBOutlet weak var productName: SkyFloatingLabelTextField!
@@ -23,15 +29,62 @@ class ProductCreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setViews()
         self.addConstraints()
         self.dismissKeyboard()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func addProductButtonPressed(_ sender: Any) {
-        //TODO: add product data to server
+        //validation
+        for textfield in [productName, productDesc, productPrice] {
+            if((textfield?.text?.isEmpty)!) {
+                return
+            }
+        }
+        var username = ""
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject]{
+                    if let userName = result.value(forKey: "username") as? String {
+                        username = userName
+                    }
+                }
+            }
+        }
+        catch {
+            print("Error")
+        }
+        
+        //send product data to server
+        let params = [
+                "params": [ "username": username, "stores.name": self.storeName ],
+                "data": [
+                    "_id": self.productCode,
+                    "name": productName.text!,
+                    "description": productDesc.text!,
+                    "address": productPrice.text!
+                ]
+            ] as [String : Any]
+        
+        Alamofire.request("http://kennanseno.com:3000/fyp/addProduct", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let result = JSON(value)
+                print(result)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+
         
         //get viewcontroller in the nav vc stack
         let manageStoreVC = self.navigationController?.viewControllers[1] as! ManageStoreViewController

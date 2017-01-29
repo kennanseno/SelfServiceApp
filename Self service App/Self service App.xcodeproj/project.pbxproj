@@ -24,6 +24,7 @@
 		4AE61C971E3903550074C96B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C961E3903550074C96B /* User.swift */; };
 		4AE61C991E3A1D8B0074C96B /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */; };
 		4AE61C9B1E3CD42B0074C96B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C9A1E3CD42B0074C96B /* Store.swift */; };
+		4AE61CA11E3E5AFA0074C96B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61CA01E3E5AFA0074C96B /* Product.swift */; };
 		4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */; };
 		B418AAABFAD26289C7FD1F09 /* Pods_Self_service_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		4AE61C961E3903550074C96B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		4AE61C9A1E3CD42B0074C96B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		4AE61CA01E3E5AFA0074C96B /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				4AE61C961E3903550074C96B /* User.swift */,
 				4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */,
 				4AE61C9A1E3CD42B0074C96B /* Store.swift */,
+				4AE61CA01E3E5AFA0074C96B /* Product.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				4AE61C9B1E3CD42B0074C96B /* Store.swift in Sources */,
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,
 				4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */,
+				4AE61CA11E3E5AFA0074C96B /* Product.swift in Sources */,
 				4AE61C971E3903550074C96B /* User.swift in Sources */,
 				4A1B81751E377FA5006537C7 /* simpleCellTableViewCell.swift in Sources */,
 				4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */,

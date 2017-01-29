@@ -186,7 +186,6 @@
                         <barButtonItem key="rightBarButtonItem" image="add" id="cmP-m5-ixx">
                             <connections>
                                 <action selector="addProducts:" destination="KY0-hn-l7A" id="Nvz-3S-PW7"/>
-                                <segue destination="8sB-N6-XGq" kind="show" id="KyC-7M-eyp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -201,7 +200,7 @@
         <!--Add Product-->
         <scene sceneID="gpI-Dl-AYW">
             <objects>
-                <viewController id="8sB-N6-XGq" customClass="ProductScannerViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="productScannerVC" id="8sB-N6-XGq" customClass="ProductScannerViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zBF-MX-CLb"/>
                         <viewControllerLayoutGuide type="bottom" id="Vm6-He-eKi"/>
@@ -223,7 +222,7 @@
                     <navigationItem key="navigationItem" title="Add Product" id="zNo-rp-g0x"/>
                     <connections>
                         <outlet property="scanInstruction" destination="y45-XV-Oxu" id="VPA-p8-pqV"/>
-                        <segue destination="bGZ-xe-aq9" kind="show" identifier="productCreateVC" id="3Nb-BX-Wna"/>
+                        <segue destination="bGZ-xe-aq9" kind="show" identifier="" id="3Nb-BX-Wna"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiZ-zR-HSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,7 +232,7 @@
         <!--Add Product Details-->
         <scene sceneID="L9p-Sx-JtG">
             <objects>
-                <viewController id="bGZ-xe-aq9" customClass="ProductCreateViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="productCreateVC" id="bGZ-xe-aq9" customClass="ProductCreateViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k9l-7o-pyW"/>
                         <viewControllerLayoutGuide type="bottom" id="zt1-p5-ilm"/>

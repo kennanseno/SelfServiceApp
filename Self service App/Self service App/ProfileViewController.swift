@@ -70,7 +70,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.stores = result[0]["stores"]
                     .arrayValue
                     .map({
-                        Store(name: $0["name"].stringValue, description: $0["description"].stringValue, address: $0["address"].stringValue)
+                        Store(name: $0["name"].stringValue, description: $0["description"].stringValue, address: $0["address"].stringValue, owner: self.userName)
                     })
 
                 self.storeName += self.stores.map({$0.getName()})

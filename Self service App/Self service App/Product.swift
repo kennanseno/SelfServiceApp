@@ -1,39 +1,38 @@
 //
-//  Store.swift
+//  File.swift
 //  Self service App
 //
-//  Created by Kennan Lyle Seno on 28/01/2017.
+//  Created by Kennan Lyle Seno on 29/01/2017.
 //  Copyright © 2017 kennanseno. All rights reserved.
 //
 
-class Store {
+class Product {
     
+    private var productCode: String
     private var name: String
     private var description: String
     private var address: String
-    private var owner: String
+    private var price: Int
     
     init() {
+        self.productCode = ""
         self.name = ""
         self.description = ""
         self.address = ""
-        self.owner = ""
+        self.price = 0
     }
     
-    init(name: String, description: String, address: String) {
+    init(productCode: String, name: String, description: String, address: String, price: Int) {
+        self.productCode = productCode
         self.name = name
         self.description = description
         self.address = address
-        self.owner = ""
+        self.price = price
     }
     
-    init(name: String, description: String, address: String, owner: String) {
-        self.name = name
-        self.description = description
-        self.address = address
-        self.owner = owner
+    public func setProductCode(productCode: String) {
+        self.productCode = productCode
     }
-    
     public func setName(name: String) {
         self.name = name
     }
@@ -43,8 +42,11 @@ class Store {
     public func setAddress(address: String) {
         self.address = address
     }
-    public func setOwner(owner: String) {
-        self.owner = owner
+    public func setPrice(price: Int) {
+        self.price = price
+    }
+    public func getProductCode() -> String {
+        return self.productCode
     }
     public func getName() -> String {
         return self.name
@@ -55,7 +57,7 @@ class Store {
     public func getAddress() -> String {
         return self.address
     }
-    public func getOwner() -> String {
-        return self.owner
+    public func getPrice() -> Int {
+        return self.price
     }
 }

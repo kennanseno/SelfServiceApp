@@ -14,6 +14,7 @@ class ProductScannerViewController: RSCodeReaderViewController {
 
     @IBOutlet weak var scanInstruction: UILabel!
     var dispatched: Bool = false
+    var storeName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +41,10 @@ class ProductScannerViewController: RSCodeReaderViewController {
                         self.dispatched = false
                     }
                     let okAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                        print("Add")
-                         self.performSegue(withIdentifier: "productCreateVC", sender: nil)
+                        let productCreateVC = self.storyboard?.instantiateViewController(withIdentifier: "productCreateVC") as! ProductCreateViewController
+                        productCreateVC.storeName = self.storeName
+                        productCreateVC.productCode = barcode.stringValue
+                        self.navigationController?.pushViewController(productCreateVC, animated: true)
                         self.dispatched = false
                     }
                     alertController.addAction(cancelAction)

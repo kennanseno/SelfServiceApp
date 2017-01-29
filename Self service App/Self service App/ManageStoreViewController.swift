@@ -19,11 +19,35 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
     var store = Store()
     var sectionNames = ["Store", "Products"]
     var storeFieldLabel = ["Name", "Description", "Address"] //TODO: Not use dict as it needs to be ordered
-    var products = ["Product 1"]
+    var products = [Product]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let params = [
+            "username" : store.getOwner(),
+            "storename": store.getName()
+            ] as [String : Any]
+        
+        Alamofire.request("http://kennanseno.com:3000/fyp/getProducts", parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let result = JSON(value)
+                print(result)
+                self.products = result[0]["products"]
+                    .arrayValue
+                    .map({
+                        Product(productCode: $0["_id"].stringValue,name: $0["name"].stringValue, description: $0["description"].stringValue, address: $0["address"].stringValue, price: 0)
+                    })
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setViews()
         addConstraints()
         dismissKeyboard()
@@ -32,6 +56,15 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         manageStoreTable.dataSource = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.manageStoreTable.reloadData()
+    }
+    
+    @IBAction func addProducts(_ sender: Any) {
+        let productScannerVC = self.storyboard?.instantiateViewController(withIdentifier: "productScannerVC") as! ProductScannerViewController
+        productScannerVC.storeName = store.getName()
+        self.navigationController?.pushViewController(productScannerVC, animated: true)
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.sectionNames.count
@@ -61,7 +94,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
             cell = simpleCell
             
         }else if indexPath.section == 1 {
-            cell.textLabel?.text = products[indexPath.row]
+            cell.textLabel?.text = products[indexPath.row].getName()
         }
         
         return cell
@@ -73,10 +106,6 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             return products.count
         }
-    }
-    
-    @IBAction func addProducts(_ sender: Any) {
-        //TODO: move to qr scanner page to scan products
     }
     
     private func setViews() {
