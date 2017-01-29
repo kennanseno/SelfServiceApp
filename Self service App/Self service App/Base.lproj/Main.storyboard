@@ -287,7 +287,7 @@
         <!--Create Store-->
         <scene sceneID="dp8-Hv-iFr">
             <objects>
-                <viewController id="r21-jB-mOM" customClass="CreateStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createStoreVC" id="r21-jB-mOM" customClass="CreateStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mtw-wU-0oH"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mu-Zv-gF6"/>

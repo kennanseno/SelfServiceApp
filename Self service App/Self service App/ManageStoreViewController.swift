@@ -8,6 +8,8 @@
 
 import UIKit
 import Cartography
+import Alamofire
+import SwiftyJSON
 
 class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

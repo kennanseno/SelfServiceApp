@@ -9,8 +9,8 @@
 import UIKit
 import Cartography
 import SkyFloatingLabelTextField
-
-
+import Alamofire
+import SwiftyJSON
 
 class CreateStoreViewController: UIViewController {
     
@@ -22,6 +22,7 @@ class CreateStoreViewController: UIViewController {
     @IBOutlet weak var storeName: SkyFloatingLabelTextField!
     @IBOutlet weak var storeDesc: SkyFloatingLabelTextField!
     @IBOutlet weak var storeAddr: SkyFloatingLabelTextField!
+    var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,34 @@ class CreateStoreViewController: UIViewController {
         self.addConstraints()
         self.dismissKeyboard()
     }
-
     
     @IBAction func createStore(_ sender: Any) {
         //TODO: save new store data to server
+        
+        let params = [
+                "params": [ "username": username ],
+                "data": [
+                    "name" : storeName.text!,
+                    "description": storeDesc.text!,
+                    "address": storeAddr.text!
+                ]
+        ] as [String : Any] 
+        
+        
+        print(params)
+        //Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let result = JSON(value)
+                print(result)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        
         self.navigationController?.popViewController(animated: true)
     }
     

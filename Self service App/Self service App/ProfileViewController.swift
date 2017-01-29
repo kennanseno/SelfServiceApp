@@ -22,9 +22,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var user = [String: String]() //TODO: Not use dict as it needs to be ordered
     var storeName = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
     var stores = [Store]()
+    var userName = "" // initialise here to it will be used to query store names
     
     override func viewWillAppear(_ animated: Bool) {
-        var userName = "" // initialise here to it will be used to query store names
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
@@ -133,7 +134,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 manageStoreVC.store = stores[indexPath.row]
                 self.navigationController?.pushViewController(manageStoreVC, animated: true)
             } else{
-                self.performSegue(withIdentifier: "createStoreVC", sender: nil)
+                
+                let createStoreVC = storyboard?.instantiateViewController(withIdentifier: "createStoreVC") as! CreateStoreViewController
+                createStoreVC.username = self.userName
+                self.navigationController?.pushViewController(createStoreVC, animated: true)
             }
         }
     }
