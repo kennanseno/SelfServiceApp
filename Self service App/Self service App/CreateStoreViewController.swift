@@ -33,7 +33,13 @@ class CreateStoreViewController: UIViewController {
     }
     
     @IBAction func createStore(_ sender: Any) {
-        //TODO: save new store data to server
+        for textfield in [storeName, storeDesc, storeAddr] {
+            if(!(textfield?.text?.isEmpty)!) {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                return
+            }
+        }
         
         let params = [
                 "params": [ "username": username ],
@@ -44,22 +50,16 @@ class CreateStoreViewController: UIViewController {
                 ]
         ] as [String : Any] 
         
-        
-        print(params)
-        //Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default)
         Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
-            case .success(let value):
-                let result = JSON(value)
-                print(result)
-                
-            case .failure(let error):
-                print(error)
+                case .success(let value):
+                    let result = JSON(value)
+                    print(result)
+        
+                case .failure(let error):
+                    print(error)
             }
         }
-        
-        
-        self.navigationController?.popViewController(animated: true)
     }
     
     private func setViews() {
