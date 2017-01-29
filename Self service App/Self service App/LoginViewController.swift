@@ -71,9 +71,8 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
     @IBAction func loginButtonPressed(_ sender: Any) {
         let params = [
             "username" : usernameTextField.text!,
-            "password" : passwordTextField.text!,
-            "queryParams": ["username", "email", "name", "address"]
-        ] as [String : Any]
+            "password" : passwordTextField.text!
+        ] as [String : String]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/findUser", parameters: params).responseJSON { response in
             switch response.result {

@@ -59,11 +59,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.storeName = [String]() //refresh values
         // get store nname
         let params = [
-            "username" : userName,
-            "queryParams": "stores"
+            "username" : userName
             ] as [String : Any]
         
-        Alamofire.request("http://kennanseno.com:3000/fyp/findUser", parameters: params).responseJSON { response in
+        Alamofire.request("http://kennanseno.com:3000/fyp/getStore", parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let result = JSON(value)
