@@ -11,22 +11,19 @@ class Product {
     private var productCode: String
     private var name: String
     private var description: String
-    private var address: String
     private var price: Int
     
     init() {
         self.productCode = ""
         self.name = ""
         self.description = ""
-        self.address = ""
         self.price = 0
     }
     
-    init(productCode: String, name: String, description: String, address: String, price: Int) {
+    init(productCode: String, name: String, description: String, price: Int) {
         self.productCode = productCode
         self.name = name
         self.description = description
-        self.address = address
         self.price = price
     }
     
@@ -39,9 +36,6 @@ class Product {
     public func setDescription(description: String) {
         self.description = description
     }
-    public func setAddress(address: String) {
-        self.address = address
-    }
     public func setPrice(price: Int) {
         self.price = price
     }
@@ -53,9 +47,6 @@ class Product {
     }
     public func getDescription() -> String {
         return self.description
-    }
-    public func getAddress() -> String {
-        return self.address
     }
     public func getPrice() -> Int {
         return self.price

@@ -70,7 +70,7 @@ class ProductCreateViewController: UIViewController {
                     "_id": self.productCode,
                     "name": productName.text!,
                     "description": productDesc.text!,
-                    "address": productPrice.text!
+                    "price": productPrice.text!
                 ]
             ] as [String : Any]
         
