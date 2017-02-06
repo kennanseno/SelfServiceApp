@@ -12,4 +12,6 @@ target 'Self service App' do
     pod 'SwiftyJSON'
     pod 'BubbleTransition', '~> 2.0.0'
     pod 'RSBarcodes_Swift', '~> 3.0.1'
+    pod 'PMAlertController'
+    pod 'Eureka', '~> 2.0.0-beta.1'
 end

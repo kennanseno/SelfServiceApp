@@ -162,6 +162,24 @@
             </objects>
             <point key="canvasLocation" x="2112.8000000000002" y="849.62518740629696"/>
         </scene>
+        <!--Payment Method Create View Controller-->
+        <scene sceneID="T35-XV-2u0">
+            <objects>
+                <viewController storyboardIdentifier="paymentMethodCreateVC" id="eeH-gI-fdD" customClass="PaymentMethodCreateViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M1j-lp-2MU"/>
+                        <viewControllerLayoutGuide type="bottom" id="bcT-BM-XKO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JDW-fi-mMz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzX-kC-FYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3278" y="-277"/>
+        </scene>
         <!--Manage Store-->
         <scene sceneID="aOa-aO-2qq">
             <objects>
@@ -191,6 +209,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="manageStoreTable" destination="beM-xo-Iai" id="RCv-Ui-eWW"/>
+                        <segue destination="eeH-gI-fdD" kind="show" id="LTo-Ui-B6D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>

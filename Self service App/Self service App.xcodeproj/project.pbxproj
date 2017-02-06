@@ -12,6 +12,7 @@
 		4A467CE61E0EC5E5000B3524 /* ProductScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE51E0EC5E5000B3524 /* ProductScannerViewController.swift */; };
 		4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */; };
 		4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A87852D1E38F01A00EC3696 /* data.xcdatamodeld */; };
+		4A8E6A201E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */; };
 		4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */; };
 		4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */; };
 		4A93015F1DCA3F2600BD1C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A93015D1DCA3F2600BD1C5B /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		4A467CE51E0EC5E5000B3524 /* ProductScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductScannerViewController.swift; sourceTree = "<group>"; };
 		4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCreateViewController.swift; sourceTree = "<group>"; };
 		4A87852E1E38F01A00EC3696 /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
+		4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCreateViewController.swift; sourceTree = "<group>"; };
 		4A9301561DCA3F2600BD1C5B /* Self service App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Self service App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				4A9301601DCA3F2600BD1C5B /* Assets.xcassets */,
 				4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */,
 				4A9301651DCA3F2600BD1C5B /* Info.plist */,
+				4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */,
 			);
 			path = "Self service App";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */,
 				4A9FCDFC1E0DDEFE00B67E10 /* CreateStoreViewController.swift in Sources */,
 				4A467CE61E0EC5E5000B3524 /* ProductScannerViewController.swift in Sources */,
+				4A8E6A201E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift in Sources */,
 				4AE61C991E3A1D8B0074C96B /* ProfileInfo.swift in Sources */,
 				4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */,
 				4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */,

@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         self.storeName = [String]() //refresh values
-        // get store nname
+        // get store objects
         let params = [
             "username" : userName
             ] as [String : Any]
@@ -69,7 +69,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.stores = result[0]["stores"]
                     .arrayValue
                     .map({
-                        Store(name: $0["name"].stringValue, description: $0["description"].stringValue, address: $0["address"].stringValue, owner: self.userName)
+                        Store(
+                            name: $0["name"].stringValue,
+                            description: $0["description"].stringValue,
+                            address: $0["address"].stringValue,
+                            owner: self.userName,
+                            paymentMethod: $0["paymentMethod"]["_id"].stringValue
+                        )
                     })
 
                 self.storeName += self.stores.map({$0.getName()})
