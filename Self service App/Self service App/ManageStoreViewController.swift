@@ -35,7 +35,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
                 self.products = result[0]["products"]
                     .arrayValue
                     .map({
-                        Product(productCode: $0["_id"].stringValue,name: $0["name"].stringValue, description: $0["description"].stringValue, price: 0)
+                        Product(productCode: $0["_id"].stringValue,name: $0["name"].stringValue, description: $0["description"].stringValue, price: $0["price"].intValue)
                     })
                 self.store.setPaymentMethod(paymentMethod: result[0]["paymentMethod"].stringValue.capitalized)
                 

@@ -46,7 +46,7 @@ class RegisterUserViewController: UIViewController {
             "address": addressTextField.text!
         ]
         
-        Alamofire.request("http://kennanseno.com:3000/fyp/registerUser", parameters: params).responseJSON { response in
+        Alamofire.request("http://kennanseno.com:3000/fyp/registerUser", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success(let _):
                 print("User registered!")

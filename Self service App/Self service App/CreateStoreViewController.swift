@@ -48,7 +48,7 @@ class CreateStoreViewController: UIViewController {
                     "description": storeDesc.text!,
                     "address": storeAddr.text!
                 ]
-        ] as [String : Any] 
+        ] as [String : Any]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {

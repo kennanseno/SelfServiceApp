@@ -74,7 +74,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                             description: $0["description"].stringValue,
                             address: $0["address"].stringValue,
                             owner: self.userName,
-                            paymentMethod: $0["paymentMethod"]["_id"].stringValue
+                            paymentMethod: $0["paymentMethod"]["_id"].stringValue.capitalized
                         )
                     })
 
