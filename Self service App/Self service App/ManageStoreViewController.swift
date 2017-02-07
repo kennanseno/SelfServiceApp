@@ -27,7 +27,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
             "storename": store.getName()
             ] as [String : Any]
         
-        Alamofire.request("http://kennanseno.com:3000/fyp/getProducts", parameters: params).responseJSON { response in
+        Alamofire.request("http://kennanseno.com:3000/fyp/getStoreDetails", parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let result = JSON(value)
@@ -37,6 +37,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
                     .map({
                         Product(productCode: $0["_id"].stringValue,name: $0["name"].stringValue, description: $0["description"].stringValue, price: 0)
                     })
+                self.store.setPaymentMethod(paymentMethod: result[0]["paymentMethod"].stringValue.capitalized)
                 
             case .failure(let error):
                 print(error)
@@ -66,6 +67,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         } else if indexPath.section == 1 {
             if store.getPaymentMethod() == "" {
                 let paymentMethodCreateVC = storyboard?.instantiateViewController(withIdentifier: "paymentMethodCreateVC") as! PaymentMethodCreateViewController
+                paymentMethodCreateVC.store = self.store
                 self.navigationController?.pushViewController(paymentMethodCreateVC, animated: true)
             } else{
                 //TODO: Edit payment method
