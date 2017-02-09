@@ -309,7 +309,7 @@
             </objects>
             <point key="canvasLocation" x="4881" y="510"/>
         </scene>
-        <!--Create Store Location View Controller-->
+        <!--Store Location-->
         <scene sceneID="3Al-E5-CeP">
             <objects>
                 <viewController storyboardIdentifier="createStoreLocationVC" id="ckH-cN-L6q" customClass="CreateStoreLocationViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -336,6 +336,7 @@
                             <constraint firstItem="KuV-Bk-1xm" firstAttribute="top" secondItem="6up-oV-iNq" secondAttribute="bottom" id="puR-5p-WoD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Store Location" id="k7A-BY-Wf6"/>
                     <connections>
                         <outlet property="mapView" destination="KuV-Bk-1xm" id="yvs-xF-KKp"/>
                     </connections>
@@ -344,7 +345,7 @@
             </objects>
             <point key="canvasLocation" x="4056.8000000000002" y="1279.6101949025488"/>
         </scene>
-        <!--Create Store-->
+        <!--Store Details-->
         <scene sceneID="dp8-Hv-iFr">
             <objects>
                 <viewController storyboardIdentifier="createStoreVC" id="r21-jB-mOM" customClass="CreateStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -380,7 +381,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Store" id="qqQ-rI-fty">
+                    <navigationItem key="navigationItem" title="Store Details" id="qqQ-rI-fty">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="rRz-gH-NUN">
                             <connections>
                                 <action selector="findStoreLocation:" destination="r21-jB-mOM" id="Tql-B0-8BD"/>

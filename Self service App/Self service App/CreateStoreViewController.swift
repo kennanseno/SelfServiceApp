@@ -38,29 +38,10 @@ class CreateStoreViewController: UIViewController {
             }
         }
         let createStoreLocationVC = storyboard?.instantiateViewController(withIdentifier: "createStoreLocationVC") as! CreateStoreLocationViewController
-        createStoreLocationVC.store = Store(name: storeName.text!, description: storeDesc.text!, address: storeAddr.text!)
+        createStoreLocationVC.store = Store(name: storeName.text!, description: storeDesc.text!, address: storeAddr.text!, owner: username)
         self.navigationController?.pushViewController(createStoreLocationVC, animated: true)
 
-        
-//        let params = [
-//                "params": [ "username": username ],
-//                "data": [
-//                    "name" : storeName.text!,
-//                    "description": storeDesc.text!,
-//                    "address": storeAddr.text!
-//                ]
-//        ] as [String : Any]
-//        
-//        Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-//            switch response.result {
-//                case .success(let value):
-//                    let result = JSON(value)
-//                    print(result)
-//        
-//                case .failure(let error):
-//                    print(error)
-//            }
-//        }
+    
     }
     
     private func setViews() {
