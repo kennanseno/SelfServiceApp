@@ -64,13 +64,14 @@ class ProductCreateViewController: UIViewController {
         }
         
         //send product data to server
+        let product = Product(productCode: self.productCode, name: productName.text!, description: productDesc.text!, price: Int(productPrice.text!)!)
         let params = [
                 "params": [ "username": username, "stores.name": self.storeName ],
                 "data": [
-                    "_id": self.productCode,
-                    "name": productName.text!,
-                    "description": productDesc.text!,
-                    "price": productPrice.text!
+                    "_id": product.getProductCode(),
+                    "name": product.getName(),
+                    "description": product.getDescription(),
+                    "price": product.getPrice()
                 ]
             ] as [String : Any]
         
