@@ -13,6 +13,7 @@
 		4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */; };
 		4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A87852D1E38F01A00EC3696 /* data.xcdatamodeld */; };
 		4A8E6A201E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */; };
+		4A8E6A221E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */; };
 		4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */; };
 		4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */; };
 		4A93015F1DCA3F2600BD1C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A93015D1DCA3F2600BD1C5B /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCreateViewController.swift; sourceTree = "<group>"; };
 		4A87852E1E38F01A00EC3696 /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
 		4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCreateViewController.swift; sourceTree = "<group>"; };
+		4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoreLocationViewController.swift; sourceTree = "<group>"; };
 		4A9301561DCA3F2600BD1C5B /* Self service App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Self service App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */,
 				4A9301651DCA3F2600BD1C5B /* Info.plist */,
 				4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */,
+				4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */,
 			);
 			path = "Self service App";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				4AE61C971E3903550074C96B /* User.swift in Sources */,
 				4A1B81751E377FA5006537C7 /* simpleCellTableViewCell.swift in Sources */,
 				4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */,
+				4A8E6A221E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift in Sources */,
 				4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

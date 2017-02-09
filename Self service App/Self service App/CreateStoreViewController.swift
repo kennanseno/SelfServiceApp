@@ -18,7 +18,6 @@ class CreateStoreViewController: UIViewController {
     let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
     let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
     
-    @IBOutlet weak var createStoreButton: UIBarButtonItem!
     @IBOutlet weak var storeName: SkyFloatingLabelTextField!
     @IBOutlet weak var storeDesc: SkyFloatingLabelTextField!
     @IBOutlet weak var storeAddr: SkyFloatingLabelTextField!
@@ -32,34 +31,36 @@ class CreateStoreViewController: UIViewController {
         self.dismissKeyboard()
     }
     
-    @IBAction func createStore(_ sender: Any) {
+    @IBAction func findStoreLocation(_ sender: Any) {
         for textfield in [storeName, storeDesc, storeAddr] {
-            if(!(textfield?.text?.isEmpty)!) {
-                self.navigationController?.popViewController(animated: true)
-            } else {
+            if((textfield?.text?.isEmpty)!) {
                 return
             }
         }
+        let createStoreLocationVC = storyboard?.instantiateViewController(withIdentifier: "createStoreLocationVC") as! CreateStoreLocationViewController
+        createStoreLocationVC.store = Store(name: storeName.text!, description: storeDesc.text!, address: storeAddr.text!)
+        self.navigationController?.pushViewController(createStoreLocationVC, animated: true)
+
         
-        let params = [
-                "params": [ "username": username ],
-                "data": [
-                    "name" : storeName.text!,
-                    "description": storeDesc.text!,
-                    "address": storeAddr.text!
-                ]
-        ] as [String : Any]
-        
-        Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-            switch response.result {
-                case .success(let value):
-                    let result = JSON(value)
-                    print(result)
-        
-                case .failure(let error):
-                    print(error)
-            }
-        }
+//        let params = [
+//                "params": [ "username": username ],
+//                "data": [
+//                    "name" : storeName.text!,
+//                    "description": storeDesc.text!,
+//                    "address": storeAddr.text!
+//                ]
+//        ] as [String : Any]
+//        
+//        Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+//            switch response.result {
+//                case .success(let value):
+//                    let result = JSON(value)
+//                    print(result)
+//        
+//                case .failure(let error):
+//                    print(error)
+//            }
+//        }
     }
     
     private func setViews() {

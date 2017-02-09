@@ -309,6 +309,41 @@
             </objects>
             <point key="canvasLocation" x="4881" y="510"/>
         </scene>
+        <!--Create Store Location View Controller-->
+        <scene sceneID="3Al-E5-CeP">
+            <objects>
+                <viewController storyboardIdentifier="createStoreLocationVC" id="ckH-cN-L6q" customClass="CreateStoreLocationViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6up-oV-iNq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rl8-KB-LJc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rde-8b-alq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuV-Bk-1xm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ckH-cN-L6q" id="6Bu-0v-Hdc"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KuV-Bk-1xm" secondAttribute="trailing" id="2bb-oQ-S3n"/>
+                            <constraint firstItem="Rl8-KB-LJc" firstAttribute="top" secondItem="KuV-Bk-1xm" secondAttribute="bottom" id="I7x-ad-BFp"/>
+                            <constraint firstItem="KuV-Bk-1xm" firstAttribute="leading" secondItem="rde-8b-alq" secondAttribute="leading" id="Sqw-kQ-T0H"/>
+                            <constraint firstItem="KuV-Bk-1xm" firstAttribute="top" secondItem="6up-oV-iNq" secondAttribute="bottom" id="puR-5p-WoD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="KuV-Bk-1xm" id="yvs-xF-KKp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dU2-5f-oX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4056.8000000000002" y="1279.6101949025488"/>
+        </scene>
         <!--Create Store-->
         <scene sceneID="dp8-Hv-iFr">
             <objects>
@@ -346,17 +381,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Store" id="qqQ-rI-fty">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="rRz-gH-NUN">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="rRz-gH-NUN">
                             <connections>
-                                <action selector="createStore:" destination="r21-jB-mOM" id="Sfl-WT-CBG"/>
+                                <action selector="findStoreLocation:" destination="r21-jB-mOM" id="Tql-B0-8BD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="createStoreButton" destination="rRz-gH-NUN" id="6cm-J1-rDj"/>
                         <outlet property="storeAddr" destination="h96-aT-vU9" id="pd8-ik-EY4"/>
                         <outlet property="storeDesc" destination="n3U-Hn-OlY" id="b7H-cn-i2f"/>
                         <outlet property="storeName" destination="70D-Mi-P7V" id="ZJC-k2-qbb"/>
+                        <segue destination="ckH-cN-L6q" kind="show" id="71J-pi-YNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-ud-bxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
