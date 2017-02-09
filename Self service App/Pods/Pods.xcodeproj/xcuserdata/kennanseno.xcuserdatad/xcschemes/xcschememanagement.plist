@@ -9,12 +9,37 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BubbleTransition.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Cartography.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PMAlertController-PMAlertController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PMAlertController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Self service App.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RSBarcodes_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,7 +57,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2397BE93E045BBA3AE6D0CE100B88B67</key>
+		<key>2EA9E4523BD17A6B39B3C691A31968E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>38830187D9E171E7B43047ED06A08ADC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BBAF43C979327A7EE488998ACD828FF</key>
+		<key>5CDCDAE20411128437001CDAC2D50746</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8370CD8FA5E3E1A9797065FBDC699218</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C73641C27E856464D85766308CEA10D2</key>
+		<key>99183593E3C04F0C7720EF0DA4A0159B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A11034715772E4B4048B0384A1A9BA25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D54FDD5C741942E89778C6F1AD56A429</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE774F234E810C0DD8263855D7A1A166</key>
 		<dict>
 			<key>primary</key>
 			<true/>

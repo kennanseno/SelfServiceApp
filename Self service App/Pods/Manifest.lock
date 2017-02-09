@@ -1,31 +1,33 @@
 PODS:
-  - Alamofire (4.0.1)
+  - Alamofire (4.3.0)
+  - BubbleTransition (2.0.1)
   - Cartography (1.0.1)
-  - SkyFloatingLabelTextField (1.2.1)
-  - SwiftyJSON (3.1.1)
+  - Eureka (2.0.0-beta.1)
+  - PMAlertController (2.1.0)
+  - RSBarcodes_Swift (3.0.3)
+  - SkyFloatingLabelTextField (2.0.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - BubbleTransition (~> 2.0.0)
   - Cartography
-  - SkyFloatingLabelTextField (from `https://github.com/MLSDev/SkyFloatingLabelTextField.git`, branch `swift3`)
+  - Eureka (~> 2.0.0-beta.1)
+  - PMAlertController
+  - RSBarcodes_Swift (~> 3.0.1)
+  - SkyFloatingLabelTextField (~> 2.0.0)
   - SwiftyJSON
 
-EXTERNAL SOURCES:
-  SkyFloatingLabelTextField:
-    :branch: swift3
-    :git: https://github.com/MLSDev/SkyFloatingLabelTextField.git
-
-CHECKOUT OPTIONS:
-  SkyFloatingLabelTextField:
-    :commit: 03177934f990c794060765f33c408268ce8afee0
-    :git: https://github.com/MLSDev/SkyFloatingLabelTextField.git
-
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  BubbleTransition: bb24ed389ab672eecf3c87170d0a73f959a8e696
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
-  SkyFloatingLabelTextField: 3f6610aded18e778df5cfab3b9e12a11b3e014e9
-  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+  PMAlertController: 2d2c19af12edb50753d636395f9456c8cde1e858
+  RSBarcodes_Swift: 3b4a9c2e81fe9f435a26f18a1b8b826665e7cf89
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d4293e25968a1c0bacf462938f9bcacde41a862b
+PODFILE CHECKSUM: fccff7a29d5894eea9b99527a50c99aade45635b
 
 COCOAPODS: 1.1.1
