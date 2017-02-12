@@ -29,6 +29,9 @@ class PaymentMethodCreateViewController: FormViewController {
             <<< paymentProviderRow
             <<< publicKeyRow
     }
+    
+    
+    
 
     @IBAction func addPaymentMethod(_ sender: Any) {
         if (paymentProviderRow.value == nil) {
@@ -58,4 +61,6 @@ class PaymentMethodCreateViewController: FormViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    
 }

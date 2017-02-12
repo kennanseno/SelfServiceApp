@@ -33,6 +33,7 @@ class LandingPageViewController: UIViewController {
         self.view.addSubview(searchButton)
     }
     
+    
     private func addConstraints() {
         constrain(self.view, searchField, searchButton, profileButton) { superView, searchField, searchButton, profileButton  in
             
@@ -41,13 +42,13 @@ class LandingPageViewController: UIViewController {
             
             searchField.width == 200
             searchField.height == 45
-            searchField.centerX == superView.centerX
+            searchField.centerX == superView.centerX - 30
             searchField.centerY == superView.centerY
             
             searchButton.width == 70
             searchButton.height == 50
             searchButton.leading == searchField.trailing + 20
-            searchButton.centerY == superView.centerY
+            searchButton.centerY == superView.centerY + 10
             
         }
     }
