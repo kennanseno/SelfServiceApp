@@ -19,6 +19,7 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -61,9 +62,31 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
 
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation {
-            print("title:\(annotation.title) subtitle:\(annotation.subtitle) lat:\(annotation.coordinate.latitude) long:\(annotation.coordinate.longitude)")
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            
+            let infoButton: AnyObject! = UIButton.init(type: UIButtonType.contactAdd)
+            
+            pinView!.rightCalloutAccessoryView = infoButton as! UIView
+        } else {
+            pinView?.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
