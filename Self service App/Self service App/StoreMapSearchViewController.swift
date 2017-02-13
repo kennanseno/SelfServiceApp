@@ -75,7 +75,6 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
             pinView?.canShowCallout = true
             
             let infoButton: AnyObject! = UIButton.init(type: UIButtonType.contactAdd)
-            
             pinView!.rightCalloutAccessoryView = infoButton as! UIView
         } else {
             pinView?.annotation = annotation
@@ -86,7 +85,8 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            self.dismiss(animated: true, completion: nil)
+            let storeProductScannerVC = storyboard?.instantiateViewController(withIdentifier: "storeProductScannerVC") as! StoreProductScannerViewController
+            self.navigationController?.pushViewController(storeProductScannerVC, animated: true)
         }
     }
     

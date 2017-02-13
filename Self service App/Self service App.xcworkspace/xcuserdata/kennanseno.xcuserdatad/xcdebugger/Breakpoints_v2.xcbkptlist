@@ -615,5 +615,99 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Self service App/CreateStoreLocationViewController.swift"
+            timestampString = "508700896.603302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "handleTap(gestureReconizer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Self service App/StoreProductScannerViewController.swift"
+            timestampString = "508701599.30457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "StoreProductScannerViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Self_service_App.StoreProductScannerViewController.store.getter : Self_service_App.Store"
+                  moduleName = "Self service App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
+                  timestampString = "508701723.043827"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Self_service_App.StoreProductScannerViewController.store.setter : Self_service_App.Store"
+                  moduleName = "Self service App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
+                  timestampString = "508701723.04513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Self_service_App.StoreProductScannerViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Self_service_App.StoreProductScannerViewController"
+                  moduleName = "Self service App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
+                  timestampString = "508701723.046393"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Self_service_App.StoreProductScannerViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Self_service_App.StoreProductScannerViewController&gt;"
+                  moduleName = "Self service App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
+                  timestampString = "508701723.047657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

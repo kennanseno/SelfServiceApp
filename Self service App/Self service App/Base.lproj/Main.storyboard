@@ -162,11 +162,31 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="PkO-Uf-Gi7" id="wni-A5-nqD"/>
+                        <segue destination="coH-s4-vux" kind="show" id="Y2m-35-ol1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpW-hm-ZWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-330.39999999999998" y="849.62518740629696"/>
+        </scene>
+        <!--Store Name-->
+        <scene sceneID="5Sa-PM-HON">
+            <objects>
+                <viewController storyboardIdentifier="storeProductScannerVC" id="coH-s4-vux" customClass="StoreProductScannerViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cGK-DI-9Bd"/>
+                        <viewControllerLayoutGuide type="bottom" id="82Z-gC-5Ej"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3M5-qr-tU6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Store Name" id="VAK-A8-Aoh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd7-q3-Ypk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="1522"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">
