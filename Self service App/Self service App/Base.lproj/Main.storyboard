@@ -128,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="1200.8" y="849.62518740629696"/>
         </scene>
-        <!--Store Map Search-->
+        <!--Store Search-->
         <scene sceneID="FdB-UB-bvT">
             <objects>
                 <viewController storyboardIdentifier="storeMapSearchVC" id="sU2-2e-Gvq" customClass="StoreMapSearchViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,7 +152,7 @@
                             <constraint firstItem="PkO-Uf-Gi7" firstAttribute="top" secondItem="dIW-4w-8Bd" secondAttribute="bottom" id="q57-Hx-kyh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Store Map Search" id="R6L-by-Iwm">
+                    <navigationItem key="navigationItem" title="Store Search" id="R6L-by-Iwm">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="eNU-4g-Qt0">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -180,9 +180,21 @@
                     <view key="view" contentMode="scaleToFill" id="3M5-qr-tU6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan product barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpA-Bf-lh4">
+                                <rect key="frame" x="106" y="323" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Store Name" id="VAK-A8-Aoh"/>
+                    <connections>
+                        <outlet property="scanInstruction" destination="qpA-Bf-lh4" id="dMz-XN-T5m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd7-q3-Ypk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -33,12 +33,12 @@ class Store {
         self.paymentMethod = ""
     }
     
-    init(name: String, description: String, location: CLLocationCoordinate2D) {
+    init(name: String, description: String, location: CLLocationCoordinate2D, owner: String) {
         self.name = name
         self.description = description
         self.address = ""
         self.location = location
-        self.owner = ""
+        self.owner = owner
         self.paymentMethod = ""
     }
     

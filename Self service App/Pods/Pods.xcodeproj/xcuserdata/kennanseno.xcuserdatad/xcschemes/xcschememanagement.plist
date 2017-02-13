@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Dollar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Eureka.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2397BE93E045BBA3AE6D0CE100B88B67</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EA9E4523BD17A6B39B3C691A31968E0</key>
+		<key>3264322DF3550343152A3CA0EA1CCD37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BBAF43C979327A7EE488998ACD828FF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5CDCDAE20411128437001CDAC2D50746</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8370CD8FA5E3E1A9797065FBDC699218</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A7348D530AA66077C8B67CB29DA04E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>977004231D12E8D7F7A0AB6346D27331</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,22 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A11034715772E4B4048B0384A1A9BA25</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C73641C27E856464D85766308CEA10D2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D54FDD5C741942E89778C6F1AD56A429</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E3D157B0125B867424E3259947EFB186</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EE774F234E810C0DD8263855D7A1A166</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F70C468C6F85C85867206FFE0A3759DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

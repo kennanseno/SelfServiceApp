@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import MapKit
+import Dollar
+import RSBarcodes_Swift
 
 class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -37,7 +39,7 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
             case .success(let value):
                 let result = JSON(value)
                 self.storeList = result.arrayValue.map({
-                    Store(name: $0["name"].stringValue, description: $0["description"].stringValue, location: CLLocationCoordinate2D(latitude: $0["location"]["latitude"].doubleValue, longitude: $0["location"]["longitude"].doubleValue))
+                    Store(name: $0["name"].stringValue, description: $0["description"].stringValue, location: CLLocationCoordinate2D(latitude: $0["location"]["latitude"].doubleValue, longitude: $0["location"]["longitude"].doubleValue), owner: $0["owner"].stringValue)
                 })
                 
                 //zoom to current user location
@@ -86,6 +88,13 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let storeProductScannerVC = storyboard?.instantiateViewController(withIdentifier: "storeProductScannerVC") as! StoreProductScannerViewController
+            let annotation = view.annotation
+            //Find a better way to search for store chosen
+            self.storeList.forEach({ (Store) in
+                if(Store.getName() == (annotation?.title)! && Store.getDescription() == (annotation?.subtitle)!) {
+                    storeProductScannerVC.store = Store
+                }
+            })
             self.navigationController?.pushViewController(storeProductScannerVC, animated: true)
         }
     }

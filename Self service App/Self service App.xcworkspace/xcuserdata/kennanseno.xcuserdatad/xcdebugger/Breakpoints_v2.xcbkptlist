@@ -590,11 +590,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Self service App/StoreMapSearchViewController.swift"
-            timestampString = "508591480.084215"
+            timestampString = "508705236.556663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,11 +606,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Self service App/StoreMapSearchViewController.swift"
-            timestampString = "508608570.535775"
+            timestampString = "508705236.556663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,75 +638,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Self service App/StoreProductScannerViewController.swift"
-            timestampString = "508701599.30457"
+            timestampString = "508705072.182343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "StoreProductScannerViewController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Self_service_App.StoreProductScannerViewController.store.getter : Self_service_App.Store"
-                  moduleName = "Self service App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
-                  timestampString = "508701723.043827"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Self_service_App.StoreProductScannerViewController.store.setter : Self_service_App.Store"
-                  moduleName = "Self service App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
-                  timestampString = "508701723.04513"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Self_service_App.StoreProductScannerViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Self_service_App.StoreProductScannerViewController"
-                  moduleName = "Self service App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
-                  timestampString = "508701723.046393"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Self_service_App.StoreProductScannerViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Self_service_App.StoreProductScannerViewController&gt;"
-                  moduleName = "Self service App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kennanseno/Documents/GitHub/SelfServiceApp/Self%20service%20App/Self%20service%20App/StoreProductScannerViewController.swift"
-                  timestampString = "508701723.047657"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
