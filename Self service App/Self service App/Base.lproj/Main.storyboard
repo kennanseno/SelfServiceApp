@@ -107,6 +107,14 @@
                                     <segue destination="r7G-om-8XJ" kind="show" id="Tl1-7k-FwA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBj-vU-aRg">
+                                <rect key="frame" x="139" y="376" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Check Map"/>
+                                <connections>
+                                    <segue destination="gR1-rG-g10" kind="show" id="26X-3c-TGE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -118,7 +126,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yC5-0j-8pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="850"/>
+            <point key="canvasLocation" x="1200.8" y="849.62518740629696"/>
+        </scene>
+        <!--Store Map Search-->
+        <scene sceneID="FdB-UB-bvT">
+            <objects>
+                <viewController storyboardIdentifier="storeMapSearchVC" id="sU2-2e-Gvq" customClass="StoreMapSearchViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dIW-4w-8Bd"/>
+                        <viewControllerLayoutGuide type="bottom" id="OHg-Xe-flN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="74x-dB-Qlu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PkO-Uf-Gi7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OHg-Xe-flN" firstAttribute="top" secondItem="PkO-Uf-Gi7" secondAttribute="bottom" id="DOi-he-cA5"/>
+                            <constraint firstItem="PkO-Uf-Gi7" firstAttribute="leading" secondItem="74x-dB-Qlu" secondAttribute="leading" id="fkW-5O-0fW"/>
+                            <constraint firstAttribute="trailing" secondItem="PkO-Uf-Gi7" secondAttribute="trailing" id="jVD-3m-fVv"/>
+                            <constraint firstItem="PkO-Uf-Gi7" firstAttribute="top" secondItem="dIW-4w-8Bd" secondAttribute="bottom" id="q57-Hx-kyh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Store Map Search" id="R6L-by-Iwm">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="eNU-4g-Qt0">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="sU2-2e-Gvq" id="RP4-Ms-VMF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="PkO-Uf-Gi7" id="wni-A5-nqD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpW-hm-ZWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330.39999999999998" y="849.62518740629696"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">
@@ -160,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yp6-yx-eHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112.8000000000002" y="849.62518740629696"/>
+            <point key="canvasLocation" x="3052" y="849.62518740629696"/>
         </scene>
         <!--Payment Method Create View Controller-->
         <scene sceneID="T35-XV-2u0">
@@ -221,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3277.5999999999999" y="509.59520239880067"/>
+            <point key="canvasLocation" x="4216.8000000000002" y="509.59520239880067"/>
         </scene>
         <!--Add Product-->
         <scene sceneID="gpI-Dl-AYW">
@@ -253,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiZ-zR-HSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4095" y="510"/>
+            <point key="canvasLocation" x="5032.8000000000002" y="509.59520239880067"/>
         </scene>
         <!--Add Product Details-->
         <scene sceneID="L9p-Sx-JtG">
@@ -307,9 +355,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6S-YU-Jae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4881" y="510"/>
+            <point key="canvasLocation" x="5820" y="509.59520239880067"/>
         </scene>
-        <!--Create Store-->
+        <!--Store Location-->
+        <scene sceneID="3Al-E5-CeP">
+            <objects>
+                <viewController storyboardIdentifier="createStoreLocationVC" id="ckH-cN-L6q" customClass="CreateStoreLocationViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6up-oV-iNq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rl8-KB-LJc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rde-8b-alq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuV-Bk-1xm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ckH-cN-L6q" id="6Bu-0v-Hdc"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KuV-Bk-1xm" secondAttribute="trailing" id="2bb-oQ-S3n"/>
+                            <constraint firstItem="Rl8-KB-LJc" firstAttribute="top" secondItem="KuV-Bk-1xm" secondAttribute="bottom" id="I7x-ad-BFp"/>
+                            <constraint firstItem="KuV-Bk-1xm" firstAttribute="leading" secondItem="rde-8b-alq" secondAttribute="leading" id="Sqw-kQ-T0H"/>
+                            <constraint firstItem="KuV-Bk-1xm" firstAttribute="top" secondItem="6up-oV-iNq" secondAttribute="bottom" id="puR-5p-WoD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Store Location" id="k7A-BY-Wf6"/>
+                    <connections>
+                        <outlet property="mapView" destination="KuV-Bk-1xm" id="yvs-xF-KKp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dU2-5f-oX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4996" y="1279.6101949025488"/>
+        </scene>
+        <!--Store Details-->
         <scene sceneID="dp8-Hv-iFr">
             <objects>
                 <viewController storyboardIdentifier="createStoreVC" id="r21-jB-mOM" customClass="CreateStoreViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -345,23 +429,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Store" id="qqQ-rI-fty">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="rRz-gH-NUN">
+                    <navigationItem key="navigationItem" title="Store Details" id="qqQ-rI-fty">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="rRz-gH-NUN">
                             <connections>
-                                <action selector="createStore:" destination="r21-jB-mOM" id="Sfl-WT-CBG"/>
+                                <action selector="findStoreLocation:" destination="r21-jB-mOM" id="Tql-B0-8BD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="createStoreButton" destination="rRz-gH-NUN" id="6cm-J1-rDj"/>
                         <outlet property="storeAddr" destination="h96-aT-vU9" id="pd8-ik-EY4"/>
                         <outlet property="storeDesc" destination="n3U-Hn-OlY" id="b7H-cn-i2f"/>
                         <outlet property="storeName" destination="70D-Mi-P7V" id="ZJC-k2-qbb"/>
+                        <segue destination="ckH-cN-L6q" kind="show" id="71J-pi-YNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok5-ud-bxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3250" y="1280"/>
+            <point key="canvasLocation" x="4188" y="1279.6101949025488"/>
         </scene>
         <!--Register User View Controller-->
         <scene sceneID="QtF-eT-k5B">
@@ -459,7 +543,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjN-Z9-hHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173.5999999999999" y="849.62518740629696"/>
+            <point key="canvasLocation" x="2112.8000000000002" y="849.62518740629696"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cVb-1q-xnQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gR1-rG-g10" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pz0-mz-9eT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sU2-2e-Gvq" kind="relationship" relationship="rootViewController" id="ySK-LI-54n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4KP-Lu-Jcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="850"/>
         </scene>
     </scenes>
     <resources>

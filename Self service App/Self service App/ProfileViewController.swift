@@ -161,7 +161,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "manageStoreVC" {
             if let destination = segue.destination as? ManageStoreViewController {
                 destination.store = sender as! Store
-                print("sender value: \(sender)")
             }
         }
     }

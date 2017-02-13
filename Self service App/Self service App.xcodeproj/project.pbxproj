@@ -13,6 +13,7 @@
 		4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */; };
 		4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A87852D1E38F01A00EC3696 /* data.xcdatamodeld */; };
 		4A8E6A201E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */; };
+		4A8E6A221E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */; };
 		4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */; };
 		4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */; };
 		4A93015F1DCA3F2600BD1C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A93015D1DCA3F2600BD1C5B /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 		4A9FCDFA1E0DDE2200B67E10 /* ManageStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FCDF91E0DDE2200B67E10 /* ManageStoreViewController.swift */; };
 		4A9FCDFC1E0DDEFE00B67E10 /* CreateStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9FCDFB1E0DDEFE00B67E10 /* CreateStoreViewController.swift */; };
 		4ABCCC241DCCC025002CB778 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */; };
+		4ACEB5431E4F7657003B5A18 /* StoreMapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEB5421E4F7657003B5A18 /* StoreMapSearchViewController.swift */; };
+		4ACEB5471E4F8446003B5A18 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACEB5461E4F8446003B5A18 /* Location.swift */; };
 		4AE61C971E3903550074C96B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C961E3903550074C96B /* User.swift */; };
 		4AE61C991E3A1D8B0074C96B /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */; };
 		4AE61C9B1E3CD42B0074C96B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C9A1E3CD42B0074C96B /* Store.swift */; };
@@ -39,6 +42,7 @@
 		4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCreateViewController.swift; sourceTree = "<group>"; };
 		4A87852E1E38F01A00EC3696 /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
 		4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCreateViewController.swift; sourceTree = "<group>"; };
+		4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoreLocationViewController.swift; sourceTree = "<group>"; };
 		4A9301561DCA3F2600BD1C5B /* Self service App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Self service App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9301591DCA3F2600BD1C5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A93015B1DCA3F2600BD1C5B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		4A9FCDF91E0DDE2200B67E10 /* ManageStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageStoreViewController.swift; sourceTree = "<group>"; };
 		4A9FCDFB1E0DDEFE00B67E10 /* CreateStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoreViewController.swift; sourceTree = "<group>"; };
 		4ABCCC231DCCC025002CB778 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		4ACEB5421E4F7657003B5A18 /* StoreMapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreMapSearchViewController.swift; sourceTree = "<group>"; };
+		4ACEB5461E4F8446003B5A18 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		4AE61C961E3903550074C96B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		4AE61C9A1E3CD42B0074C96B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 				4A9301621DCA3F2600BD1C5B /* LaunchScreen.storyboard */,
 				4A9301651DCA3F2600BD1C5B /* Info.plist */,
 				4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */,
+				4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */,
+				4ACEB5421E4F7657003B5A18 /* StoreMapSearchViewController.swift */,
 			);
 			path = "Self service App";
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 				4AE61C981E3A1D8B0074C96B /* ProfileInfo.swift */,
 				4AE61C9A1E3CD42B0074C96B /* Store.swift */,
 				4AE61CA01E3E5AFA0074C96B /* Product.swift */,
+				4ACEB5461E4F8446003B5A18 /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -288,8 +297,11 @@
 				4AE61CA11E3E5AFA0074C96B /* Product.swift in Sources */,
 				4AE61C971E3903550074C96B /* User.swift in Sources */,
 				4A1B81751E377FA5006537C7 /* simpleCellTableViewCell.swift in Sources */,
+				4ACEB5471E4F8446003B5A18 /* Location.swift in Sources */,
 				4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */,
+				4A8E6A221E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift in Sources */,
 				4A93015A1DCA3F2600BD1C5B /* AppDelegate.swift in Sources */,
+				4ACEB5431E4F7657003B5A18 /* StoreMapSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

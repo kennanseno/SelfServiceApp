@@ -6,6 +6,8 @@
 //  Copyright © 2017 kennanseno. All rights reserved.
 //
 
+import MapKit
+
 class Store {
     
     private var name: String
@@ -13,6 +15,7 @@ class Store {
     private var address: String
     private var owner: String
     private var paymentMethod: String
+    private var location = CLLocationCoordinate2D()
     
     init() {
         self.name = ""
@@ -26,6 +29,15 @@ class Store {
         self.name = name
         self.description = description
         self.address = address
+        self.owner = ""
+        self.paymentMethod = ""
+    }
+    
+    init(name: String, description: String, location: CLLocationCoordinate2D) {
+        self.name = name
+        self.description = description
+        self.address = ""
+        self.location = location
         self.owner = ""
         self.paymentMethod = ""
     }
@@ -61,6 +73,9 @@ class Store {
     public func setPaymentMethod(paymentMethod: String) {
         self.paymentMethod = paymentMethod
     }
+    public func setLocation(location: CLLocationCoordinate2D) {
+        self.location = location
+    }
     public func getName() -> String {
         return self.name
     }
@@ -75,5 +90,8 @@ class Store {
     }
     public func getPaymentMethod() -> String {
         return self.paymentMethod
+    }
+    public func getLocation() -> CLLocationCoordinate2D {
+        return self.location
     }
 }
