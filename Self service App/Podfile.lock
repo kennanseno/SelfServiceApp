@@ -8,6 +8,7 @@ PODS:
   - RSBarcodes_Swift (3.0.3)
   - SkyFloatingLabelTextField (2.0.1)
   - SwiftyJSON (3.1.4)
+  - Whisper (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - RSBarcodes_Swift (~> 3.0.1)
   - SkyFloatingLabelTextField (~> 2.0.0)
   - SwiftyJSON
+  - Whisper
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -30,7 +32,8 @@ SPEC CHECKSUMS:
   RSBarcodes_Swift: 3b4a9c2e81fe9f435a26f18a1b8b826665e7cf89
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 6edb3f7826d5062d6623783539742a9c2465a623
+PODFILE CHECKSUM: 7b54d5664c9f5838a82f55d68aba0a55065bc0e9
 
 COCOAPODS: 1.1.1

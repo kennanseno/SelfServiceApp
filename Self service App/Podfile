@@ -15,4 +15,5 @@ target 'Self service App' do
     pod 'PMAlertController'
     pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'Dollar'
+    pod 'Whisper'
 end

@@ -59,10 +59,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Whisper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3264322DF3550343152A3CA0EA1CCD37</key>
+		<key>0E73C945242D5383349E44AF39BE1FD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +82,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>6B916AF23E20BA96168F591E4A6515B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A7348D530AA66077C8B67CB29DA04E3</key>
+		<key>7E88A54C7EFA024CE921035177F5576A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>848D5AF2F431D1BEC77B61B7ED4BF72D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3D157B0125B867424E3259947EFB186</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>EE774F234E810C0DD8263855D7A1A166</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F70C468C6F85C85867206FFE0A3759DD</key>
+		<key>F5A9E0B0AED55D34E58FD270D001D472</key>
 		<dict>
 			<key>primary</key>
 			<true/>
