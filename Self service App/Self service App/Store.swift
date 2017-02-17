@@ -16,6 +16,7 @@ class Store {
     private var owner: String
     private var paymentMethod: String
     private var location = CLLocationCoordinate2D()
+    private var products = [Product]()
     
     init() {
         self.name = ""

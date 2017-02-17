@@ -207,7 +207,7 @@
             </objects>
             <point key="canvasLocation" x="-330" y="1609"/>
         </scene>
-        <!--Cart View Controller-->
+        <!--Cart-->
         <scene sceneID="1Xd-H7-vnw">
             <objects>
                 <viewController storyboardIdentifier="cartVC" id="goY-Vg-LGu" customClass="CartViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -220,10 +220,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Cart" id="Mmr-zl-HR1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svz-HO-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="1609"/>
+            <point key="canvasLocation" x="594" y="1609"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">

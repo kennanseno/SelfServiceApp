@@ -30,10 +30,6 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
         
         self.focusMarkLayer.strokeColor = UIColor.red.cgColor
         self.cornersLayer.strokeColor = UIColor.yellow.cgColor
-        self.tapHandler = { point in
-            print(point)
-        }
-        
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -62,7 +58,6 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
                     
                     let alertController = UIAlertController(title: "Add to cart?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
                     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
-                        print("Cancel")
                         self.dispatched = false
                     }
                     let okAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -83,7 +78,8 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
                                         "data": [
                                             "product_id": barcode.stringValue,
                                             "store_name": self.store.getName(),
-                                            "store_owner": self.store.getOwner()
+                                            "store_owner": self.store.getOwner(),
+                                            "quantity": 1 //starting quantity always 1
                                         ]
                                         ] as [String : Any]
                                     
@@ -133,6 +129,7 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
     @IBAction func toCart(_ sender: Any) {
         let cartVC = storyboard?.instantiateViewController(withIdentifier: "cartVC") as! CartViewController
         cartVC.username = self.userName
+        cartVC.store = self.store
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     
