@@ -12,6 +12,7 @@
 		4A1CC9B91E52388700713F1F /* StoreProductScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1CC9B81E52388700713F1F /* StoreProductScannerViewController.swift */; };
 		4A467CE61E0EC5E5000B3524 /* ProductScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE51E0EC5E5000B3524 /* ProductScannerViewController.swift */; };
 		4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */; };
+		4A86BEB21E54A8180035CA22 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A86BEB11E54A8180035CA22 /* CartViewController.swift */; };
 		4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A87852D1E38F01A00EC3696 /* data.xcdatamodeld */; };
 		4A8E6A201E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */; };
 		4A8E6A221E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */; };
@@ -41,6 +42,7 @@
 		4A1CC9B81E52388700713F1F /* StoreProductScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreProductScannerViewController.swift; sourceTree = "<group>"; };
 		4A467CE51E0EC5E5000B3524 /* ProductScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductScannerViewController.swift; sourceTree = "<group>"; };
 		4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCreateViewController.swift; sourceTree = "<group>"; };
+		4A86BEB11E54A8180035CA22 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		4A87852E1E38F01A00EC3696 /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
 		4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCreateViewController.swift; sourceTree = "<group>"; };
 		4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoreLocationViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				4A8E6A1F1E48B4FF005DFBA4 /* PaymentMethodCreateViewController.swift */,
 				4A8E6A211E4CA2BA005DFBA4 /* CreateStoreLocationViewController.swift */,
 				4ACEB5421E4F7657003B5A18 /* StoreMapSearchViewController.swift */,
+				4A86BEB11E54A8180035CA22 /* CartViewController.swift */,
 			);
 			path = "Self service App";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,
 				4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */,
 				4AE61CA11E3E5AFA0074C96B /* Product.swift in Sources */,
+				4A86BEB21E54A8180035CA22 /* CartViewController.swift in Sources */,
 				4AE61C971E3903550074C96B /* User.swift in Sources */,
 				4A1B81751E377FA5006537C7 /* simpleCellTableViewCell.swift in Sources */,
 				4A1CC9B91E52388700713F1F /* StoreProductScannerViewController.swift in Sources */,

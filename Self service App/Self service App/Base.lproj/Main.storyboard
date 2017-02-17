@@ -191,14 +191,39 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Store Name" id="VAK-A8-Aoh"/>
+                    <navigationItem key="navigationItem" title="Store Name" id="VAK-A8-Aoh">
+                        <barButtonItem key="rightBarButtonItem" image="cart" id="58t-7U-DT6">
+                            <connections>
+                                <action selector="toCart:" destination="coH-s4-vux" id="xZO-3Y-Fx0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scanInstruction" destination="qpA-Bf-lh4" id="dMz-XN-T5m"/>
+                        <segue destination="goY-Vg-LGu" kind="show" id="MMr-x9-n4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd7-q3-Ypk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-330" y="1609"/>
+        </scene>
+        <!--Cart View Controller-->
+        <scene sceneID="1Xd-H7-vnw">
+            <objects>
+                <viewController storyboardIdentifier="cartVC" id="goY-Vg-LGu" customClass="CartViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AwW-EJ-Tqs"/>
+                        <viewControllerLayoutGuide type="bottom" id="QyK-Vx-feY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0hl-Zg-pcw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Svz-HO-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="1609"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">
@@ -598,6 +623,7 @@
     </scenes>
     <resources>
         <image name="add" width="29" height="29"/>
+        <image name="cart" width="50" height="50"/>
         <image name="profile" width="29" height="29"/>
         <image name="search" width="29" height="29"/>
     </resources>
