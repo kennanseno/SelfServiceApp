@@ -26,6 +26,14 @@ class Store {
         self.paymentMethod = ""
     }
     
+    init(name: String) {
+        self.name = name
+        self.description = ""
+        self.address = ""
+        self.owner = ""
+        self.paymentMethod = ""
+    }
+    
     init(name: String, description: String, address: String) {
         self.name = name
         self.description = description

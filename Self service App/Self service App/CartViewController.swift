@@ -11,18 +11,39 @@ import Eureka
 import Alamofire
 import SwiftyJSON
 import Dollar
+import CoreData
 
 class CartViewController: FormViewController {
     
-    var username = ""
-    var store = Store()
+    var userName = ""
     var products = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject]{
+                    if let username = result.value(forKey: "username") as? String {
+                        self.userName = username
+                    }
+                }
+            }
+        }
+        catch {
+            print("Error")
+        }
+        
+        
         let params = [
-            "username": self.username
+            "username": self.userName
             ] as [String : Any]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/getCartData", parameters: params).responseJSON { response in

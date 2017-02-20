@@ -128,8 +128,6 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
     
     @IBAction func toCart(_ sender: Any) {
         let cartVC = storyboard?.instantiateViewController(withIdentifier: "cartVC") as! CartViewController
-        cartVC.username = self.userName
-        cartVC.store = self.store
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     

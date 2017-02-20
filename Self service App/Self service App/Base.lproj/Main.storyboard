@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svz-HO-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="1609"/>
+            <point key="canvasLocation" x="1065" y="1609"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">
@@ -291,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzX-kC-FYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3278" y="-277"/>
+            <point key="canvasLocation" x="3023" y="60"/>
         </scene>
         <!--Manage Store-->
         <scene sceneID="aOa-aO-2qq">
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4216.8000000000002" y="509.59520239880067"/>
+            <point key="canvasLocation" x="4001" y="510"/>
         </scene>
         <!--Add Product-->
         <scene sceneID="gpI-Dl-AYW">
@@ -359,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiZ-zR-HSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5032.8000000000002" y="509.59520239880067"/>
+            <point key="canvasLocation" x="4996" y="510"/>
         </scene>
         <!--Add Product Details-->
         <scene sceneID="L9p-Sx-JtG">
@@ -624,7 +624,7 @@
     </scenes>
     <resources>
         <image name="add" width="29" height="29"/>
-        <image name="cart" width="50" height="50"/>
+        <image name="cart" width="29" height="29"/>
         <image name="profile" width="29" height="29"/>
         <image name="search" width="29" height="29"/>
     </resources>
