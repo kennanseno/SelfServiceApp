@@ -105,5 +105,11 @@ class CartViewController: FormViewController {
         }
         return total
     }
+    
+    @IBAction func toCheckout(_ sender: Any) {
+        let checkoutVC = storyboard?.instantiateViewController(withIdentifier: "checkoutVC") as! CheckoutViewController
+        self.navigationController?.pushViewController(checkoutVC, animated: true)
+    }
+    
 
 }

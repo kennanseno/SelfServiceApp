@@ -220,11 +220,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cart" id="Mmr-zl-HR1"/>
+                    <navigationItem key="navigationItem" title="Cart" id="Mmr-zl-HR1">
+                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="jbm-80-FFZ">
+                            <connections>
+                                <action selector="toCheckout:" destination="goY-Vg-LGu" id="wtD-6Q-shS"/>
+                                <segue destination="lGl-id-hKT" kind="show" id="ZPG-WA-EO0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svz-HO-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="1609"/>
+            <point key="canvasLocation" x="489" y="1609"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">
@@ -602,6 +609,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjN-Z9-hHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2112.8000000000002" y="849.62518740629696"/>
+        </scene>
+        <!--Checkout View Controller-->
+        <scene sceneID="BUZ-LP-mTu">
+            <objects>
+                <viewController storyboardIdentifier="checkoutVC" id="lGl-id-hKT" customClass="CheckoutViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dtV-Qb-6jz"/>
+                        <viewControllerLayoutGuide type="bottom" id="pGu-dS-j7t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gdd-ph-oBs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vx5-PU-rUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1262" y="1609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cVb-1q-xnQ">

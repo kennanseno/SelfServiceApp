@@ -14,6 +14,8 @@ target 'Self service App' do
     pod 'RSBarcodes_Swift', '~> 3.0.1'
     pod 'PMAlertController'
     pod 'Eureka', '~> 2.0.0-beta.1'
+    pod 'CreditCardRow', '~> 2.0'
+    pod 'PostalAddressRow', '~> 1.0'
     pod 'Dollar'
     pod 'Whisper'
 end
