@@ -73,7 +73,7 @@ class CreateStoreLocationViewController: UIViewController, CLLocationManagerDele
             
             Alamofire.request("http://kennanseno.com:3000/fyp/createStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                     switch response.result {
-                        case .success(let _):
+                        case .success( _):
                             //Return to profileVC
                             let profileVC = self.navigationController?.viewControllers[0] as! ProfileViewController
                             self.navigationController?.popToViewController(profileVC, animated: true)

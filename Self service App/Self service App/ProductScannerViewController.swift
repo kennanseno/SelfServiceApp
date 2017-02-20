@@ -51,7 +51,6 @@ class ProductScannerViewController: RSCodeReaderViewController {
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
                     
-                    
                     break
                 }
             }

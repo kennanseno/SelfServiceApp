@@ -12,7 +12,6 @@ import SkyFloatingLabelTextField
 
 class LandingPageViewController: UIViewController {
     
-    
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var searchField: SkyFloatingLabelTextField!
     @IBOutlet weak var searchButton: UIButton!

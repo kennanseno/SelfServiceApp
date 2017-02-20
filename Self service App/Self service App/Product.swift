@@ -12,12 +12,14 @@ class Product {
     private var name: String
     private var description: String
     private var price: Int
+    private var quantity: Int
     
     init() {
         self.productCode = ""
         self.name = ""
         self.description = ""
         self.price = 0
+        self.quantity = 0
     }
     
     init(productCode: String, name: String, description: String, price: Int) {
@@ -25,7 +27,16 @@ class Product {
         self.name = name
         self.description = description
         self.price = price
+        self.quantity = 1
     }
+    init(productCode: String, name: String, description: String, price: Int, quantity: Int) {
+        self.productCode = productCode
+        self.name = name
+        self.description = description
+        self.price = price
+        self.quantity = quantity
+    }
+    
     
     public func setProductCode(productCode: String) {
         self.productCode = productCode
@@ -39,6 +50,9 @@ class Product {
     public func setPrice(price: Int) {
         self.price = price
     }
+    public func setQuantity(quantity: Int) {
+        self.quantity = quantity
+    }
     public func getProductCode() -> String {
         return self.productCode
     }
@@ -50,5 +64,8 @@ class Product {
     }
     public func getPrice() -> Int {
         return self.price
+    }
+    public func getQuantity() -> Int{
+        return self.quantity
     }
 }

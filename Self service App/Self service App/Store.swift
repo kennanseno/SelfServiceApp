@@ -16,9 +16,18 @@ class Store {
     private var owner: String
     private var paymentMethod: String
     private var location = CLLocationCoordinate2D()
+    private var products = [Product]()
     
     init() {
         self.name = ""
+        self.description = ""
+        self.address = ""
+        self.owner = ""
+        self.paymentMethod = ""
+    }
+    
+    init(name: String) {
+        self.name = name
         self.description = ""
         self.address = ""
         self.owner = ""
@@ -33,12 +42,12 @@ class Store {
         self.paymentMethod = ""
     }
     
-    init(name: String, description: String, location: CLLocationCoordinate2D) {
+    init(name: String, description: String, location: CLLocationCoordinate2D, owner: String) {
         self.name = name
         self.description = description
         self.address = ""
         self.location = location
-        self.owner = ""
+        self.owner = owner
         self.paymentMethod = ""
     }
     

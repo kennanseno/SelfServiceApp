@@ -20,12 +20,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Hardcode data for now
     var sectionNames = ["Basic Information", "Store", " "]
     var user = [String: String]() //TODO: Not use dict as it needs to be ordered
-    var storeName = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
+   // var storeName = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
     var stores = [Store]()
     var userName = "" // initialise here to it will be used to query store names
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("Error")
         }
         
-        self.storeName = [String]() //refresh values
+        self.stores.removeAll()
         // get store objects
         let params = [
             "username" : userName
@@ -77,12 +77,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                             paymentMethod: $0["paymentMethod"]["_id"].stringValue.capitalized
                         )
                     })
-
-                self.storeName += self.stores.map({$0.getName()})
             case .failure(let error):
                 print(error)
             }
         }
+
     }
     
     override func viewDidLoad() {
@@ -96,7 +95,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.storeName.append("Create new store...")
+        self.stores.append(Store(name: "Create new store..."))
         self.profileTable.reloadData()
     }
     
@@ -122,7 +121,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             cell = simpleCell
         }else if indexPath.section == 1 {
-            cell.textLabel?.text = storeName[indexPath.row]
+            cell.textLabel?.text = self.stores[indexPath.row].getName()
         } else {
             cell.textLabel?.text = "View Transaction History"
         }
@@ -134,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.section == 0 {
             //TODO: move to edit user details
         } else if indexPath.section == 1 {
-            if storeName[indexPath.row] != storeName[storeName.count - 1] {
+            if indexPath.row < self.stores.count - 1 {
                 let manageStoreVC = storyboard?.instantiateViewController(withIdentifier: "manageStoreVC") as! ManageStoreViewController
                 manageStoreVC.store = stores[indexPath.row]
                 self.navigationController?.pushViewController(manageStoreVC, animated: true)
@@ -151,7 +150,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if section == 0 {
             return user.count
         } else if section == 1 {
-            return storeName.count
+            return self.stores.count
         } else {
             return 1
         }

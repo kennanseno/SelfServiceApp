@@ -128,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="1200.8" y="849.62518740629696"/>
         </scene>
-        <!--Store Map Search-->
+        <!--Store Search-->
         <scene sceneID="FdB-UB-bvT">
             <objects>
                 <viewController storyboardIdentifier="storeMapSearchVC" id="sU2-2e-Gvq" customClass="StoreMapSearchViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,7 +152,7 @@
                             <constraint firstItem="PkO-Uf-Gi7" firstAttribute="top" secondItem="dIW-4w-8Bd" secondAttribute="bottom" id="q57-Hx-kyh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Store Map Search" id="R6L-by-Iwm">
+                    <navigationItem key="navigationItem" title="Store Search" id="R6L-by-Iwm">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="eNU-4g-Qt0">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -162,11 +162,69 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="PkO-Uf-Gi7" id="wni-A5-nqD"/>
+                        <segue destination="coH-s4-vux" kind="show" id="Y2m-35-ol1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpW-hm-ZWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-330.39999999999998" y="849.62518740629696"/>
+        </scene>
+        <!--Store Name-->
+        <scene sceneID="5Sa-PM-HON">
+            <objects>
+                <viewController storyboardIdentifier="storeProductScannerVC" id="coH-s4-vux" customClass="StoreProductScannerViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cGK-DI-9Bd"/>
+                        <viewControllerLayoutGuide type="bottom" id="82Z-gC-5Ej"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3M5-qr-tU6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan product barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpA-Bf-lh4">
+                                <rect key="frame" x="106" y="323" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Store Name" id="VAK-A8-Aoh">
+                        <barButtonItem key="rightBarButtonItem" image="cart" id="58t-7U-DT6">
+                            <connections>
+                                <action selector="toCart:" destination="coH-s4-vux" id="xZO-3Y-Fx0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scanInstruction" destination="qpA-Bf-lh4" id="dMz-XN-T5m"/>
+                        <segue destination="goY-Vg-LGu" kind="show" id="MMr-x9-n4c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd7-q3-Ypk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="1609"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="1Xd-H7-vnw">
+            <objects>
+                <viewController storyboardIdentifier="cartVC" id="goY-Vg-LGu" customClass="CartViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AwW-EJ-Tqs"/>
+                        <viewControllerLayoutGuide type="bottom" id="QyK-Vx-feY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0hl-Zg-pcw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cart" id="Mmr-zl-HR1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Svz-HO-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="1609"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RKy-Kd-xnT">
@@ -233,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzX-kC-FYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3278" y="-277"/>
+            <point key="canvasLocation" x="3023" y="60"/>
         </scene>
         <!--Manage Store-->
         <scene sceneID="aOa-aO-2qq">
@@ -269,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4216.8000000000002" y="509.59520239880067"/>
+            <point key="canvasLocation" x="4001" y="510"/>
         </scene>
         <!--Add Product-->
         <scene sceneID="gpI-Dl-AYW">
@@ -301,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiZ-zR-HSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5032.8000000000002" y="509.59520239880067"/>
+            <point key="canvasLocation" x="4996" y="510"/>
         </scene>
         <!--Add Product Details-->
         <scene sceneID="L9p-Sx-JtG">
@@ -566,6 +624,7 @@
     </scenes>
     <resources>
         <image name="add" width="29" height="29"/>
+        <image name="cart" width="29" height="29"/>
         <image name="profile" width="29" height="29"/>
         <image name="search" width="29" height="29"/>
     </resources>
