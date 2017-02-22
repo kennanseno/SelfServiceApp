@@ -52,13 +52,22 @@ class PaymentMethodCreateViewController: FormViewController {
             return
         } else {
             //send paymentMethod data to server
+            
+            var paymentData = [
+                "_id": paymentProviderRow.value?.uppercased(),
+                "publicKey": publicKeyRow.value
+            ]
+            
+            if paymentProviderRow.value == "Simplify" {
+                paymentData.updateValue(privateKeyRow.value, forKey: "privateKey")
+            }
+            
             let params = [
                 "params": [ "username": self.store.getOwner(), "stores.name": self.store.getName() ],
-                "data": [
-                    "_id": paymentProviderRow.value?.uppercased(),
-                    "publicKey": publicKeyRow.value
-                ]
+                "data": paymentData
                 ] as [String : Any]
+            
+
             
             Alamofire.request("http://kennanseno.com:3000/fyp/addPaymentMethod", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                 switch response.result {
