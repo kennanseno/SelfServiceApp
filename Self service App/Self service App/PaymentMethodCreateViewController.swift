@@ -14,24 +14,36 @@ class PaymentMethodCreateViewController: FormViewController {
 
     var store = Store()
     let paymentProviderRow = SegmentedRow<String>() {
+        $0.tag = "paymentProviderRow"
         $0.title = "Payment Provider"
-        $0.options = ["Stripe","Simplify"]
+        $0.options = ["Simplify","Stripe"]
+        $0.value = "Simplify"
     }
     let publicKeyRow = TextRow(){
         $0.title = "Public Key"
         $0.placeholder = "Add Public Key"
     }
-    
+    var privateKeyRow = TextRow()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        privateKeyRow = TextRow() {
+            $0.title = "Private Key"
+            $0.placeholder = "Add Private Key"
+            $0.hidden = Condition.function(["paymentProviderRow"], { form in
+                let row = form.rowBy(tag: "paymentProviderRow") as? SegmentedRow<String>
+                
+                return row?.value != "Simplify" ? true : false
+            })
+        }
 
         form +++ Section(header: "New Payment Method", footer: "Please enter the correct API key provided otherwise all payments will be rejected.")
             <<< paymentProviderRow
             <<< publicKeyRow
+            <<< privateKeyRow
+
     }
-    
-    
-    
 
     @IBAction func addPaymentMethod(_ sender: Any) {
         if (paymentProviderRow.value == nil) {
