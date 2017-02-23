@@ -17,6 +17,7 @@ class CartViewController: FormViewController {
     
     var userName = ""
     var products = [Product]()
+    var cart = Cart()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,16 @@ class CartViewController: FormViewController {
             if results.count > 0 {
                 for result in results as! [NSManagedObject]{
                     if let username = result.value(forKey: "username") as? String {
-                        self.userName = username
+                        self.cart.getCustomer().setUsername(username: username)
+                    }
+                    if let name = result.value(forKey: "name") as? String {
+                        self.cart.getCustomer().setName(name: name)
+                    }
+                    if let email = result.value(forKey: "email") as? String {
+                        self.cart.getCustomer().setEmail(email: email)
+                    }
+                    if let address = result.value(forKey: "address") as? String {
+                        self.cart.getCustomer().setAddress(address: address)
                     }
                 }
             }
@@ -43,13 +53,16 @@ class CartViewController: FormViewController {
         
         
         let params = [
-            "username": self.userName
+            "username": self.cart.getCustomer().getUsername()
             ] as [String : Any]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/getCartData", parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
-                self.products = JSON(value).arrayValue.map({
+                let json = JSON(value).arrayValue
+                
+                
+                let productList = json.map({
                     Product(
                         productCode: $0["_id"].stringValue,
                         name: $0["name"].stringValue,
@@ -57,6 +70,7 @@ class CartViewController: FormViewController {
                         price: $0["price"].intValue,
                         quantity: $0["quantity"].intValue)
                 })
+                self.cart.setProducts(products: productList)
                 
                 let section = Section("Products")
                 let totalRow = DecimalRow() { row in
@@ -65,13 +79,14 @@ class CartViewController: FormViewController {
                 }.onChange({ tRow in
                     tRow.reload()
                 })
-                for product in self.products {
+                for product in self.cart.getProducts() {
                     let row = StepperRow() { row in
                         row.tag = product.getProductCode()
                         row.title = "\(product.getName()) @ €\(Double(product.getPrice()))"
                         row.value = Double(product.getQuantity())
                     }.onChange({ stepperRow in
                         totalRow.value = self.calculateTotalPrice(rowTag: stepperRow.tag!)
+                        self.cart.setTotalPrice(totalPrice: Int(totalRow.value!))
                     })
                     
                     section.append(row)
@@ -96,7 +111,7 @@ class CartViewController: FormViewController {
 
         var total: Double =  0.0
         
-        for product in self.products {
+        for product in self.cart.getProducts() {
             if rowTag != "" && product.getProductCode() == rowTag {
                 product.setQuantity(quantity: Int(currentRow.value!))
             }
@@ -108,6 +123,7 @@ class CartViewController: FormViewController {
     
     @IBAction func toCheckout(_ sender: Any) {
         let checkoutVC = storyboard?.instantiateViewController(withIdentifier: "checkoutVC") as! CheckoutViewController
+        checkoutVC.cart = self.cart
         self.navigationController?.pushViewController(checkoutVC, animated: true)
     }
     

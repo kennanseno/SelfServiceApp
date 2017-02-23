@@ -9,64 +9,108 @@
 import Eureka
 import CreditCardRow
 import PostalAddressRow
+import Alamofire
+import SwiftyJSON
 
 
 class CheckoutViewController: FormViewController {
+    
+    var cart = Cart()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let switchRow = SwitchRow() {
-            $0.tag = "switchRow"
-            $0.title = "Billing address same as shipping"
+        let creditCardRow = CreditCardRow() {
+            $0.maxCVVLength = 3
+            $0.add(rule: RuleRequired())
+            $0.cell.cvvField?.placeholder = "CVC"
+            $0.maxCreditCardNumberLength = 16
         }
-        
-        let billingRow = PostalAddressRow() {
-            $0.streetPlaceholder = "Street"
-            $0.statePlaceholder = "County"
-            $0.cityPlaceholder = "City"
-            $0.countryPlaceholder = "Country"
-            $0.postalCodePlaceholder = "Zip code"
-        }
-        
-        let shippingRow = PostalAddressRow() {
-            $0.streetPlaceholder = "Street"
-            $0.statePlaceholder = "County"
-            $0.cityPlaceholder = "City"
-            $0.countryPlaceholder = "Country"
-            $0.postalCodePlaceholder = "Zip code"
-        }
-        
-        let billingSection = Section("Billing Address") {
-            $0.hidden = Condition.function(["switchRow"], { form in
-                let row = form.rowBy(tag: "switchRow") as? SwitchRow
-                
-                if row!.value == true {
-                    billingRow.value = shippingRow.value
-                } else {
-                    billingRow.value?.street = nil
-                    billingRow.value?.city = nil
-                    billingRow.value?.state = nil
-                    billingRow.value?.postalCode = nil
-                    billingRow.value?.country = nil
-                }
-                
-                return row!.value ?? false
-            })
-        }
-        billingSection.append(billingRow)
         
         form +++ Section("Card Information")
-            <<< CreditCardRow() {
-                $0.maxCVVLength = 3
-                $0.cell.cvvField?.placeholder = "CVC"
-                $0.maxCreditCardNumberLength = 16
-        }
-        form +++ Section("Shipping address")
-            <<< shippingRow
+            <<< creditCardRow
         form +++ Section()
-            <<< switchRow
-        form +++ billingSection
+            <<< ButtonRow() {
+                $0.title = "Pay Now"
+                }.onCellSelection({ cell, row in
+                    if(creditCardRow.cell.numberField.text == "" || creditCardRow.cell.expirationField?.text == "" || creditCardRow.cell.cvvField?.text == "") {
+                        return
+                    }
+                    
+                    print("number:\(creditCardRow.cell.numberField.text) exp:\(creditCardRow.cell.expirationField?.text) cvc:\(creditCardRow.cell.cvvField?.text)")
+                    let card = CreditCard(number: creditCardRow.cell.numberField.text!, expiration: (creditCardRow.cell.expirationField?.text)!, cvc: Int((creditCardRow.cell.cvvField?.text)!)!)
+                    
+                    
+                    let params = [
+                            "amount": self.cart.getTotalPrice(),
+                            "currency": "EUR", // single currency support for now
+                            "card": [
+                                "number": card.getNumber(),
+                                "expiration": card.getExpiration(),
+                                "cvc": card.getCvc()
+                            ]
+
+                        ] as [String : Any]
+                    
+                    Alamofire.request("http://kennanseno.com:3000/fyp/pay", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                        switch response.result {
+                        case .success(let value):
+                            let result = JSON(value)
+                            print(result)
+                            
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+
+                })
+//        form +++ Section("Shipping address")
+//            <<< shippingRow
+//        form +++ Section()
+//            <<< switchRow
+//        form +++ billingSection
         
     }
+    
+    //        let switchRow = SwitchRow() {
+    //            $0.tag = "switchRow"
+    //            $0.title = "Billing address same as shipping"
+    //        }
+    //
+    //        let billingRow = PostalAddressRow() {
+    //            $0.streetPlaceholder = "Street"
+    //            $0.statePlaceholder = "County"
+    //            $0.cityPlaceholder = "City"
+    //            $0.countryPlaceholder = "Country"
+    //            $0.postalCodePlaceholder = "Zip code"
+    //        }
+    //
+    //        let shippingRow = PostalAddressRow() {
+    //            $0.streetPlaceholder = "Street"
+    //            $0.statePlaceholder = "County"
+    //            $0.cityPlaceholder = "City"
+    //            $0.countryPlaceholder = "Country"
+    //            $0.postalCodePlaceholder = "Zip code"
+    //        }
+    //
+    //        let billingSection = Section("Billing Address") {
+    //            $0.hidden = Condition.function(["switchRow"], { form in
+    //                let row = form.rowBy(tag: "switchRow") as? SwitchRow
+    //
+    //                if row!.value == true {
+    //                    billingRow.value = shippingRow.value
+    //                } else {
+    //                    billingRow.value?.street = nil
+    //                    billingRow.value?.city = nil
+    //                    billingRow.value?.state = nil
+    //                    billingRow.value?.postalCode = nil
+    //                    billingRow.value?.country = nil
+    //                }
+    //
+    //                return row!.value ?? false
+    //            })
+    //        }
+    //        billingSection.append(billingRow)
+    //        
+
 }
