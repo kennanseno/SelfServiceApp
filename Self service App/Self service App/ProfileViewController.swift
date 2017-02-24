@@ -70,6 +70,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     .arrayValue
                     .map({
                         Store(
+                            id: $0["id"].stringValue,
                             name: $0["name"].stringValue,
                             description: $0["description"].stringValue,
                             address: $0["address"].stringValue,
