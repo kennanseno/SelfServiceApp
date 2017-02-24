@@ -58,16 +58,13 @@ class CreateStoreLocationViewController: UIViewController, CLLocationManagerDele
         let okAction = UIAlertAction(title: "Create", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
             
             let params = [
-                "params": [
-                    "username": self.store.getOwner() ],
-                    "data": [
+                    "username": self.store.getOwner(),
                     "name" : self.store.getName(),
                     "description": self.store.getDescription(),
                     "address": self.store.getAddress(),
                     "location": [
                         "latitude": annotation.coordinate.latitude,
                         "longitude": annotation.coordinate.longitude
-                        ]
                     ]
                 ] as [String : Any]
             

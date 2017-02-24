@@ -22,16 +22,12 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
     var products = [Product]()
     
     override func viewWillAppear(_ animated: Bool) {
-        let params = [
-            "username" : store.getOwner(),
-            "storename": store.getName()
-            ] as [String : Any]
+        let params = [ "store_id": store.getId() ] as [String : Any]
         
         Alamofire.request("http://kennanseno.com:3000/fyp/getStoreDetails", parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let result = JSON(value)
-                print(result)
                 self.products = result[0]["products"]
                     .arrayValue
                     .map({
