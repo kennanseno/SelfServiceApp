@@ -75,7 +75,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func addProducts(_ sender: Any) {
         let productScannerVC = self.storyboard?.instantiateViewController(withIdentifier: "productScannerVC") as! ProductScannerViewController
-        productScannerVC.storeName = store.getName()
+        productScannerVC.store = self.store
         self.navigationController?.pushViewController(productScannerVC, animated: true)
     }
     
@@ -110,6 +110,7 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         } else if indexPath.section == 1 {
             cell.textLabel?.text = store.getPaymentMethod() != "" ? store.getPaymentMethod() : "Add new Payment method..."
         } else if indexPath.section == 2 {
+            print("productName: \(products[indexPath.row].getName())")
             cell.textLabel?.text = products[indexPath.row].getName()
         }
         

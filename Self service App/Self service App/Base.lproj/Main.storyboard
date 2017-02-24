@@ -323,6 +323,7 @@
                     <connections>
                         <outlet property="manageStoreTable" destination="beM-xo-Iai" id="RCv-Ui-eWW"/>
                         <segue destination="eeH-gI-fdD" kind="show" id="LTo-Ui-B6D"/>
+                        <segue destination="8sB-N6-XGq" kind="show" id="OuY-9G-RkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lif-f3-Frn" userLabel="First Responder" sceneMemberID="firstResponder"/>

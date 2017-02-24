@@ -12,13 +12,14 @@ import SkyFloatingLabelTextField
 import CoreData
 import Alamofire
 import SwiftyJSON
+import Whisper
 
 class ProductCreateViewController: UIViewController {
 
     let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
     let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
     let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
-    var storeName = ""
+    var store = Store()
     var productCode = ""
     
     
@@ -39,6 +40,8 @@ class ProductCreateViewController: UIViewController {
         //validation
         for textfield in [productName, productDesc, productPrice] {
             if((textfield?.text?.isEmpty)!) {
+                let errorMessage = Message(title: "All fields must be filled!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 1), images: nil)
+                Whisper.show(whisper: errorMessage, to: self.navigationController!, action: .show)
                 return
             }
         }
@@ -66,9 +69,9 @@ class ProductCreateViewController: UIViewController {
         //send product data to server
         let product = Product(productCode: self.productCode, name: productName.text!, description: productDesc.text!, price: Int(productPrice.text!)!)
         let params = [
-                "params": [ "username": username, "stores.name": self.storeName ],
+                "store_id": self.store.getId(),
                 "data": [
-                    "_id": product.getProductCode(),
+                    "code": product.getProductCode(),
                     "name": product.getName(),
                     "description": product.getDescription(),
                     "price": product.getPrice()
@@ -79,13 +82,11 @@ class ProductCreateViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let result = JSON(value)
-                print(result)
                 
             case .failure(let error):
                 print(error)
             }
         }
-
         
         //get viewcontroller in the nav vc stack
         let manageStoreVC = self.navigationController?.viewControllers[1] as! ManageStoreViewController
