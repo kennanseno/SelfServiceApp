@@ -11,7 +11,7 @@ import CreditCardRow
 import PostalAddressRow
 import Alamofire
 import SwiftyJSON
-
+import Whisper
 
 class CheckoutViewController: FormViewController {
     
@@ -34,6 +34,8 @@ class CheckoutViewController: FormViewController {
                 $0.title = "Pay Now"
                 }.onCellSelection({ cell, row in
                     if(creditCardRow.cell.numberField.text == "" || creditCardRow.cell.expirationField?.text == "" || creditCardRow.cell.cvvField?.text == "") {
+                        let errorMessage = Message(title: "All fields must be filled!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 1), images: nil)
+                        Whisper.show(whisper: errorMessage, to: self.navigationController!, action: .show)
                         return
                     }
                     

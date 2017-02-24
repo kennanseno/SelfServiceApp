@@ -57,24 +57,24 @@ class PaymentMethodCreateViewController: FormViewController {
                 "_id": paymentProviderRow.value?.uppercased(),
                 "publicKey": publicKeyRow.value
             ]
-            
+            //add if Simplify
             if paymentProviderRow.value == "Simplify" {
                 paymentData.updateValue(privateKeyRow.value, forKey: "privateKey")
             }
             
             let params = [
-                "params": [ "username": self.store.getOwner(), "stores.name": self.store.getName() ],
-                "data": paymentData
-                ] as [String : Any]
+                "params": [
+                    "username": self.store.getOwner(),
+                    "store_id": self.store.getId()
+                ],
+                "key": paymentData
+            ] as [String : Any]
             
 
-            
             Alamofire.request("http://kennanseno.com:3000/fyp/addPaymentMethod", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                 switch response.result {
-                case .success(let value):
-                    let result = JSON(value)
-                    print(result)
-                    
+                case .success(_): break
+                
                 case .failure(let error):
                     print(error)
                 }

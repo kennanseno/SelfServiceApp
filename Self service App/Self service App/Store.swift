@@ -10,6 +10,7 @@ import MapKit
 
 class Store {
     
+    private var id: String
     private var name: String
     private var description: String
     private var address: String
@@ -19,6 +20,7 @@ class Store {
     private var products = [Product]()
     
     init() {
+        self.id = ""
         self.name = ""
         self.description = ""
         self.address = ""
@@ -27,6 +29,7 @@ class Store {
     }
     
     init(name: String) {
+        self.id = ""
         self.name = name
         self.description = ""
         self.address = ""
@@ -40,6 +43,7 @@ class Store {
         self.address = address
         self.owner = ""
         self.paymentMethod = ""
+        self.id = ""
     }
     
     init(name: String, description: String, location: CLLocationCoordinate2D, owner: String) {
@@ -49,6 +53,17 @@ class Store {
         self.location = location
         self.owner = owner
         self.paymentMethod = ""
+        self.id = ""
+    }
+    
+    init(id: String, name: String, description: String, location: CLLocationCoordinate2D, owner: String) {
+        self.name = name
+        self.description = description
+        self.address = ""
+        self.location = location
+        self.owner = owner
+        self.paymentMethod = ""
+        self.id = id
     }
     
     init(name: String, description: String, address: String, owner: String) {
@@ -57,6 +72,7 @@ class Store {
         self.address = address
         self.owner = owner
         self.paymentMethod = ""
+        self.id = ""
     }
     
     init(name: String, description: String, address: String, owner: String, paymentMethod: String) {
@@ -65,8 +81,21 @@ class Store {
         self.address = address
         self.owner = owner
         self.paymentMethod = paymentMethod
+        self.id = ""
     }
     
+    init(id: String, name: String, description: String, address: String, owner: String, paymentMethod: String) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.address = address
+        self.owner = owner
+        self.paymentMethod = paymentMethod
+    }
+    
+    public func setId(id: String) {
+        self.id = id
+    }
     public func setName(name: String) {
         self.name = name
     }
@@ -102,5 +131,8 @@ class Store {
     }
     public func getLocation() -> CLLocationCoordinate2D {
         return self.location
+    }
+    public func getId() -> String {
+        return self.id
     }
 }

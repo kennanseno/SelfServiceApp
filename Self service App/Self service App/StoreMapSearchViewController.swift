@@ -39,7 +39,7 @@ class StoreMapSearchViewController: UIViewController, CLLocationManagerDelegate,
             case .success(let value):
                 let result = JSON(value)
                 self.storeList = result.arrayValue.map({
-                    Store(name: $0["name"].stringValue, description: $0["description"].stringValue, location: CLLocationCoordinate2D(latitude: $0["location"]["latitude"].doubleValue, longitude: $0["location"]["longitude"].doubleValue), owner: $0["owner"].stringValue)
+                    Store(id: $0["id"].stringValue, name: $0["name"].stringValue, description: $0["description"].stringValue, location: CLLocationCoordinate2D(latitude: $0["location"]["latitude"].doubleValue, longitude: $0["location"]["longitude"].doubleValue), owner: $0["owner"].stringValue)
                 })
                 
                 //zoom to current user location

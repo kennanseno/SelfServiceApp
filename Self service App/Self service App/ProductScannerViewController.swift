@@ -14,7 +14,7 @@ class ProductScannerViewController: RSCodeReaderViewController {
 
     @IBOutlet weak var scanInstruction: UILabel!
     var dispatched: Bool = false
-    var storeName = ""
+    var store = Store()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class ProductScannerViewController: RSCodeReaderViewController {
                     }
                     let okAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                         let productCreateVC = self.storyboard?.instantiateViewController(withIdentifier: "productCreateVC") as! ProductCreateViewController
-                        productCreateVC.storeName = self.storeName
+                        productCreateVC.store = self.store
                         productCreateVC.productCode = barcode.stringValue
                         self.navigationController?.pushViewController(productCreateVC, animated: true)
                         self.dispatched = false
