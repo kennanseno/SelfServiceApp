@@ -65,8 +65,7 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
                         
                         var params = [
                                 "product_id": barcode.stringValue,
-                                "store_name": self.store.getName(),
-                                "store_owner": self.store.getOwner()
+                                "store_id": self.store.getId()
                             ] as [String : Any]
                         
                         Alamofire.request("http://kennanseno.com:3000/fyp/productExists", parameters: params).responseJSON { response in
@@ -74,11 +73,10 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
                             case .success(let value):
                                 if value as! Bool {
                                     params = [
-                                        "params": [ "username": self.userName],
+                                        "username": self.userName,
                                         "data": [
                                             "product_id": barcode.stringValue,
-                                            "store_name": self.store.getName(),
-                                            "store_owner": self.store.getOwner(),
+                                            "store_id": self.store.getId(),
                                             "quantity": 1 //starting quantity always 1
                                         ]
                                         ] as [String : Any]

@@ -56,6 +56,16 @@ class Store {
         self.id = ""
     }
     
+    init(id: String, name: String, description: String, location: CLLocationCoordinate2D, owner: String) {
+        self.name = name
+        self.description = description
+        self.address = ""
+        self.location = location
+        self.owner = owner
+        self.paymentMethod = ""
+        self.id = id
+    }
+    
     init(name: String, description: String, address: String, owner: String) {
         self.name = name
         self.description = description
