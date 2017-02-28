@@ -59,10 +59,9 @@ class CartViewController: FormViewController {
         Alamofire.request("http://kennanseno.com:3000/fyp/getCartData", parameters: params).responseJSON { response in
             switch response.result {
             case .success(let value):
-                let json = JSON(value).arrayValue
+                let json = JSON(value)
                 
-                
-                let productList = json.map({
+                let productList = json["products"].arrayValue.map({
                     Product(
                         productCode: $0["_id"].stringValue,
                         name: $0["name"].stringValue,
@@ -71,6 +70,8 @@ class CartViewController: FormViewController {
                         quantity: $0["quantity"].intValue)
                 })
                 self.cart.setProducts(products: productList)
+                self.cart.setStoreID(storeID: json["store_id"].stringValue)
+                self.cart.setTotalPrice(totalPrice: Int(self.calculateTotalPrice(rowTag: "")) * 1000)
                 
                 let section = Section("Products")
                 let totalRow = DecimalRow() { row in
@@ -86,7 +87,7 @@ class CartViewController: FormViewController {
                         row.value = Double(product.getQuantity())
                     }.onChange({ stepperRow in
                         totalRow.value = self.calculateTotalPrice(rowTag: stepperRow.tag!)
-                        self.cart.setTotalPrice(totalPrice: Int(totalRow.value!))
+                        self.cart.setTotalPrice(totalPrice: Int(totalRow.value!) * 1000)
                     })
                     
                     section.append(row)

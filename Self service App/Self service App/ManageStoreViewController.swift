@@ -110,7 +110,6 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         } else if indexPath.section == 1 {
             cell.textLabel?.text = store.getPaymentMethod() != "" ? store.getPaymentMethod() : "Add new Payment method..."
         } else if indexPath.section == 2 {
-            print("productName: \(products[indexPath.row].getName())")
             cell.textLabel?.text = products[indexPath.row].getName()
         }
         

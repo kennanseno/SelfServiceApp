@@ -11,21 +11,16 @@ class Cart {
     private var customer: User
     private var products = [Product]()
     private var totalPrice: Int
-    private var storeOwner: String
-    private var storeName: String
+    private var storeID: String
     
     init() {
         self.customer = User()
         self.totalPrice = 0
-        self.storeName = ""
-        self.storeOwner = ""
+        self.storeID = ""
     }
     
-    public func setStoreName(storeName: String) {
-        self.storeName = storeName
-    }
-    public func setStoreOwner(storeOwner: String) {
-        self.storeOwner = storeOwner
+    public func setStoreID(storeID: String) {
+        self.storeID = storeID
     }
     public func setCustomer(customer: User) {
         self.customer = customer
@@ -45,10 +40,8 @@ class Cart {
     public func getTotalPrice() -> Int {
         return self.totalPrice
     }
-    public func getStoreName() -> String {
-        return self.storeName
+    public func getStoreID() -> String {
+        return self.storeID
     }
-    public func getStoreOwner() -> String {
-        return self.storeOwner
-    }
+
 }

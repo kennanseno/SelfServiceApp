@@ -224,10 +224,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Checkout" id="jbm-80-FFZ">
                             <connections>
                                 <action selector="toCheckout:" destination="goY-Vg-LGu" id="wtD-6Q-shS"/>
-                                <segue destination="lGl-id-hKT" kind="show" id="ZPG-WA-EO0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="lGl-id-hKT" kind="show" id="pOM-aX-WWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svz-HO-Jk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

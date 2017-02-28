@@ -19,6 +19,7 @@ class CheckoutViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("store:\(self.cart.getStoreID())")
         
         let creditCardRow = CreditCardRow() {
             $0.maxCVVLength = 3
@@ -42,8 +43,9 @@ class CheckoutViewController: FormViewController {
                     print("number:\(creditCardRow.cell.numberField.text) exp:\(creditCardRow.cell.expirationField?.text) cvc:\(creditCardRow.cell.cvvField?.text)")
                     let card = CreditCard(number: creditCardRow.cell.numberField.text!, expiration: (creditCardRow.cell.expirationField?.text)!, cvc: Int((creditCardRow.cell.cvvField?.text)!)!)
                     
-                    
+                    //TODO: send customer data
                     let params = [
+                            "store_id": self.cart.getStoreID(),
                             "amount": self.cart.getTotalPrice(),
                             "currency": "EUR", // single currency support for now
                             "card": [
@@ -54,6 +56,7 @@ class CheckoutViewController: FormViewController {
 
                         ] as [String : Any]
                     
+                    print("params:\(params)")
                     Alamofire.request("http://kennanseno.com:3000/fyp/pay", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                         switch response.result {
                         case .success(let value):

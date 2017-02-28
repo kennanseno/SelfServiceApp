@@ -54,7 +54,7 @@ class PaymentMethodCreateViewController: FormViewController {
             //send paymentMethod data to server
             
             var paymentData = [
-                "_id": paymentProviderRow.value?.uppercased(),
+                "id": paymentProviderRow.value?.uppercased(),
                 "publicKey": publicKeyRow.value
             ]
             //add if Simplify
