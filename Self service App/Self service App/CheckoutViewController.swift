@@ -40,7 +40,6 @@ class CheckoutViewController: FormViewController {
                         return
                     }
                     
-                    print("number:\(creditCardRow.cell.numberField.text) exp:\(creditCardRow.cell.expirationField?.text) cvc:\(creditCardRow.cell.cvvField?.text)")
                     let card = CreditCard(number: creditCardRow.cell.numberField.text!, expiration: (creditCardRow.cell.expirationField?.text)!, cvc: Int((creditCardRow.cell.cvvField?.text)!)!)
                     
                     //TODO: send customer data
@@ -56,7 +55,6 @@ class CheckoutViewController: FormViewController {
 
                         ] as [String : Any]
                     
-                    print("params:\(params)")
                     Alamofire.request("http://kennanseno.com:3000/fyp/pay", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                         switch response.result {
                         case .success(let value):

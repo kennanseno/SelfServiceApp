@@ -71,7 +71,7 @@ class CartViewController: FormViewController {
                 })
                 self.cart.setProducts(products: productList)
                 self.cart.setStoreID(storeID: json["store_id"].stringValue)
-                self.cart.setTotalPrice(totalPrice: Int(self.calculateTotalPrice(rowTag: "")) * 1000)
+                self.cart.setTotalPrice(totalPrice: Int(self.calculateTotalPrice(rowTag: "")) * 100)
                 
                 let section = Section("Products")
                 let totalRow = DecimalRow() { row in
@@ -86,8 +86,22 @@ class CartViewController: FormViewController {
                         row.title = "\(product.getName()) @ €\(Double(product.getPrice()))"
                         row.value = Double(product.getQuantity())
                     }.onChange({ stepperRow in
+                        if(stepperRow.value! == 0.0) {
+                            let alertController = UIAlertController(title: "Remove from cart?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
+                                stepperRow.value = 1.0
+                                stepperRow.reload()
+                            }
+                            let okAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                print("Remove")
+                            }
+                            alertController.addAction(cancelAction)
+                            alertController.addAction(okAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                        
                         totalRow.value = self.calculateTotalPrice(rowTag: stepperRow.tag!)
-                        self.cart.setTotalPrice(totalPrice: Int(totalRow.value!) * 1000)
+                        self.cart.setTotalPrice(totalPrice: Int(totalRow.value!) * 100)
                     })
                     
                     section.append(row)

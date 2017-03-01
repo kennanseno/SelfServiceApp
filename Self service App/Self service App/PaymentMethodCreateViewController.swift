@@ -19,18 +19,20 @@ class PaymentMethodCreateViewController: FormViewController {
         $0.options = ["Simplify","Stripe"]
         $0.value = "Simplify"
     }
-    let publicKeyRow = TextRow(){
-        $0.title = "Public Key"
-        $0.placeholder = "Add Public Key"
+
+    let privateKeyRow = TextRow() {
+        $0.title = "Private Key"
+        $0.placeholder = "Add Private Key"
     }
-    var privateKeyRow = TextRow()
+    var publicKeyRow = TextRow()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        privateKeyRow = TextRow() {
-            $0.title = "Private Key"
-            $0.placeholder = "Add Private Key"
+        publicKeyRow = TextRow(){
+            $0.title = "Public Key"
+            $0.placeholder = "Add Public Key"
             $0.hidden = Condition.function(["paymentProviderRow"], { form in
                 let row = form.rowBy(tag: "paymentProviderRow") as? SegmentedRow<String>
                 
@@ -40,26 +42,26 @@ class PaymentMethodCreateViewController: FormViewController {
 
         form +++ Section(header: "New Payment Method", footer: "Please enter the correct API key provided otherwise all payments will be rejected.")
             <<< paymentProviderRow
-            <<< publicKeyRow
             <<< privateKeyRow
+            <<< publicKeyRow
 
     }
 
     @IBAction func addPaymentMethod(_ sender: Any) {
         if (paymentProviderRow.value == nil) {
             return
-        } else if (publicKeyRow.value == nil) {
+        } else if (privateKeyRow.value == nil) {
             return
         } else {
             //send paymentMethod data to server
             
             var paymentData = [
                 "id": paymentProviderRow.value?.uppercased(),
-                "publicKey": publicKeyRow.value
+                "privateKey": privateKeyRow.value
             ]
             //add if Simplify
             if paymentProviderRow.value == "Simplify" {
-                paymentData.updateValue(privateKeyRow.value, forKey: "privateKey")
+                paymentData.updateValue(publicKeyRow.value, forKey: "publicKey")
             }
             
             let params = [
