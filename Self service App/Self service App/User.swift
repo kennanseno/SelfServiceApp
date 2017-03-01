@@ -29,6 +29,13 @@ class User {
         self.address = address
     }
     
+    init() {
+        self.username = ""
+        self.name = ""
+        self.email = ""
+        self.address = ""
+    }
+    
     public func setUsername(username: String) {
         self.username = username
     }
