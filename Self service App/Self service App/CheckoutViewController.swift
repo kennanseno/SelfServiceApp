@@ -45,6 +45,7 @@ class CheckoutViewController: FormViewController {
                     //TODO: send customer data
                     let params = [
                             "store_id": self.cart.getStoreID(),
+                            "username": self.cart.getCustomer().getUsername(),
                             "amount": self.cart.getTotalPrice(),
                             "currency": "EUR", // single currency support for now
                             "card": [
@@ -61,6 +62,7 @@ class CheckoutViewController: FormViewController {
                             let result = JSON(value)
                             print(result)
                             
+                            self.navigationController?.popToRootViewController(animated: true)
                         case .failure(let error):
                             print(error)
                         }
