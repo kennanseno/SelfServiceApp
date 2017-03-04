@@ -94,6 +94,21 @@ class CartViewController: FormViewController {
                             }
                             let okAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                                 print("Remove")
+                                let params = [
+                                    "username": self.cart.getCustomer().getUsername(),
+                                    "product_id": stepperRow.tag!
+                                ] as [String : Any]
+                                
+                                
+                                Alamofire.request("http://kennanseno.com:3000/fyp/removeFromCart", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                                    switch response.result {
+                                    case .success(let value):
+                                        let result = JSON(value)
+                                        print("result:\(result)")
+                                    case .failure(let error):
+                                        print(error)
+                                    }
+                                }
                             }
                             alertController.addAction(cancelAction)
                             alertController.addAction(okAction)
