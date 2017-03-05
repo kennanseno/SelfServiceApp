@@ -19,5 +19,5 @@ target 'Self service App' do
     pod 'Dollar'
     pod 'Whisper'
     pod 'TokenRow'
-    pod "MIBadgeButton-Swift", :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'master'
+    pod 'KCFloatingActionButton', '~> 2.2.0'
 end

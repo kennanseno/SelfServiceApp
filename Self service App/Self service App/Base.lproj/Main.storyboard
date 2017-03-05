@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -169,6 +170,25 @@
             </objects>
             <point key="canvasLocation" x="-330.39999999999998" y="849.62518740629696"/>
         </scene>
+        <!--Suggestion-->
+        <scene sceneID="wvi-aB-UQn">
+            <objects>
+                <viewController storyboardIdentifier="productSuggestionVC" id="Tbt-aR-MpM" customClass="ProductSuggestionViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zrA-kF-9qr"/>
+                        <viewControllerLayoutGuide type="bottom" id="f4b-6f-nlf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="STz-EP-wfB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Suggestion" id="ZcZ-y7-5nh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKh-MN-RQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1119" y="1609"/>
+        </scene>
         <!--Store Name-->
         <scene sceneID="5Sa-PM-HON">
             <objects>
@@ -188,25 +208,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Liy-wE-r0p" customClass="MIBadgeButton">
-                                <rect key="frame" x="326" y="625" width="33" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="profile"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Store Name" id="VAK-A8-Aoh">
-                        <barButtonItem key="rightBarButtonItem" image="cart" id="58t-7U-DT6">
-                            <connections>
-                                <action selector="toCart:" destination="coH-s4-vux" id="xZO-3Y-Fx0"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="cart" id="58t-7U-DT6">
+                                <connections>
+                                    <action selector="toCart:" destination="coH-s4-vux" id="xZO-3Y-Fx0"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="advertising" id="azn-IS-VTL">
+                                <connections>
+                                    <action selector="toProductSuggestion:" destination="coH-s4-vux" id="fIA-sg-toa"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="scanInstruction" destination="qpA-Bf-lh4" id="dMz-XN-T5m"/>
-                        <outlet property="suggestionButton" destination="Liy-wE-r0p" id="MWp-7a-s9h"/>
                         <segue destination="goY-Vg-LGu" kind="show" id="MMr-x9-n4c"/>
+                        <segue destination="Tbt-aR-MpM" kind="show" id="xbZ-qE-5Sw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd7-q3-Ypk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -631,6 +653,7 @@
     </scenes>
     <resources>
         <image name="add" width="29" height="29"/>
+        <image name="advertising" width="29" height="29"/>
         <image name="cart" width="29" height="29"/>
         <image name="profile" width="29" height="29"/>
         <image name="search" width="29" height="29"/>
