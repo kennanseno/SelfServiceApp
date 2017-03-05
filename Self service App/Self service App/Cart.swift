@@ -43,5 +43,13 @@ class Cart {
     public func getStoreID() -> String {
         return self.storeID
     }
+    
+    public func removeProduct(id: String) {
+        for(index, product) in self.products.enumerated() {
+            if product.getProductCode() == id {
+                self.products.remove(at: index)
+            }
+        }
+    }
 
 }

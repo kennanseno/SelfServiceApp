@@ -103,8 +103,7 @@ class CartViewController: FormViewController {
                                 Alamofire.request("http://kennanseno.com:3000/fyp/removeFromCart", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                                     switch response.result {
                                     case .success(let value):
-                                        let result = JSON(value)
-                                        print("result:\(result)")
+                                        self.cart.removeProduct(id: stepperRow.tag!)
                                     case .failure(let error):
                                         print(error)
                                     }

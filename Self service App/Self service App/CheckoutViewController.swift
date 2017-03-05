@@ -41,6 +41,9 @@ class CheckoutViewController: FormViewController {
                     }
                     
                     let card = CreditCard(number: creditCardRow.cell.numberField.text!, expiration: (creditCardRow.cell.expirationField?.text)!, cvc: Int((creditCardRow.cell.cvvField?.text)!)!)
+                    var cartProductsId = self.cart.getProducts().map({
+                        $0.getProductCode()
+                    })
                     
                     //TODO: send customer data
                     let params = [
@@ -52,7 +55,8 @@ class CheckoutViewController: FormViewController {
                                 "number": card.getNumber(),
                                 "expiration": card.getExpiration(),
                                 "cvc": card.getCvc()
-                            ]
+                            ],
+                            "products": cartProductsId
 
                         ] as [String : Any]
                     

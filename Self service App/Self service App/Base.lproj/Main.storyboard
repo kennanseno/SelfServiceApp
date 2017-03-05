@@ -188,6 +188,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Liy-wE-r0p" customClass="MIBadgeButton">
+                                <rect key="frame" x="326" y="625" width="33" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="profile"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -200,12 +205,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="scanInstruction" destination="qpA-Bf-lh4" id="dMz-XN-T5m"/>
+                        <outlet property="suggestionButton" destination="Liy-wE-r0p" id="MWp-7a-s9h"/>
                         <segue destination="goY-Vg-LGu" kind="show" id="MMr-x9-n4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd7-q3-Ypk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-330" y="1609"/>
+            <point key="canvasLocation" x="-330.39999999999998" y="1608.8455772113944"/>
         </scene>
         <!--Cart-->
         <scene sceneID="1Xd-H7-vnw">

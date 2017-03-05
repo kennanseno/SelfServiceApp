@@ -36,7 +36,6 @@ class ProductScannerViewController: RSCodeReaderViewController {
             if !self.dispatched { // triggers for only once
                 self.dispatched = true
                 for barcode in barcodes {
-                    print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
                     
                     let alertController = UIAlertController(title: "Add Product?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
                     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.destructive) { (result : UIAlertAction) -> Void in
@@ -54,7 +53,7 @@ class ProductScannerViewController: RSCodeReaderViewController {
                             switch response.result {
                             case .success(let value):
                                 if value as! Bool {
-                                    let errorMessage = Message(title: "Product already in product list!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                    let errorMessage = Message(title: "Product already in list!", textColor: .red, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
                                     Whisper.show(whisper: errorMessage, to: self.navigationController!, action: .show)
                                 } else {
                                     let productCreateVC = self.storyboard?.instantiateViewController(withIdentifier: "productCreateVC") as! ProductCreateViewController

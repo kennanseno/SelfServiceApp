@@ -13,6 +13,7 @@ import Alamofire
 import SwiftyJSON
 import CoreData
 import Whisper
+import MIBadgeButton_Swift
 
 
 class StoreProductScannerViewController: RSCodeReaderViewController {
@@ -21,6 +22,7 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
     var dispatched: Bool = false
     var store = Store()
     var userName = ""
+    @IBOutlet weak var suggestionButton: MIBadgeButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
