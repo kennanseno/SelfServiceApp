@@ -9,6 +9,9 @@
 import UIKit
 import Cartography
 import RSBarcodes_Swift
+import Alamofire
+import SwiftyJSON
+import Whisper
 
 class ProductScannerViewController: RSCodeReaderViewController {
 
@@ -41,10 +44,31 @@ class ProductScannerViewController: RSCodeReaderViewController {
                         self.dispatched = false
                     }
                     let okAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                        let productCreateVC = self.storyboard?.instantiateViewController(withIdentifier: "productCreateVC") as! ProductCreateViewController
-                        productCreateVC.store = self.store
-                        productCreateVC.productCode = barcode.stringValue
-                        self.navigationController?.pushViewController(productCreateVC, animated: true)
+                        
+                        let params = [
+                                "store_id" : self.store.getId(),
+                                "product_id": barcode.stringValue
+                            ] as [String : Any]
+                        
+                        Alamofire.request("http://kennanseno.com:3000/fyp/productExists", parameters: params).responseJSON { response in
+                            switch response.result {
+                            case .success(let value):
+                                if value as! Bool {
+                                    let errorMessage = Message(title: "Product already in product list!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                    Whisper.show(whisper: errorMessage, to: self.navigationController!, action: .show)
+                                } else {
+                                    let productCreateVC = self.storyboard?.instantiateViewController(withIdentifier: "productCreateVC") as! ProductCreateViewController
+                                    productCreateVC.store = self.store
+                                    productCreateVC.productCode = barcode.stringValue
+                                    self.navigationController?.pushViewController(productCreateVC, animated: true)
+                                }
+
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
+                        
+
                         self.dispatched = false
                     }
                     alertController.addAction(cancelAction)

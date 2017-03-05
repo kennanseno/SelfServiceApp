@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.4.0)
   - BubbleTransition (2.0.1)
   - Cartography (1.0.1)
+  - CLTokenInputView (2.3.0)
   - CreditCardRow (2.0.0):
     - Eureka (~> 2.0.0-beta.1)
   - Dollar (6.1.0)
@@ -12,6 +13,9 @@ PODS:
   - RSBarcodes_Swift (3.0.3)
   - SkyFloatingLabelTextField (2.0.1)
   - SwiftyJSON (3.1.4)
+  - TokenRow (1.1.0):
+    - CLTokenInputView (~> 2.0)
+    - Eureka (~> 2.0.0-beta.1)
   - Whisper (4.0.0)
 
 DEPENDENCIES:
@@ -26,12 +30,14 @@ DEPENDENCIES:
   - RSBarcodes_Swift (~> 3.0.1)
   - SkyFloatingLabelTextField (~> 2.0.0)
   - SwiftyJSON
+  - TokenRow
   - Whisper
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   BubbleTransition: bb24ed389ab672eecf3c87170d0a73f959a8e696
   Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
+  CLTokenInputView: 9dc1ffb7c9d2d81787e69a63c75bd97b0b2d1e76
   CreditCardRow: e06348c88d1050ab2b1d03ceb3a37b8ab3b4041d
   Dollar: 0a9883680f2c1104adf0d19b827c3be71d3e3121
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
@@ -40,8 +46,9 @@ SPEC CHECKSUMS:
   RSBarcodes_Swift: 3b4a9c2e81fe9f435a26f18a1b8b826665e7cf89
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TokenRow: c7efbeebdc5c99645dc640666aba2a103ef63530
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 7184d62657e83d5ba63e04e61605d2d83de12db1
+PODFILE CHECKSUM: ef9c7f3d3b65b77a40efba9368fc48edbc990232
 
 COCOAPODS: 1.1.1

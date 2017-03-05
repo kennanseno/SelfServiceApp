@@ -18,4 +18,5 @@ target 'Self service App' do
     pod 'PostalAddressRow', '~> 1.0'
     pod 'Dollar'
     pod 'Whisper'
+    pod 'TokenRow'
 end
