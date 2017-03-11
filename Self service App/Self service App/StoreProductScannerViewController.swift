@@ -78,7 +78,7 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
                                             "store_id": self.store.getId(),
                                             "quantity": 1 //starting quantity always 1
                                         ]
-                                        ] as [String : Any]
+                                    ] as [String : Any]
                                     
                                     Alamofire.request("http://kennanseno.com:3000/fyp/addToCart", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                                         switch response.result {
@@ -126,6 +126,7 @@ class StoreProductScannerViewController: RSCodeReaderViewController {
     @IBAction func toProductSuggestion(_ sender: Any) {
         let productSuggestionVC = storyboard?.instantiateViewController(withIdentifier: "productSuggestionVC") as! ProductSuggestionViewController
         productSuggestionVC.store = self.store
+        productSuggestionVC.username = self.userName
         self.navigationController?.pushViewController(productSuggestionVC, animated: true)
     }
     

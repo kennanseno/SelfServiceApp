@@ -183,7 +183,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Suggestion" id="ZcZ-y7-5nh"/>
+                    <navigationItem key="navigationItem" title="Suggestion" id="ZcZ-y7-5nh">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="n2b-K1-3r5">
+                            <connections>
+                                <action selector="addSuggestProducts:" destination="Tbt-aR-MpM" id="cF8-99-G4T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKh-MN-RQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
