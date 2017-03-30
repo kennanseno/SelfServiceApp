@@ -20,4 +20,5 @@ target 'Self service App' do
     pod 'Whisper'
     pod 'TokenRow'
     pod 'KCFloatingActionButton', '~> 2.2.0'
+    pod 'PMAlertController'
 end

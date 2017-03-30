@@ -12,9 +12,8 @@ import SkyFloatingLabelTextField
 
 class LandingPageViewController: UIViewController {
     
+    @IBOutlet weak var checkMap: UIButton!
     @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var searchField: SkyFloatingLabelTextField!
-    @IBOutlet weak var searchButton: UIButton!
     let backgroundColour = UIColor(red: 180/255, green: 235/255, blue: 202/255, alpha: 1.0)
     
     override func viewDidLoad() {
@@ -28,27 +27,17 @@ class LandingPageViewController: UIViewController {
     
     private func setViews() {
         self.view.addSubview(profileButton)
-        self.view.addSubview(searchField)
-        self.view.addSubview(searchButton)
+        self.view.addSubview(checkMap)
     }
     
     
     private func addConstraints() {
-        constrain(self.view, searchField, searchButton, profileButton) { superView, searchField, searchButton, profileButton  in
+        constrain(self.view, profileButton, checkMap) { superView, profileButton, checkMap  in
             
             profileButton.left == superView.left + 30
             profileButton.top == superView.top + 30
-            
-            searchField.width == 200
-            searchField.height == 45
-            searchField.centerX == superView.centerX - 30
-            searchField.centerY == superView.centerY
-            
-            searchButton.width == 70
-            searchButton.height == 50
-            searchButton.leading == searchField.trailing + 20
-            searchButton.centerY == superView.centerY + 10
-            
+            checkMap.centerX == superView.centerX
+            checkMap.centerY == superView.centerY
         }
     }
     

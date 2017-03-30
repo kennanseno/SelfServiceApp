@@ -11,8 +11,9 @@ import Cartography
 import CoreData
 import Alamofire
 import SwiftyJSON
+import PMAlertController
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var profileTable: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -23,6 +24,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
    // var storeName = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
     var stores = [Store]()
     var userName = "" // initialise here to it will be used to query store names
+    
+    var fieldName = [String]()
+    var fieldValue = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -56,6 +60,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("Error")
         }
         
+        fieldName = [String](user.keys)
+        fieldValue = [String](user.values)
+        
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0 // 1 second press
+        longPressGesture.delegate = self
+        self.profileTable.addGestureRecognizer(longPressGesture)
+        
         self.stores.removeAll()
         // get store objects
         let params = [
@@ -85,6 +97,35 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            
+            let touchPoint = longPressGestureRecognizer.location(in: self.profileTable)
+            if let indexPath = profileTable.indexPathForRow(at: touchPoint)  {
+                guard indexPath.section == 0 else {
+                    return
+                }
+                
+                let editUserProfile = PMAlertController(title: "Edit \(fieldName[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
+                
+                editUserProfile.addTextField { (textField) in
+                    textField?.placeholder = "New \(fieldName[indexPath.row].lowercased())..."
+                    textField?.text = fieldValue[indexPath.row]
+                }
+                editUserProfile.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                    print("Capture action OK")
+                }))
+                editUserProfile.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                    print("Capture action Cancel")
+                }))
+                
+                self.present(editUserProfile, animated: true, completion: nil)
+            }
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViews()
@@ -94,6 +135,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profileTable.delegate = self
         profileTable.dataSource = self
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         self.stores.append(Store(name: "Create new store..."))
@@ -113,12 +155,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.textAlignment = .center
 
         if indexPath.section == 0 {
-            let fieldName = [String](user.keys)
-            let fieldValue = [String](user.values)
             
             let simpleCell = Bundle.main.loadNibNamed("simpleCellTableViewCell", owner: self, options: nil)?.first as! simpleCellTableViewCell
-            simpleCell.fieldName.text = fieldName[indexPath.row]
-            simpleCell.fieldValue.text = fieldValue[indexPath.row]
+            simpleCell.fieldName.text = self.fieldName[indexPath.row]
+            simpleCell.fieldValue.text = self.fieldValue[indexPath.row]
             
             cell = simpleCell
         }else if indexPath.section == 1 {

@@ -10,8 +10,9 @@ import UIKit
 import Cartography
 import Alamofire
 import SwiftyJSON
+import PMAlertController
 
-class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var manageStoreTable: UITableView!
     
@@ -51,11 +52,57 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
         
         manageStoreTable.delegate = self
         manageStoreTable.dataSource = self
+        
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0 // 1 second press
+        longPressGesture.delegate = self
+        self.manageStoreTable.addGestureRecognizer(longPressGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.manageStoreTable.reloadData()
     }
+    
+    func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            
+            let touchPoint = longPressGestureRecognizer.location(in: self.manageStoreTable)
+            if let indexPath = manageStoreTable.indexPathForRow(at: touchPoint)  {
+                guard indexPath.section == 0 else {
+                    return
+                }
+                
+                var fieldValue = ""
+                switch indexPath.row {
+                case 0:
+                    fieldValue = store.getName()
+                case 1:
+                    fieldValue = store.getDescription()
+                case 2:
+                    fieldValue = store.getAddress()
+                default:
+                    break;
+                }
+                
+                let manageStore = PMAlertController(title: "Edit \(storeFieldLabel[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
+                
+                manageStore.addTextField { (textField) in
+                    textField?.placeholder = "New \(storeFieldLabel[indexPath.row].lowercased())..."
+                    textField?.text = fieldValue
+                }
+                manageStore.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                    print("Capture action OK")
+                }))
+                manageStore.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                    print("Capture action Cancel")
+                }))
+                
+                self.present(manageStore, animated: true, completion: nil)
+            }
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
