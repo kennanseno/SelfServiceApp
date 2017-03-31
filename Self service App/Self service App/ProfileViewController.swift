@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                         "username": self.user.getUsername(),
                         "fieldName": self.fieldName[indexPath.row].lowercased(),
                         "fieldValue": editUserProfile.textFields.first?.text ?? ""
-                        ] as [String : Any]
+                    ] as [String : Any]
                     
                     Alamofire.request("http://kennanseno.com:3000/fyp/updateUserInfo", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                         switch response.result {
@@ -159,7 +159,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch response.result {
             case .success(let value):
                 let result = JSON(value)
-                print("result: \(result)")
+                
                 self.user = User(username: result[0]["username"].stringValue,
                                  name: result[0]["name"].stringValue,
                                  email: result[0]["email"].stringValue,

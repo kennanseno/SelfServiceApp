@@ -11,8 +11,9 @@ import Cartography
 import Alamofire
 import SwiftyJSON
 import PMAlertController
+import Whisper
 
-class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, UIActionSheetDelegate {
     
     @IBOutlet weak var manageStoreTable: UITableView!
     
@@ -69,54 +70,109 @@ class ManageStoreViewController: UIViewController, UITableViewDelegate, UITableV
             
             let touchPoint = longPressGestureRecognizer.location(in: self.manageStoreTable)
             if let indexPath = manageStoreTable.indexPathForRow(at: touchPoint)  {
-                guard indexPath.section == 0 else {
+                guard indexPath.section == 0 || indexPath.section == 2 else {
                     return
                 }
                 
-                var fieldValue = ""
-                switch indexPath.row {
-                case 0:
-                    fieldValue = store.getName()
-                case 1:
-                    fieldValue = store.getDescription()
-                case 2:
-                    fieldValue = store.getAddress()
-                default:
-                    break;
+                if indexPath.section == 0 {
+                    var fieldValue = ""
+                    switch indexPath.row {
+                    case 0:
+                        fieldValue = store.getName()
+                    case 1:
+                        fieldValue = store.getDescription()
+                    case 2:
+                        fieldValue = store.getAddress()
+                    default:
+                        break;
+                    }
+                    
+                    let editStoreDetails = PMAlertController(title: "Edit \(storeFieldLabel[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
+                    
+                    editStoreDetails.addTextField { (textField) in
+                        textField?.placeholder = "New \(storeFieldLabel[indexPath.row].lowercased())..."
+                        textField?.text = fieldValue
+                    }
+                    editStoreDetails.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                        
+                        let params = [
+                            "store_id": self.store.getId(),
+                            "field_name": self.storeFieldLabel[indexPath.row].lowercased(),
+                            "field_value": editStoreDetails.textFields.first?.text ?? ""
+                            ] as [String : Any]
+                        
+                        
+                        Alamofire.request("http://kennanseno.com:3000/fyp/updateStoreDetails", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                            switch response.result {
+                            case .success(_):
+                                
+                                if let cell = self.manageStoreTable.cellForRow(at: indexPath) {
+                                    cell.textLabel?.text = editStoreDetails.textFields.first?.text
+                                    self.manageStoreTable.reloadData()
+                                }
+                                
+                                let successMessage = Message(title: "\(self.storeFieldLabel[indexPath.row]) successfully updated!", textColor: .green, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                                
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
+                    }))
+                    editStoreDetails.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                        print("Capture action Cancel")
+                    }))
+                    
+                    self.present(editStoreDetails, animated: true, completion: nil)
+                } else if indexPath.section == 2 {
+                    let actionSheet = UIAlertController(title: "Choose Option", message: "", preferredStyle: .actionSheet)
+                    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { Void in
+                        print("Cancel button tapped")
+                    }))
+                    
+                    actionSheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { Void in
+                        
+                        let confirmProductDelete = PMAlertController(title: "Delete this product?", description: "", image: nil, style: .alert)
+                        confirmProductDelete.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                            //Delete product
+                            print("confirm product delete")
+                            let params = [
+                                "store_id": self.store.getId(),
+                                "product_id": self.products[indexPath.row].getProductCode()
+                            ] as [String : Any]
+                            
+                            Alamofire.request("http://kennanseno.com:3000/fyp/removeProduct", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                                switch response.result {
+                                case .success(_):
+                                    self.manageStoreTable.reloadData()
+                                    let successMessage = Message(title: "Product successfully deleted!", textColor: .green, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                    Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                                    
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            }
+                        }))
+                        confirmProductDelete.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                            print("Capture action Cancel")
+                        }))
+                         self.present(confirmProductDelete, animated: true, completion: nil)
+                    }))
+                     self.present(actionSheet, animated: true, completion: nil)
                 }
-                
-                let manageStore = PMAlertController(title: "Edit \(storeFieldLabel[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
-                
-                manageStore.addTextField { (textField) in
-                    textField?.placeholder = "New \(storeFieldLabel[indexPath.row].lowercased())..."
-                    textField?.text = fieldValue
-                }
-                manageStore.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
-                    print("Capture action OK")
-                }))
-                manageStore.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
-                    print("Capture action Cancel")
-                }))
-                
-                self.present(manageStore, animated: true, completion: nil)
             }
         }
     }
+    
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            //TODO: edit store details
-        } else if indexPath.section == 1 {
+       if indexPath.section == 1 {
             if store.getPaymentMethod() == "" {
                 let paymentMethodCreateVC = storyboard?.instantiateViewController(withIdentifier: "paymentMethodCreateVC") as! PaymentMethodCreateViewController
                 paymentMethodCreateVC.store = self.store
                 self.navigationController?.pushViewController(paymentMethodCreateVC, animated: true)
-            } else{
-                //TODO: Edit payment method
             }
-        } else {
-            //TODO: Edit product details
         }
     }
     
