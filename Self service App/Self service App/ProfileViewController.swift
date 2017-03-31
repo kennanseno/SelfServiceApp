@@ -35,75 +35,114 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let touchPoint = longPressGestureRecognizer.location(in: self.profileTable)
             if let indexPath = profileTable.indexPathForRow(at: touchPoint)  {
-                guard indexPath.section == 0 else {
+                guard indexPath.section == 0 || indexPath.section == 1 else {
                     return
                 }
                 
-                switch indexPath.row {
-                case 0:
-                    fieldValue = self.user.getUsername()
-                case 1:
-                     fieldValue = self.user.getName()
-                case 2:
-                    fieldValue = self.user.getEmail()
-                case 3:
-                    fieldValue = self.user.getAddress()
-                default:
-                    ""
-                }
-                
-                let editUserProfile = PMAlertController(title: "Edit \(fieldName[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
-                
-                editUserProfile.addTextField { (textField) in
-                    textField?.placeholder = "New \(fieldName[indexPath.row].lowercased())..."
-                    textField?.text = fieldValue
-                }
-                editUserProfile.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
-                    let params = [
-                        "username": self.user.getUsername(),
-                        "fieldName": self.fieldName[indexPath.row].lowercased(),
-                        "fieldValue": editUserProfile.textFields.first?.text ?? ""
-                    ] as [String : Any]
-                    
-                    Alamofire.request("http://kennanseno.com:3000/fyp/updateUserInfo", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
-                        switch response.result {
-                        case .success( _):
-     
-                            
-                            if let cell = self.profileTable.cellForRow(at: indexPath) {
-                                cell.textLabel?.text = editUserProfile.textFields.first?.text
-                                self.profileTable.reloadData()
-                            }
-                            
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            let managedContext = appDelegate.persistentContainer.viewContext
-                            
-                            let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: managedContext)
-                            let item = NSManagedObject(entity: entity!, insertInto: managedContext)
-                            item.setValue(editUserProfile.textFields.first?.text, forKey: self.fieldName[indexPath.row].lowercased())
-                            
-                            do {
-                                try managedContext.save()
-                            }
-                            catch {
-                                print("Error saving user details into core data!")
-                            }
-                            
-                            let successMessage = Message(title: "\(self.fieldName[indexPath.row]) successfully updated!", textColor: .green, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
-                            Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
-                            
-                        case .failure(let error):
-                            let successMessage = Message(title: "Error updating \(self.fieldName[indexPath.row]). Try again!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
-                            Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
-                            print(error)
-                        }
+                if indexPath.section == 0 {
+                    switch indexPath.row {
+                    case 0:
+                        fieldValue = self.user.getUsername()
+                    case 1:
+                        fieldValue = self.user.getName()
+                    case 2:
+                        fieldValue = self.user.getEmail()
+                    case 3:
+                        fieldValue = self.user.getAddress()
+                    default:
+                        ""
                     }
-                }))
-                editUserProfile.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
-                    print("Capture action Cancel")
-                }))
-                
-                self.present(editUserProfile, animated: true, completion: nil)
+                    
+                    let editUserProfile = PMAlertController(title: "Edit \(fieldName[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
+                    
+                    editUserProfile.addTextField { (textField) in
+                        textField?.placeholder = "New \(fieldName[indexPath.row].lowercased())..."
+                        textField?.text = fieldValue
+                    }
+                    editUserProfile.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                        let params = [
+                            "username": self.user.getUsername(),
+                            "fieldName": self.fieldName[indexPath.row].lowercased(),
+                            "fieldValue": editUserProfile.textFields.first?.text ?? ""
+                            ] as [String : Any]
+                        
+                        Alamofire.request("http://kennanseno.com:3000/fyp/updateUserInfo", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                            switch response.result {
+                            case .success( _):
+                                
+                                
+                                if let cell = self.profileTable.cellForRow(at: indexPath) {
+                                    cell.textLabel?.text = editUserProfile.textFields.first?.text
+                                    self.profileTable.reloadData()
+                                }
+                                
+                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                let managedContext = appDelegate.persistentContainer.viewContext
+                                
+                                let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: managedContext)
+                                let item = NSManagedObject(entity: entity!, insertInto: managedContext)
+                                item.setValue(editUserProfile.textFields.first?.text, forKey: self.fieldName[indexPath.row].lowercased())
+                                
+                                do {
+                                    try managedContext.save()
+                                }
+                                catch {
+                                    print("Error saving user details into core data!")
+                                }
+                                
+                                let successMessage = Message(title: "\(self.fieldName[indexPath.row]) successfully updated!", textColor: .green, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                                
+                            case .failure(let error):
+                                let successMessage = Message(title: "Error updating \(self.fieldName[indexPath.row]). Try again!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                                print(error)
+                            }
+                        }
+                    }))
+                    editUserProfile.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                        print("Capture action Cancel")
+                    }))
+                    
+                    self.present(editUserProfile, animated: true, completion: nil)
+                } else if indexPath.section == 1 { //TODO: fix so actionsheet not shown on create store
+                    print("row: \(indexPath.row) count:\(indexPath.count)")
+                    let actionSheet = UIAlertController(title: "Choose Option", message: "", preferredStyle: .actionSheet)
+                    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { Void in
+                        print("Cancel button tapped")
+                    }))
+                    
+                    actionSheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { Void in
+                        
+                        let confirmStoreDelete = PMAlertController(title: "Delete store?", description: "", image: nil, style: .alert)
+                        confirmStoreDelete.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                            //Delete store
+                            print("confirm store delete")
+                            let params = [
+                                "store_id": self.stores[indexPath.row].getId(),
+                                "username": self.user.getUsername()
+                            ] as [String : Any]
+                            
+                            Alamofire.request("http://kennanseno.com:3000/fyp/deleteStore", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                                switch response.result {
+                                case .success(_):
+                                    self.profileTable.reloadData()
+                                    let successMessage = Message(title: "Store successfully deleted!", textColor: .green, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                                    Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                                    
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            }
+                        }))
+                        confirmStoreDelete.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                            print("Capture action Cancel")
+                        }))
+                        self.present(confirmStoreDelete, animated: true, completion: nil)
+                    }))
+                    self.present(actionSheet, animated: true, completion: nil)
+
+                }
             }
         }
     }
