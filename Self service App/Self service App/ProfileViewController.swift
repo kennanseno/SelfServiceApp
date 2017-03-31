@@ -21,82 +21,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Hardcode data for now
     var sectionNames = ["Basic Information", "Store", " "]
-    var user = [String: String]() //TODO: Not use dict as it needs to be ordered
+    var user = User()
    // var storeName = [String]() // add store names here NOTE: change so that create new store is always at the end to create new stores
     var stores = [Store]()
     var userName = "" // initialise here to it will be used to query store names
     
-    var fieldName = [String]()
-    var fieldValue = [String]()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let results = try managedContext.fetch(request)
-            
-            if results.count > 0 {
-                for result in results as! [NSManagedObject]{
-                    if let username = result.value(forKey: "username") as? String {
-                        user["Username"] = username
-                        userName = username
-                    }
-                    if let name = result.value(forKey: "name") as? String {
-                        user["Name"] = name
-                    }
-                    if let address = result.value(forKey: "address") as? String {
-                        user["Address"] = address
-                    }
-                    if let email = result.value(forKey: "email") as? String {
-                        user["Email"] = email
-                    }
-                }
-            }
-        }
-        catch {
-            print("Error")
-        }
-        
-        fieldName = [String](user.keys)
-        fieldValue = [String](user.values)
-        
-        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
-        longPressGesture.minimumPressDuration = 1.0 // 1 second press
-        longPressGesture.delegate = self
-        self.profileTable.addGestureRecognizer(longPressGesture)
-        
-        self.stores.removeAll()
-        // get store objects
-        let params = [
-            "username" : userName
-            ] as [String : Any]
-        
-        Alamofire.request("http://kennanseno.com:3000/fyp/getStore", parameters: params).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let result = JSON(value)
-                self.stores = result[0]["stores"]
-                    .arrayValue
-                    .map({
-                        Store(
-                            id: $0["id"].stringValue,
-                            name: $0["name"].stringValue,
-                            description: $0["description"].stringValue,
-                            address: $0["address"].stringValue,
-                            owner: self.userName,
-                            paymentMethod: $0["paymentMethod"]["_id"].stringValue.capitalized
-                        )
-                    })
-            case .failure(let error):
-                print(error)
-            }
-        }
-
-    }
+    var fieldName = ["Username", "Name", "Email", "Address"]
+    var fieldValue = ""
     
     func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
         
@@ -108,15 +39,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     return
                 }
                 
+                switch indexPath.row {
+                case 0:
+                    fieldValue = self.user.getUsername()
+                case 1:
+                     fieldValue = self.user.getName()
+                case 2:
+                    fieldValue = self.user.getEmail()
+                case 3:
+                    fieldValue = self.user.getAddress()
+                default:
+                    ""
+                }
+                
                 let editUserProfile = PMAlertController(title: "Edit \(fieldName[indexPath.row].lowercased())", description: "", image: nil, style: .alert)
                 
                 editUserProfile.addTextField { (textField) in
                     textField?.placeholder = "New \(fieldName[indexPath.row].lowercased())..."
-                    textField?.text = fieldValue[indexPath.row]
+                    textField?.text = fieldValue
                 }
                 editUserProfile.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
                     let params = [
-                        "username": self.user["Username"] ?? "",
+                        "username": self.user.getUsername(),
                         "fieldName": self.fieldName[indexPath.row].lowercased(),
                         "fieldValue": editUserProfile.textFields.first?.text ?? ""
                         ] as [String : Any]
@@ -128,7 +72,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                             
                             if let cell = self.profileTable.cellForRow(at: indexPath) {
                                 cell.textLabel?.text = editUserProfile.textFields.first?.text
-                                self.profileTable.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+                                self.profileTable.reloadData()
                             }
                             
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -173,13 +117,72 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         profileTable.delegate = self
         profileTable.dataSource = self
-    
+        
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0 // 1 second press
+        longPressGesture.delegate = self
+        self.profileTable.addGestureRecognizer(longPressGesture)
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
-        self.stores.append(Store(name: "Create new store..."))
         self.profileTable.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject]{
+                    if let username = result.value(forKey: "username") as? String {
+                        userName = username
+                    }
+                }
+            }
+        }
+        catch {
+            print("Error")
+        }
+        
+        self.stores.removeAll()
+        // get store objects
+        let params = [
+            "username" : userName
+            ] as [String : Any]
+        
+        Alamofire.request("http://kennanseno.com:3000/fyp/getUser", parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let result = JSON(value)
+                print("result: \(result)")
+                self.user = User(username: result[0]["username"].stringValue,
+                                 name: result[0]["name"].stringValue,
+                                 email: result[0]["email"].stringValue,
+                                 address: result[0]["address"].stringValue
+                )
+                self.stores = result[0]["stores"]
+                    .arrayValue
+                    .map({
+                        Store(
+                            id: $0["id"].stringValue,
+                            name: $0["name"].stringValue,
+                            description: $0["description"].stringValue,
+                            address: $0["address"].stringValue,
+                            owner: self.userName,
+                            paymentMethod: $0["paymentMethod"]["_id"].stringValue.capitalized
+                        )
+                    })
+                self.stores.append(Store(name: "Create new store...")) // append for creating new store
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -198,7 +201,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let simpleCell = Bundle.main.loadNibNamed("simpleCellTableViewCell", owner: self, options: nil)?.first as! simpleCellTableViewCell
             simpleCell.fieldName.text = self.fieldName[indexPath.row]
-            simpleCell.fieldValue.text = self.fieldValue[indexPath.row]
+            
+            switch indexPath.row {
+            case 0:
+                simpleCell.fieldValue.text = self.user.getUsername()
+            case 1:
+                simpleCell.fieldValue.text = self.user.getName()
+            case 2:
+                simpleCell.fieldValue.text = self.user.getEmail()
+            case 3:
+                simpleCell.fieldValue.text = self.user.getAddress()
+            default:
+                ""
+            }
             
             cell = simpleCell
         }else if indexPath.section == 1 {
@@ -229,7 +244,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return user.count
+            return 4
         } else if section == 1 {
             return self.stores.count
         } else {
