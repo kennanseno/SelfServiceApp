@@ -12,6 +12,7 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 import PMAlertController
+import Whisper
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
@@ -114,7 +115,45 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     textField?.text = fieldValue[indexPath.row]
                 }
                 editUserProfile.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
-                    print("Capture action OK")
+                    let params = [
+                        "username": self.user["Username"] ?? "",
+                        "fieldName": self.fieldName[indexPath.row].lowercased(),
+                        "fieldValue": editUserProfile.textFields.first?.text ?? ""
+                        ] as [String : Any]
+                    
+                    Alamofire.request("http://kennanseno.com:3000/fyp/updateUserInfo", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                        switch response.result {
+                        case .success( _):
+     
+                            
+                            if let cell = self.profileTable.cellForRow(at: indexPath) {
+                                cell.textLabel?.text = editUserProfile.textFields.first?.text
+                                self.profileTable.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+                            }
+                            
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            let managedContext = appDelegate.persistentContainer.viewContext
+                            
+                            let entity = NSEntityDescription.entity(forEntityName: "UserEntity", in: managedContext)
+                            let item = NSManagedObject(entity: entity!, insertInto: managedContext)
+                            item.setValue(editUserProfile.textFields.first?.text, forKey: self.fieldName[indexPath.row].lowercased())
+                            
+                            do {
+                                try managedContext.save()
+                            }
+                            catch {
+                                print("Error saving user details into core data!")
+                            }
+                            
+                            let successMessage = Message(title: "\(self.fieldName[indexPath.row]) successfully updated!", textColor: .green, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                            Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                            
+                        case .failure(let error):
+                            let successMessage = Message(title: "Error updating \(self.fieldName[indexPath.row]). Try again!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 0), images: nil)
+                            Whisper.show(whisper: successMessage, to: self.navigationController!, action: .show)
+                            print(error)
+                        }
+                    }
                 }))
                 editUserProfile.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
                     print("Capture action Cancel")
@@ -134,6 +173,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         profileTable.delegate = self
         profileTable.dataSource = self
+    
     }
     
     
@@ -225,7 +265,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func dismissKeyboard() {
-        let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
     }
