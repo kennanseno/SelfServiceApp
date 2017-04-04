@@ -13,6 +13,7 @@ PODS:
     - Eureka (~> 2.0.0-beta.1)
   - RSBarcodes_Swift (3.0.3)
   - SkyFloatingLabelTextField (2.0.1)
+  - SwiftMoment (0.7)
   - SwiftyJSON (3.1.4)
   - TokenRow (1.1.0):
     - CLTokenInputView (~> 2.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - PostalAddressRow (~> 1.0)
   - RSBarcodes_Swift (~> 3.0.1)
   - SkyFloatingLabelTextField (~> 2.0.0)
+  - SwiftMoment
   - SwiftyJSON
   - TokenRow
   - Whisper
@@ -48,10 +50,11 @@ SPEC CHECKSUMS:
   PostalAddressRow: e5e6bc34c233d549ba7dd920f136b956c96b7a64
   RSBarcodes_Swift: 3b4a9c2e81fe9f435a26f18a1b8b826665e7cf89
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+  SwiftMoment: dc6dd27012e267819104cbb03f74ff9192dd0b42
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TokenRow: c7efbeebdc5c99645dc640666aba2a103ef63530
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: 2c1d189b33e8ac2105d3abac3abe478c78e9a37a
+PODFILE CHECKSUM: 61a0f9a4d74ed7a69d597744be026731f5c3aa10
 
 COCOAPODS: 1.1.1

@@ -278,6 +278,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 createStoreVC.username = self.userName
                 self.navigationController?.pushViewController(createStoreVC, animated: true)
             }
+        } else {
+            let transactionHistoryVC = storyboard?.instantiateViewController(withIdentifier: "transactionHistoryVC") as! TransactionHistoryViewController
+            transactionHistoryVC.username = self.userName
+            self.navigationController?.pushViewController(transactionHistoryVC, animated: true)
         }
     }
     
@@ -295,6 +299,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "manageStoreVC" {
             if let destination = segue.destination as? ManageStoreViewController {
                 destination.store = sender as! Store
+            }
+        } else if segue.identifier == "transactionHistoryVC" {
+            if let destination = segue.destination as? TransactionHistoryViewController {
+               
             }
         }
     }

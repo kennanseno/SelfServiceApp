@@ -21,4 +21,5 @@ target 'Self service App' do
     pod 'TokenRow'
     pod 'KCFloatingActionButton', '~> 2.2.0'
     pod 'PMAlertController'
+    pod 'SwiftMoment'
 end

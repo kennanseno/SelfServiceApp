@@ -34,6 +34,7 @@ class CheckoutViewController: FormViewController {
             <<< ButtonRow() {
                 $0.title = "Pay Now"
                 }.onCellSelection({ cell, row in
+                    row.disabled = true
                     if(creditCardRow.cell.numberField.text == "" || creditCardRow.cell.expirationField?.text == "" || creditCardRow.cell.cvvField?.text == "") {
                         let errorMessage = Message(title: "All fields must be filled!", textColor: .orange, backgroundColor: UIColor(white: 1, alpha: 1), images: nil)
                         Whisper.show(whisper: errorMessage, to: self.navigationController!, action: .show)
@@ -65,7 +66,7 @@ class CheckoutViewController: FormViewController {
                         case .success(let value):
                             let result = JSON(value)
                             print(result)
-                            
+                            row.disabled = false
                             self.navigationController?.popToRootViewController(animated: true)
                         case .failure(let error):
                             print(error)

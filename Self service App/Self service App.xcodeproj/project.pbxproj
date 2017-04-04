@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A17BB5D1E92E92D0005A0C4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A17BB5C1E92E92D0005A0C4 /* Transaction.swift */; };
 		4A1B81751E377FA5006537C7 /* simpleCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B81731E377FA5006537C7 /* simpleCellTableViewCell.swift */; };
 		4A1B81761E377FA5006537C7 /* simpleCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1B81741E377FA5006537C7 /* simpleCellTableViewCell.xib */; };
 		4A1CC9B91E52388700713F1F /* StoreProductScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1CC9B81E52388700713F1F /* StoreProductScannerViewController.swift */; };
+		4A250B9D1E92BAE50045AA5F /* TransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A250B9C1E92BAE50045AA5F /* TransactionHistoryViewController.swift */; };
 		4A467CE61E0EC5E5000B3524 /* ProductScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE51E0EC5E5000B3524 /* ProductScannerViewController.swift */; };
 		4A467CE81E0EE048000B3524 /* ProductCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */; };
 		4A6ACAC61E73063F00EAAE13 /* ProductSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6ACAC51E73063F00EAAE13 /* ProductSuggestionViewController.swift */; };
@@ -35,15 +37,19 @@
 		4AE61C9B1E3CD42B0074C96B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61C9A1E3CD42B0074C96B /* Store.swift */; };
 		4AE61CA11E3E5AFA0074C96B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE61CA01E3E5AFA0074C96B /* Product.swift */; };
 		4AECC14E1DCAA8A700F6EED1 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */; };
+		4AF6081F1E93161700735A1F /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF6081D1E93161700735A1F /* TransactionTableViewCell.swift */; };
+		4AF608201E93161700735A1F /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AF6081E1E93161700735A1F /* TransactionTableViewCell.xib */; };
 		B418AAABFAD26289C7FD1F09 /* Pods_Self_service_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14C18C318D0563100B4C6EE2 /* Pods_Self_service_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Self_service_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0E608867CEAFA2F96EF1F /* Pods-Self service App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.debug.xcconfig"; sourceTree = "<group>"; };
+		4A17BB5C1E92E92D0005A0C4 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4A1B81731E377FA5006537C7 /* simpleCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = simpleCellTableViewCell.swift; sourceTree = "<group>"; };
 		4A1B81741E377FA5006537C7 /* simpleCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = simpleCellTableViewCell.xib; sourceTree = "<group>"; };
 		4A1CC9B81E52388700713F1F /* StoreProductScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreProductScannerViewController.swift; sourceTree = "<group>"; };
+		4A250B9C1E92BAE50045AA5F /* TransactionHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistoryViewController.swift; sourceTree = "<group>"; };
 		4A467CE51E0EC5E5000B3524 /* ProductScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductScannerViewController.swift; sourceTree = "<group>"; };
 		4A467CE71E0EE048000B3524 /* ProductCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCreateViewController.swift; sourceTree = "<group>"; };
 		4A6ACAC51E73063F00EAAE13 /* ProductSuggestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSuggestionViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 		4AE61C9A1E3CD42B0074C96B /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		4AE61CA01E3E5AFA0074C96B /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4AECC14D1DCAA8A700F6EED1 /* LandingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		4AF6081D1E93161700735A1F /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		4AF6081E1E93161700735A1F /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		D0CC97E3F5D657F1ABC8943F /* Pods-Self service App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Self service App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Self service App/Pods-Self service App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +138,7 @@
 				4A86BEB11E54A8180035CA22 /* CartViewController.swift */,
 				4ADCD1351E5B35ED0041CE76 /* CheckoutViewController.swift */,
 				4A6ACAC51E73063F00EAAE13 /* ProductSuggestionViewController.swift */,
+				4A250B9C1E92BAE50045AA5F /* TransactionHistoryViewController.swift */,
 			);
 			path = "Self service App";
 			sourceTree = "<group>";
@@ -143,6 +152,7 @@
 				4AE61CA01E3E5AFA0074C96B /* Product.swift */,
 				4ADCD1371E5F181B0041CE76 /* Cart.swift */,
 				4ADCD1391E5F2A420041CE76 /* CreditCard.swift */,
+				4A17BB5C1E92E92D0005A0C4 /* Transaction.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -152,6 +162,8 @@
 			children = (
 				4A1B81731E377FA5006537C7 /* simpleCellTableViewCell.swift */,
 				4A1B81741E377FA5006537C7 /* simpleCellTableViewCell.xib */,
+				4AF6081D1E93161700735A1F /* TransactionTableViewCell.swift */,
+				4AF6081E1E93161700735A1F /* TransactionTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -236,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF608201E93161700735A1F /* TransactionTableViewCell.xib in Resources */,
 				4A9301641DCA3F2600BD1C5B /* LaunchScreen.storyboard in Resources */,
 				4A1B81761E377FA5006537C7 /* simpleCellTableViewCell.xib in Resources */,
 				4ADCD1341E57A8730041CE76 /* Assets.xcassets in Resources */,
@@ -309,12 +322,15 @@
 				4A87852F1E38F01A00EC3696 /* data.xcdatamodeld in Sources */,
 				4AE61C9B1E3CD42B0074C96B /* Store.swift in Sources */,
 				4A93015C1DCA3F2600BD1C5B /* LoginViewController.swift in Sources */,
+				4A250B9D1E92BAE50045AA5F /* TransactionHistoryViewController.swift in Sources */,
 				4A9FCDEE1E0D761700B67E10 /* ProfileViewController.swift in Sources */,
 				4AE61CA11E3E5AFA0074C96B /* Product.swift in Sources */,
 				4A86BEB21E54A8180035CA22 /* CartViewController.swift in Sources */,
 				4ADCD1361E5B35ED0041CE76 /* CheckoutViewController.swift in Sources */,
+				4AF6081F1E93161700735A1F /* TransactionTableViewCell.swift in Sources */,
 				4AE61C971E3903550074C96B /* User.swift in Sources */,
 				4A6ACAC61E73063F00EAAE13 /* ProductSuggestionViewController.swift in Sources */,
+				4A17BB5D1E92E92D0005A0C4 /* Transaction.swift in Sources */,
 				4ADCD1381E5F181B0041CE76 /* Cart.swift in Sources */,
 				4A1B81751E377FA5006537C7 /* simpleCellTableViewCell.swift in Sources */,
 				4A1CC9B91E52388700713F1F /* StoreProductScannerViewController.swift in Sources */,
