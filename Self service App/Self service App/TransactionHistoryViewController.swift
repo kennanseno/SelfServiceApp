@@ -41,7 +41,7 @@ class TransactionHistoryViewController: UIViewController, UITableViewDelegate, U
                         transactionID: $0["_id"].stringValue,
                         storeID: $0["store_id"].stringValue,
                         transactionDate: $0["transaction_date"].stringValue,
-                        amount: $0["amount"].intValue,
+                        amount: $0["amount"].intValue / 100,
                         currency: $0["currency"].stringValue)
                     
                 })
