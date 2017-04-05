@@ -459,7 +459,7 @@
         <!--Transaction History-->
         <scene sceneID="Zea-93-RBG">
             <objects>
-                <viewController storyboardIdentifier="transactionHistoryVC" id="lag-lH-9V6" customClass="TransactionHistoryViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transactionHistoryVC" automaticallyAdjustsScrollViewInsets="NO" id="lag-lH-9V6" customClass="TransactionHistoryViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="izY-v2-a7h"/>
                         <viewControllerLayoutGuide type="bottom" id="vgc-uA-P2q"/>
@@ -468,7 +468,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZP4-Bv-HfT">
+                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZP4-Bv-HfT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -637,7 +637,7 @@
             </objects>
             <point key="canvasLocation" x="2112.8000000000002" y="849.62518740629696"/>
         </scene>
-        <!--Checkout View Controller-->
+        <!--Checkout-->
         <scene sceneID="BUZ-LP-mTu">
             <objects>
                 <viewController storyboardIdentifier="checkoutVC" id="lGl-id-hKT" customClass="CheckoutViewController" customModule="Self_service_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -650,6 +650,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Checkout" id="Isp-IU-xTM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vx5-PU-rUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
